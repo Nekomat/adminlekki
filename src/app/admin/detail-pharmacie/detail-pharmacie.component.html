@@ -1,0 +1,148 @@
+<app-head></app-head>
+<div style="margin: 8px;" *ngIf="onePharmacie">
+    <mat-tab-group >
+        <mat-tab label="Detail">
+           <form [formGroup]="Section">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="mb-3">
+                    <label for="">Nom de la pharmacie</label> 
+                    <input type="text" formControlName="name"  name="nom" class="form-control" placeholder="le nom de la pharmacie">
+                 </div> 
+              </div>
+              
+      
+              <div class="col-md-4">
+                <div class="mb-3">
+                    <label for="">Contact</label>
+                    <input type="number" formControlName="contact"  name="nom" class="form-control" placeholder="contact">
+                 </div>
+              </div>
+
+              <div class="col-md-4">
+                 <div class="mb-3">
+                  <label for="">Heure d'ouverture</label>
+                    <input type="time" formControlName="openHour"  name="nom" class="form-control" placeholder="heure d'ouverture">
+                 </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                    <label for="">Heure de fermeture</label>
+                    <input type="time" formControlName="closeHour"  name="nom" class="form-control" placeholder="heure de fermeture">
+                 </div>
+             </div>
+            
+
+             <div class="col-md-4">
+               <div class="mb-3">
+             <label for=""> longitude </label>
+            <input type="number" formControlName="longitude" name="nom" class="form-control" placeholder="longitude">
+           </div>
+             </div>
+
+             <div class="col-md-4">
+
+                <div class="mb-3">
+                <label for=""> latitude </label>
+                <input type="number" formControlName="latitude"  name="nom" class="form-control" placeholder="latitude">
+                 </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                    <label for=""> Description </label>
+                    <textarea formControlName="description" name="" id="" cols="2" rows="2" class="form-control" placeholder="description"></textarea>
+                 </div>
+             </div>
+
+             <div class="col-md-4">
+                <div class="mb-3">
+                    <img [src]="onePharmacie.img" width="100" height="100" alt="">
+                 </div>
+             </div>
+
+             <div class="col-md-4"> 
+                <label for=""> changer de logo </label> 
+                <input type="file"  name="nom" class="form-control" placeholder="latitude">
+             </div>
+
+             <div class="col-md-4"> 
+              <label for=""> user name </label> 
+              <input type="text"  formControlName="userName"  name="nom" class="form-control" placeholder="latitude">
+           </div>
+          
+           <div class="col-md-4"> 
+            <label for=""> password </label> 
+            <input type="text"  formControlName="password" name="nom" class="form-control" placeholder="latitude">
+         </div>
+
+            </div>
+          </form>
+                <div class="button">
+                    <button (click)="Update()" mat-raised-button color="primary" [disabled]="loader"> Mettre à jour </button>
+                </div>
+                
+                <div class="button">
+                    <button mat-raised-button color="warn"> Supprimer </button>
+                </div>
+        </mat-tab>
+        <mat-tab label="Commandes">
+            <table class="table table-hover text-center">
+                <thead class="head align-middle">
+                  <tr>
+                    <th scope="col">N°</th>
+                    <th scope="col">Client(e)</th>
+                    <th scope="col">Date de commande</th>
+                    <th scope="col">Date de livraison</th>
+                    <th scope="col">Plage horaire</th>
+                    <th scope="col">Lieu de livraison</th>
+                    <th scope="col">Numéro de livraison</th>
+                    <th scope="col">Méthode de paiement</th>
+                    <th scope="col">Statut</th>
+                  </tr>
+                </thead>
+                <tbody class="align-middle">
+                  <tr *ngFor="let data of [1,2,3,4,5,6,7,8]" >
+                    <th scope="row"> 12345 </th>
+                    <td> Gaston loua </td>
+                    <td> 20/09/2023 </td>
+                    <td>  22/09/2023 </td>
+                    <td> 12H-14H </td>
+                    <td class="adresse"> yattaya </td>
+                    <td> 629821308 </td>
+                     <td> payer à la livraison </td>
+                    <td class="status"> livrée <i  class="bi bi-arrow-right-circle icon-arrow"  ></i> </td>
+                  </tr>
+                </tbody>
+              </table>
+        </mat-tab>
+        <mat-tab label="Produits">
+             <div class="row" style="margin: 4px;">
+               <div class="col-md-6">
+                <input type="search" placeholder="rechercher un produit" name="" id="" class="form-control">
+               </div>
+               <div class="col-md-6">
+                <button class="butto" >  <i class="bi bi-plus"></i> <span>Ajouter produit</span>  </button>
+               </div>
+             </div>
+            <table class="table table-hover">
+                <thead class="head text-center" >
+                  <tr>
+                    <th scope="col">Nom du produit</th>
+                    <th scope="col">Categorie</th>
+                    <th scope="col">poids</th>
+                    <th scope="col">Prix</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="content"  *ngFor="let data of [1,2,4,6,8,9]" >
+                    <th class="ps-2"> paracetamol </th>
+                    <td class="text-center"> inconnu </td>
+                      <td class="text-center"> 12G </td>
+                    <td class="text-center"> 120.000 </td>
+                  </tr>
+                </tbody>
+              </table>
+        </mat-tab>
+      </mat-tab-group>
+</div>

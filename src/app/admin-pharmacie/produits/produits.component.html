@@ -1,0 +1,46 @@
+ <app-phead></app-phead>
+<div>
+    <div class="first-content" >
+        <div class="row sticky-top py-3">
+            <div class="col-md-6 text-center">
+                <button (click)="OpenAddProduct()" mat-raised-button color="primary" style="font-size: 18px;" class="px-5"  >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-plus-lg me-1" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                  </svg>
+                  Ajouter un produit
+                </button>
+            </div>
+            <div class="col-md-5 text-start">
+                <div class="input-group">
+                  <span class="input-group-text recherche" id="recherche">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-search colorBlue" viewBox="0 0 16 16">
+                      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                  </span>
+                  <input type="search"   class="form-control recherche" placeholder="Taper pour filtrer les produits ou rechercher un produit">
+                </div>
+             </div>
+        </div>
+        <table class="table table-hover">
+            <thead class="head text-center" >
+              <tr>
+                <th scope="col">Nom du produit</th>
+                <th scope="col">Pharmacie</th>
+                <th scope="col">poids</th>
+                <th scope="col">Categorie</th>
+                <th scope="col">Prix</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="content" (click)="OpenEditProduct()"  *ngFor="let data of [1,2,4,5,6,7,8,9]" >
+                <th class="ps-2"> Paracetamol </th>
+                <td class="text-center"> Pharmacie Gaston </td>
+                  <td class="text-center"> 12g </td>
+                <td class="text-center"> inconnu </td>
+                <td class="text-center"> 120.000 GNF</td>
+              </tr>
+            </tbody>
+          </table>
+    
+    </div>
+    </div>

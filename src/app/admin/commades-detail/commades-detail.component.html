@@ -1,0 +1,246 @@
+
+
+<div [align]="'center'" class="position-absolute top-50 start-50 translate-middle" *ngIf="false">
+    <div class="spinner-grow" style="width: 6rem; height: 6rem; color: #0590e6;" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+  
+  <div class="container-fluidA px-3" *ngIf="true" >
+  <div class="row my-3 text-center" >
+      <a class="icon-link icon-link-hover" style="--bs-link-hover-color-rgb: 25, 135, 84; text-decoration: none;" >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-left mb-1" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+        </svg>
+        Retourner à la liste
+      </a>
+  
+    <div class="col-md-4 py-2 mb-2 codeID mx-auto " >
+      <h2 class="my-0 text-center">
+        Commande N°<span class="code"> 12345 </span>
+      </h2>
+    </div>
+    <h5 class="my-2">Reçue le <span class="colorBlue"> 12/23/2023 </span> à <span class="colorBlue"> 12H </span></h5>
+  
+    <div>
+      <button (click)="OpenStatus()" mat-raised-button color="primary"  class="ajouter px-3"  >
+        livree
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  
+  <div class="container-fluid px-0 mx-0">
+    <div class="row mb-5">
+      <div class="col-md-5" >
+  
+        <div class="row">
+          <h3 class="colorYellow">Facturation</h3>
+          <ul class=" ms-3 list-group list-group-flush commandes">
+  
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div class="size">
+                Sous-total :
+              </div>
+              <span class="badge  rounded-pill" style="color: black; font-weight: 400;"> 100000 GNF</span>
+            </li>
+  
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div class="size">
+                Frais de services :
+              </div>
+              <span class="badge  rounded-pill" style="color: black; font-weight: 400;">100000  GNF</span>
+            </li>
+  
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div class="size">
+                Coût de livraison :
+              </div>
+              <span class="badge  rounded-pill" style="color: black; font-weight: 400;">600000 GNF</span>
+            </li>
+  
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div class="size">
+                Code promo :
+              </div>
+              <span class="badge  rounded-pill" style="color: black; font-weight: 400;"> non </span>
+            </li>
+  
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div class="size colorBlue">
+                Total :
+              </div>
+              <span class="badge  rounded-pill" style="color: #38A934; font-weight: 400;"> 1000000  GNF</span>
+            </li>
+          </ul>
+        </div>
+  
+      <div class="row mt-3">
+        <h3 class="colorYellow">Livraison</h3>
+          <div class="card col-md-12 ms-3">
+            <ul class="list-group list-group-flush align-middle" >
+              <li class="list-group-item align-middle">
+                <div class="row">
+                  <div class="size col-md-6 my-auto">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-geo-alt me-1 colorYellow mb-1" viewBox="0 0 16 16">
+                      <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+                      <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                    </svg>
+                    Adresse :
+                  </div>
+                  <div class="col-md-6 text-start size colorBlue"> YATTAYA </div>
+                </div>
+              </li>
+  
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="size col-md-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-house-door me-1 colorYellow mb-1" viewBox="0 0 16 16">
+                      <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z"/>
+                    </svg>
+                    Type :
+                  </div>
+                  <div class="col-md-6 text-start size colorBlue"> Maison </div>
+                </div>
+              </li>
+  
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="size col-md-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-geo me-1 colorYellow mb-1" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z"/>
+                    </svg>
+                    Quartier :
+                  </div>
+                  <div class="col-md-6 text-start size colorBlue"> YATATA </div>
+                </div>
+              </li>
+  
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="size col-md-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-telephone-outbound me-2 colorYellow mb-1" viewBox="0 0 16 16">
+                      <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zM11 .5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-4.146 4.147a.5.5 0 0 1-.708-.708L14.293 1H11.5a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                    Numéro de livraison :
+                  </div>
+                  <div class="col-md-6 text-start size colorBlue"> 629821308 </div>
+                </div>
+              </li>
+            </ul>
+  
+          <small>Date et plage horaire</small>
+          <div class="card mb-3">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="size col-md-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-geo me-1 colorYellow mb-1" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z"/>
+                    </svg>
+                    Date
+                  </div>
+                  <div class="col-md-6 text-start size colorBlue">12/02/2023 </div>
+                </div>
+              </li>
+  
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="size col-md-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-alarm colorYellow me-2 mb-1" viewBox="0 0 16 16">
+                      <path d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5z"/>
+                      <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07a7.001 7.001 0 0 0-3.273 12.474l-.602.602a.5.5 0 0 0 .707.708l.746-.746A6.97 6.97 0 0 0 8 16a6.97 6.97 0 0 0 3.422-.892l.746.746a.5.5 0 0 0 .707-.708l-.601-.602A7.001 7.001 0 0 0 9 2.07V1h.5a.5.5 0 0 0 0-1h-3zm1.038 3.018a6.093 6.093 0 0 1 .924 0 6 6 0 1 1-.924 0zM0 3.5c0 .753.333 1.429.86 1.887A8.035 8.035 0 0 1 4.387 1.86 2.5 2.5 0 0 0 0 3.5zM13.5 1c-.753 0-1.429.333-1.887.86a8.035 8.035 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1z"/>
+                    </svg>
+                    Plage horaire :
+                  </div>
+                  <div class="col-md-6 text-start size colorBlue"> 12H-13H </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          </div>
+      </div>
+  
+  
+        <div class="row mt-3">
+          <h3 class="colorYellow">Identité du client</h3>
+          <div class="card col-md-12 ms-3">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="size col-md-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person me-1 colorYellow mb-1" viewBox="0 0 16 16">
+                      <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                    </svg>
+                    Code ID :
+                  </div>
+                  <div class="col-md-6 text-start size colorBlue"> 136789 </div>
+                </div>
+              </li>
+  
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="size col-md-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person me-1 colorYellow mb-1" viewBox="0 0 16 16">
+                      <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                    </svg>
+                    Prénom(s) :
+                  </div>
+                  <div class="col-md-6 text-start size colorBlue"> Gaston Loua </div>
+                </div>
+              </li>
+  
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="size col-md-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-telephone-outbound me-2 colorYellow mb-1" viewBox="0 0 16 16">
+                      <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zM11 .5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-4.146 4.147a.5.5 0 0 1-.708-.708L14.293 1H11.5a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                    Numéro de téléphone :
+                  </div>
+                  <div class="col-md-6 text-start size colorBlue"> 629821308 </div>
+                </div>
+              </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-md-6 mx-auto">
+  
+        <div class="container-fluid">
+          <h3 class="colorYellow"> Total de <span class="colorBlue"> 6 quantite</span> produit(s) commandé(s)</h3>
+          <div class="card cardProduct overflow-y-auto ms-3" style="max-height:70vh;">
+            <ul class="list-group list-group-flush "  *ngFor="let data of  [1,3,4,6]">
+              <li class="d-flex list-group-item align-middle">
+                  <div class="col-md-5 mx-auto text-center d-flex align-middle"  >
+                    <h3 class="my-auto colorBlue d-flex rounded-pill py-2 px-2 align-middle" style="background-color: #eee;">4<span style="color: black;" class="d-inline-block mt-1 me-1">x</span></h3>
+                    <img width="150" class="mx-auto" height="150" src="../../../assets/logo2.png" alt="">
+                  </div>
+                  <div class="col-md-7 my-auto" >
+                     <h5> Paracetamol </h5>
+                     <h5 class="colorBlue prix"> 10000 GNF</h5>
+                     <div class="row">
+                      <h5 class="d-inline-block colorBlue">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-shop colorYellow mb-1 me-1" viewBox="0 0 16 16">
+                          <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z"/>
+                        </svg>
+                        Pharmacie Gaston
+                      </h5>
+                     </div>
+                  </div>
+              </li>
+            </ul>
+  
+            <div class="row"  >
+  
+            </div>
+           </div>
+        </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  

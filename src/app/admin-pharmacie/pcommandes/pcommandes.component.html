@@ -1,0 +1,50 @@
+ <app-phead></app-phead>
+<div class="container-fluid px-0 mx-0 sticky-top">
+    <div class="row py-3">
+        <div class="col-md-5 mx-auto">
+          <div class="input-group">
+            <span class="input-group-text recherche" id="recherche">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-search colorBlue" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+              </svg>
+            </span>
+            <input class="form-control recherche"   placeholder="Rechercher une commande à travers son Numero"  type="search">
+          </div>
+          </div>
+     </div>
+</div>
+
+<div class="second">
+    <table class="table table-hover text-center">
+        <thead class="head align-middle">
+          <tr>
+            <th scope="col">N°</th>
+            <th scope="col">Pharmacie</th>
+            <th scope="col">Client(e)</th>
+            <th scope="col">Date de commande</th>
+            <th scope="col">Date de livraison</th>
+            <th scope="col">Plage horaire</th>
+            <th scope="col">Lieu de livraison</th>
+            <th scope="col">Numéro de livraison</th>
+            <th scope="col">Méthode de paiement</th>
+
+            <th scope="col">Statut</th>
+          </tr>
+        </thead>
+        <tbody class="align-middle">
+          <tr (click)=" GoToCommandeDetail()"  *ngFor="let data of [1,2,3,4,5,6]">
+            <th scope="row"> 12344 </th>
+            <td> Pharmacie Gaston </td>
+            <td> Gaston loua </td>
+            <td> 09/09/2023 </td>
+            <td> 09/09/2023   </td>
+            <td> 12h-13H </td>
+            <td class="adresse"> yattaya </td>
+            <td> 629821398 </td>
+            <td> payer à la livraison</td>
+
+            <td class="status"> Livrée <i  class="bi bi-arrow-right-circle icon-arrow"  ></i> </td>
+          </tr>
+        </tbody>
+      </table>
+</div>

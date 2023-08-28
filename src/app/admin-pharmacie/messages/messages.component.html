@@ -1,0 +1,99 @@
+<app-phead>
+</app-phead>
+<div class="container-fluid">
+    <!-- Content wrapper start -->
+    <div class="content-wrapper">
+
+        <!-- Row start -->
+        <div class="row gutters">
+
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+                <div class="card m-0">
+
+                    <!-- Row start -->
+                    <div class="row no-gutters">
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-3 col-3">
+                            <div class="users-container">
+                                <!--<div class="chat-search-box">
+                                    <div class="input-group">
+                                        <input class="form-control" placeholder="Search">
+                                        <div class="input-group-btn">
+                                            <button type="button" class="btn btn-info">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>-->
+                                <ul class="users overflow-y-scroll" style="max-height: 95vh;" >
+                                    <div class="cover" >
+                                    <li class="person" [ngClass]="{'active-user' : false}"  *ngFor="let data of [1,2,3,4,6,9,0] let i = index" >
+                                        <div class="user">
+                                            <img src="../../assets/user1.jpeg" alt="Retail Admin">
+                                        </div>
+                                        <p class="name-time" >
+                                            <span  class="name"> Gaston  </span>
+                                            <span  [matBadge]="3" ></span>
+                                        </p>
+                                    </li>
+
+                                </div>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-9 col-9">
+                            <div class="selected-user">
+                                <span>À : <span class="name"> Gaston </span></span>
+                            </div>
+                            <div class="chat-container" id="s" >
+                                <ul class="chat-box chatContainerScroll" >
+                                    <div *ngFor="let Data of [1,3,4,3,3] " >
+                                    <li class="chat-left client"  >
+                                        <div class="chat-avatar">
+                                            <img src="../../assets/user1.jpeg" alt="Retail Admin">
+                                            <div class="chat-name"> {{'Gaston'}} </div>
+                                        </div>
+                                        <div class="chat-text">
+                                            bonjour
+                                           </div>
+                                        <div class="chat-hour"> {{"12/23/2023"}} </div>
+                                    </li>
+                                    <li class="chat-right four" >
+                                        <div class="chat-hour"> {{"12/23/2023"}} <span class="fa fa-check-circle"></span></div>
+                                        <div class="chat-text">
+                                            {{"oui bonjour"}}
+                                        </div>
+                                        <div class="chat-avatar">
+                                            <img src="../../assets/logo2.png" alt="Retail Admin">
+                                            <div class="chat-name">Pharmacie Gaston</div>
+                                        </div>
+                                    </li>
+                                </div>
+                                </ul>
+
+                            </div>
+                            <div class="form-group mt-3 mb-0">
+                                <div class="row" >
+                                   <div class="col-md-11">
+                                    <textarea class="form-control" name="message"  rows="3" placeholder="Écrire un message au client"></textarea>
+                                   </div>
+                                   <div class="col-md-1 my-auto mx-auto">
+                                    <i class="bi bi-send-fill senderBtn" ></i>
+                                   </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Row end -->
+                </div>
+
+            </div>
+
+        </div>
+        <!-- Row end -->
+
+    </div>
+    <!-- Content wrapper end -->
+
+</div>

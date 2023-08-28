@@ -1,0 +1,76 @@
+.codeID{
+    background-color: #38A934;
+    color: white;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+  }
+  
+  .code{
+    color: #ffb800;
+    letter-spacing: 4px;
+    display: inline-block;
+    margin-left: 7px;
+  }
+  
+  .colorBlue{
+    color: #38A934;
+  }
+  
+  .colorYellow{
+    color: #ffb800;
+  }
+  
+  .size{
+    font-size: 20px;
+  }
+  
+  li span{
+    font-size: 18px;
+    display: inline-block;
+  }
+  
+  a{
+    color: #38A934!important;
+  }
+  
+  h3{
+    padding: 0;
+  }
+  
+  .card, .commandes{
+    margin-left: 5px;
+  }
+  
+  .commandes{
+      span{
+          margin-left: 10px;
+      }
+      .livre{
+          color: #38A934;
+      }
+  }
+  hr{
+      color: #38A934;
+      margin-top: 2px;
+      margin-bottom: 7px;
+  }
+  
+  .bg{
+    background-color: #ffb800;
+  }
+  
+  .bgB{
+    background-color: #38A934;
+  }
+  
+  .btn{
+    border-radius: 30px;
+  
+  }
+  
+  .btn:hover{
+    svg{
+      color: #ffb800;
+    }
+  }
+  

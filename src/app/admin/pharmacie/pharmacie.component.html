@@ -1,0 +1,24 @@
+<app-head></app-head>
+<div style="margin: 10px;">
+    <div class="row">
+      <div class="col-md-6">
+        <input type="search" [(ngModel)]="word" (input)="OnSearch()" name="" id="" class="form-control" placeholder="le nom d'une pharmacie">
+      </div>
+      <div class="col-md-6">
+       <button class="button" (click)=" OpenAddPharmacie()" >  <i class="bi bi-plus"></i> <span>Ajouter une pharmacie</span>  </button>
+      </div>
+    </div>
+  <!--la liste des pharmacie -->
+     <div class="pharmacie-card">
+    <mat-card (click)="GoToOnePharmacie(data.id)" class="Pcard" style="width: 300px;" *ngFor="let data of AllPharmacie">
+         <img class="img" width="300" height="300" mat-card-image [src]="data.img" alt="">
+         <mat-card-footer>
+            <div style="margin-left: 8px; ">
+                <span> {{data.name}} </span> <br>
+                <span> nombre de produit : <span>10</span> </span> <br>
+                <span> nombre de commande : <span> 20 </span> </span> 
+            </div>
+         </mat-card-footer>
+    </mat-card>
+     </div>
+</div>

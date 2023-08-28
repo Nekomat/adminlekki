@@ -1,0 +1,82 @@
+
+
+body{
+    background-image: url(../../assets/logo.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .card {
+    background: #0590e6!important;
+  border-radius: 20px;
+  border: none;
+  }
+  
+  
+  label{
+    color: black;
+    //font-size: 18px;
+  }
+  
+  
+  
+  #buttonConnexion{
+    background-color: #38A934;
+    border-radius: 45.5px;
+    margin-top: 20px;
+    font-size: 25px;
+  }
+  
+  
+  #body {
+      background-image: url("/src/assets/logo.png");
+      background-repeat: no-repeat;
+    }
+  
+  
+    img{
+      width: 250px;
+      height: auto;
+      margin-bottom: 20px;
+      margin-top: -60px;
+    }
+  
+  
+    input:focus{
+      border: 2px solid #ffb800;
+    }
+  
+  ::placeholder{
+    text-align: center;
+  }
+  
+  .form-floating>.form-control, .form-floating>.form-control-plaintext, .form-floating>.form-select {
+    height: calc(3rem + calc(var(--bs-border-width) * 2));
+    line-height: 1.25;
+  }
+  
+  #buttonConnexion{
+    height: 45px;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .card{
+      width: 40vh;
+    }
+  }
+  
+  @media screen and (min-width: 600px) and (max-width: 1400px) {
+    .card{
+      width: 55vh;
+    }
+  }
+  
+  @media screen and (max-width: 389px) {
+    .card{
+      width: 30vh;
+    }
+  
+    #buttonConnexion{
+      font-size: 16px;
+    }
+  }

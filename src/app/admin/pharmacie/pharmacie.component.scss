@@ -1,0 +1,21 @@
+.button{
+    padding: 6px;
+    color: white;
+    border-radius: 10px;
+    background-color: #38A934;
+    border-color: white;
+    i{
+        font-size: 20px;
+    }
+}
+.pharmacie-card{
+    display: flex;
+    flex-flow: wrap;
+    margin: auto;
+}
+.Pcard{
+    margin: 8px;
+}
+.Pcard:hover{
+    cursor: pointer;
+}

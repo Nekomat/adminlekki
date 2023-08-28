@@ -1,0 +1,85 @@
+//logo
+img{
+    width: 200px;
+    height: auto;
+    text-align: center;
+    background-color: white;
+    border-radius: 20px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  
+  }
+  
+  //page
+  .mdc-list-item--activated {
+    background-color: white;
+    border-left: 8px solid #ffb800;
+  }
+  span{
+    color: white;
+    display: block;
+  }
+  .mdc-list-item--activated h6{
+    color: black;
+  }
+  
+  .mdc-list-item--activated mat-icon{
+    color: #38A934
+  } 
+  
+  mat-list-item{ 
+    align-items: center;
+  
+  }
+  
+  mat-icon{
+    color: white;
+    margin-right: 7px;
+  }
+  
+  mat-mdc-list-base.mat-mdc-list-base .mdc-list-item--selected .mdc-list-item__primary-text, .mat-mdc-list-base.mat-mdc-list-base .mdc-list-item--activated .mdc-list-item__primary-text {
+    color: black;
+  }
+  h6{
+    color: white;
+    margin: 0;
+  }
+  
+  .mat-badge-medium.mat-badge-overlap.mat-badge-after .mat-badge-content {
+    right: -80px;
+    top: -2px;
+    background-color: #ffb800;
+  }
+  
+  .toolbar-item-spacer {
+      flex: 1 1 auto;
+  }
+  
+  .app-container {
+      height: 100%;
+      margin: 0;
+  }
+  
+  .app-sidenav {
+      width: 230px;
+      color: white;
+      background-color: #38A934;
+      border: none;
+  }
+  .app-sidenav-content {
+      display: flex;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      background-color: white;
+  }
+  .div{
+      display: inline;
+  }
+  .date{
+      margin-left: 200px;
+      margin-top: 20px;
+  }
+  

@@ -1,0 +1,45 @@
+
+.content{
+    :hover{
+        background-color: white;
+        cursor: pointer;
+    }
+}
+tbody{
+    max-height: 500px;
+    overflow: scroll;
+}
+
+.table          {
+  overflow: auto;
+  height: 100px;
+}
+.table thead th { position: sticky; top: 70px; z-index: 1; background-color: #38A934; color: white;}
+
+.sticky-top{
+  background-color: #fafafa;
+}
+
+button{
+  background-color: #38A934!important;
+  color: white;
+  border-radius: 30px;
+}
+
+button:hover{
+  svg{
+    color: #ffb800;
+  }
+}
+
+.recherche{
+  border-radius: 30px;
+  border-color: #38A934;
+}
+
+#recherche{
+  background-color: white;
+  svg{
+    fill: #38A934;
+  }
+}

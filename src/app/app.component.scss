@@ -1,21 +1,18 @@
 //logo
 img{
-    width: 200px;
-    height: auto;
-    text-align: center;
-    background-color: white;
-    border-radius: 20px;
-    padding-left: 8px;
-    padding-right: 8px;
-    padding-top: 4px;
-    padding-bottom: 4px;
-  
+    width: 130px;
   }
-  
+
+  .div-img{
+    //border-bottom: 1px solid #fff;
+  }
+
   //page
   .mdc-list-item--activated {
     background-color: white;
-    border-left: 8px solid #ffb800;
+    border-right: 8px solid #38A934;
+    border-top-right-radius: 5px ;
+    border-bottom-right-radius: 5px ;
   }
   span{
     color: white;
@@ -24,21 +21,20 @@ img{
   .mdc-list-item--activated h6{
     color: black;
   }
-  
+
   .mdc-list-item--activated mat-icon{
-    color: #38A934
-  } 
-  
-  mat-list-item{ 
-    align-items: center;
-  
+    color: #38A934;
   }
-  
+
+  mat-list-item{
+    align-items: center;
+  }
+
   mat-icon{
     color: white;
     margin-right: 7px;
   }
-  
+
   mat-mdc-list-base.mat-mdc-list-base .mdc-list-item--selected .mdc-list-item__primary-text, .mat-mdc-list-base.mat-mdc-list-base .mdc-list-item--activated .mdc-list-item__primary-text {
     color: black;
   }
@@ -46,28 +42,29 @@ img{
     color: white;
     margin: 0;
   }
-  
+
   .mat-badge-medium.mat-badge-overlap.mat-badge-after .mat-badge-content {
     right: -80px;
     top: -2px;
     background-color: #ffb800;
   }
-  
+
   .toolbar-item-spacer {
       flex: 1 1 auto;
   }
-  
+
   .app-container {
       height: 100%;
       margin: 0;
   }
-  
+
   .app-sidenav {
       width: 230px;
       color: white;
-      background-color: #38A934;
+      background-color: #373737;
       border: none;
   }
+
   .app-sidenav-content {
       display: flex;
       height: 100%;
@@ -75,11 +72,16 @@ img{
       justify-content: center;
       background-color: white;
   }
+
   .div{
       display: inline;
   }
+
   .date{
       margin-left: 200px;
       margin-top: 20px;
   }
-  
+
+  hr{
+    color: white;
+  }

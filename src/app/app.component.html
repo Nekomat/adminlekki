@@ -1,9 +1,10 @@
 
 <mat-sidenav-container class="app-container shadow" *ngIf="!service.MenuHide" >
   <mat-sidenav #sidenav mode="side"  class="app-sidenav" opened="true"  >
-    <div class="text-center py-3">
+    <div class="text-center py-3 div-img">
       <img src="../assets/logo2.png" class="mx-auto my-auto" alt="">
     </div>
+    <hr class="mb-4">
     <mat-nav-list>
     <div *ngIf="service.isAdmin" class="admin-general">
       <mat-list-item class="mb-2" routerLink="/" [activated]="service.activeMenuLink == 'home'" (click)="service.activeMenuLink = 'home'"  >
@@ -13,29 +14,29 @@
         </div>
       </mat-list-item>
 
-      <mat-list-item routerLink="/pharmacie" [activated]="service.activeMenuLink == 'pharmacie'" (click)="service.activeMenuLink = 'pharmacie'" >
+      <mat-list-item class="mb-2" routerLink="/pharmacie" [activated]="service.activeMenuLink == 'pharmacie'" (click)="service.activeMenuLink = 'pharmacie'" >
         <div class="d-flex" >
           <span class="my-auto"><mat-icon>business</mat-icon> </span>
           <h6 class="my-auto">Pharmacies</h6>
         </div>
       </mat-list-item>
 
-     
-      <mat-list-item routerLink="/admin_product" [activated]="service.activeMenuLink == 'admin_product'" (click)="service.activeMenuLink = 'admin_product'"  >
+
+      <mat-list-item class="mb-2" routerLink="/admin_product" [activated]="service.activeMenuLink == 'admin_product'" (click)="service.activeMenuLink = 'admin_product'"  >
         <div class="d-flex" >
           <span class="my-auto"><mat-icon>art_track</mat-icon></span>
           <h6 class="my-auto">Produits</h6>
         </div>
       </mat-list-item>
 
-      <mat-list-item routerLink="/admin_commandes" [activated]="service.activeMenuLink == 'admin_commandes'" (click)="service.activeMenuLink = 'admin_commandes'">
+      <mat-list-item class="mb-2" routerLink="/admin_commandes" [activated]="service.activeMenuLink == 'admin_commandes'" (click)="service.activeMenuLink = 'admin_commandes'">
         <div class="d-flex" >
           <span class="my-auto"><mat-icon>calendar_view_day</mat-icon></span>
           <h6 class="my-auto">Commandes</h6>
         </div>
       </mat-list-item>
 
-      <mat-list-item routerLink="/clients" [activated]="service.activeMenuLink == 'clients'" (click)="service.activeMenuLink = 'clients'">
+      <mat-list-item class="mb-2" routerLink="/clients" [activated]="service.activeMenuLink == 'clients'" (click)="service.activeMenuLink = 'clients'">
         <div class="d-flex" >
           <span class="my-auto text-center"><mat-icon>supervisor_account</mat-icon></span>
           <h6 class="my-auto">Clients</h6>
@@ -46,8 +47,8 @@
       <mat-list-item  [routerLink]="'/admin_pharmacie/'+service.pharmacieId"  [activated]="service.activeMenuLink == 'admin_pharmacie'" (click)="service.activeMenuLink = 'admin_pharmacie'" >
         <div class="d-flex" >
           <span class="my-auto"><mat-icon>home</mat-icon></span>
-          <h6 class="my-auto"> 
-            Acceuil 
+          <h6 class="my-auto">
+            Acceuil
           </h6>
         </div>
       </mat-list-item>
@@ -61,15 +62,15 @@
         </div>
       </mat-list-item>
 
-      <mat-list-item  routerLink="/admin_pharmacie_commandes" [activated]="service.activeMenuLink == 'admin_pharmacie_commandes'" (click)="service.activeMenuLink = 'admin_pharmacie_commandes'" >
+      <mat-list-item class="mb-2"  routerLink="/admin_pharmacie_commandes" [activated]="service.activeMenuLink == 'admin_pharmacie_commandes'" (click)="service.activeMenuLink = 'admin_pharmacie_commandes'" >
         <div class="d-flex" >
           <span class="my-auto"><mat-icon >calendar_view_day</mat-icon> </span>
           <h6 class="my-auto">
-            commandes 
+            commandes
           </h6>
         </div>
       </mat-list-item>
-      <mat-list-item  [routerLink]="'/admin_pharmacie_products/'+service.pharmacieId" [activated]="service.activeMenuLink == 'admin_pharmacie_products'" (click)="service.activeMenuLink = 'admin_pharmacie_products'" >
+      <mat-list-item class="mb-2"  [routerLink]="'/admin_pharmacie_products/'+service.pharmacieId" [activated]="service.activeMenuLink == 'admin_pharmacie_products'" (click)="service.activeMenuLink = 'admin_pharmacie_products'" >
         <div class="d-flex" >
           <span class="my-auto"><mat-icon >art_track</mat-icon> </span>
           <h6 class="my-auto">
@@ -78,7 +79,7 @@
         </div>
       </mat-list-item>
 
-      <mat-list-item  routerLink="/admin_pharmacie_messages" [activated]="service.activeMenuLink == 'admin_pharmacie_messages'" (click)="service.activeMenuLink = 'admin_pharmacie_messages'" >
+      <mat-list-item class="mb-2"  routerLink="/admin_pharmacie_messages" [activated]="service.activeMenuLink == 'admin_pharmacie_messages'" (click)="service.activeMenuLink = 'admin_pharmacie_messages'" >
         <div class="d-flex" >
           <span class="my-auto"><mat-icon >chat</mat-icon> </span>
           <h6 class="my-auto">
@@ -87,9 +88,9 @@
         </div>
       </mat-list-item>
     </div>
-   
-    
-    <hr>
+
+
+    <hr class="mt-4">
     <mat-list-item>
       <div class="d-flex" >
         <span class="my-auto"><mat-icon>meeting_room</mat-icon> </span>

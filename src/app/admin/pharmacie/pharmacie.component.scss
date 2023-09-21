@@ -1,21 +1,67 @@
+
+.container-fluid {
+  background: #3b3c3d;
+  height: 100vh;
+}
+
 .button{
+  width: 400px;
     padding: 6px;
     color: white;
-    border-radius: 10px;
+    border-radius: 100px;
+    border: 2px solid #38A934;
     background-color: #38A934;
-    border-color: white;
-    i{
-        font-size: 20px;
-    }
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transition: border 1s;
 }
+
+.button:hover{
+  border-color: #fff;
+}
+
+.button > span{
+  font-size: 18px;
+}
+
+
 .pharmacie-card{
     display: flex;
     flex-flow: wrap;
     margin: auto;
 }
+
 .Pcard{
     margin: 8px;
 }
+
 .Pcard:hover{
     cursor: pointer;
+}
+
+
+//entete
+
+.entete{
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.recherche{
+  border-radius: 30px;
+  border-color: #38A934;
+}
+
+#recherche{
+  background-color: white;
+  svg{
+    fill: #38A934;
+  }
+}
+
+.input-group{
+  width: 700px;
 }

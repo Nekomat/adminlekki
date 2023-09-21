@@ -1,34 +1,29 @@
 <body>
-    <div class="container" >
-      <div class=" col-md-6 col-lg-3 col-sm-8 position-absolute top-50 start-50 translate-middle ">
-              <div class="card col-md-12 px-4 pb-3 pt-4 mx-auto my-auto">
-                <form [formGroup]="Section" >
-                  <div class="form-floating mb-3">
-                    <input type="email" formControlName="name" class="form-control"  name="Username" id="email"  required="true" aria-valuenow="ShopmanaGer@guicart.com" placeholder="name@example.com">
-                    <label for="email">Nom d'utilisateur</label>
-                  </div>
-                   
-                <div class="form-floating mt-2">
-                  <input type="password" formControlName="password" class="form-control" name="Password" required="true" id="password" aria-valuenow="1234" placeholder="Mot de passe">
-                  <label for="password">Mot de passe</label>
-                </div>
-  
-                </form>
-               
-                <!--<div class="row">-->
-                  <!--<label for="email" class="form-label " >Nom utilisateur</label>-->
-                 <!-- <input type="text" class="form-control" name="Username" id="email" placeholder="Nom d'utilisateur"  >
-                </div>
-                <div class="row mt-4">-->
-                  <!--<label for="password" class="form-label  ">Mot de passe</label>-->
-                  <!--<input type="password" class="form-control " name="Password" id="password" placeholder="Mot de passe"  >
-                </div>-->
-                <div class="row mt-2">
-                  <button mat-raised-button (click)="ControLogin()" color="primary"  id = "buttonConnexion"> <i *ngIf="loader" class="fa fa-spinner fa-spi "></i> Se connecter </button>
-                </div>
-              </div>
-      </div>
-  </div>
+
+        <img class="mt-3" src="/../assets/logo2.png" width="300px" alt="">
+
+        <div class="card">
+          <form [formGroup]="Section" >
+            <div class="form-floating mb-3">
+              <input type="email" formControlName="name" class="form-control"  name="Username" id="email"  required="true" aria-valuenow="ShopmanaGer@guicart.com" placeholder="nom@example.com">
+              <label for="email">Nom d'utilisateur</label>
+            </div>
+
+            <div class="form-floating mt-2">
+              <input type="password" formControlName="password" class="form-control" name="Password" required="true" id="password" aria-valuenow="1234" placeholder="Mot de passe">
+              <label for="password">Mot de passe</label>
+            </div>
+          </form>
+          <div class="mt-2">
+            <button mat-raised-button (click)="ControLogin()" color="primary"  id = "buttonConnexion"> <i *ngIf="loader" class="fa fa-spinner fa-spi "></i> Se connecter </button>
+          </div>
+        </div>
+
+
+        <p> &#169; Copyright 2023 - Lekki |  Powered by Nekomat'</p>
+
   </body>
-  
-  
+
+
+
+

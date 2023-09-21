@@ -3,59 +3,100 @@
 .bgYellow{
     background-color: #ffb800;
   }
-  
+
   .bgBlue{
     background-color: #38A934;
   }
-  
+
   .colorBlue{
     color: #38A934;
   }
-  
+
   .colorYellow{
     color: #ffb800;
   }
-  
+
   .colorWhite{
     color: white;
   }
-  
+
   .bgWhite{
     background-color: white;
   }
-  
+
   .bgBlue3{
     background-color: #DBF2FF;
   }
-  
+
   .bgYellow3{
     background-color: #ffb7005c;
   }
-  
+
   .pointor{
     cursor: pointer;
   }
-  
-  //top bar
-  
- 
-  
-  
-  
+
+  .container-fluid{
+    background: #3b3c3d;
+    height: 100vh;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+ //statistique
+
+ .stat-liste{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+ }
+
+ .stat{
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 15px;
+  width: 350px;
+  height: 120px;
+  padding: 8px;
+  margin: 8px;
+ }
+
+ .stat > .svg{
+  background: #eee;
+  border-radius: 100%;
+  padding: 10px;
+ }
+
+ .svg > svg{
+  width: 40px!important;
+  height: 40px!important;
+
+  fill: #38A934;
+ }
+
+ .stat-text{
+  margin-left: 5px;
+ }
+
+
+
+
+
   //body
   .titreCommande{
     i{
       display: none;
     }
   }
-  
+
   .titreCommande:hover{
     i{
       display: inline;
-      color: #ffb800;
+      color: #fff;
     }
   }
-  
+
   .card{
     border: none;
     padding-top: 20px;
@@ -67,34 +108,34 @@
       margin: 0;
     }
   }
-  
-  .card:hover{
-    box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+
+  .card:hover, .stat:hover{
+    box-shadow: 0 1rem 3rem rgba(189, 189, 189, 0.175)!important;
   }
-  
-  
-  
+
+
+
   .app-container {
       height: 100%;
       margin: 0;
-  
+
   }
   .app-sidenav {
       width: 230px;
       color: white;
   }
-  
+
   .app-sidenav-content {
       display: flex;
       height: 100%;
       align-items: center;
       justify-content: center;
   }
-  
+
   button{
     margin-top: -5px;
     max-width: 340px;
-  
+
     .svg{
       background-color: #fff;
       border-radius: 50px;
@@ -104,12 +145,12 @@
       }
     }
   }
-  
+
   .modifier{
     display: none!important;
     //color: #ffb800;
   }
-  
+
   button:hover{
     //border: 2px solid #ffb800;
     span > svg{
@@ -122,10 +163,24 @@
       display: inline-block!important;
     }
   }
-  
+
   tr:hover{
     .status{
       color: #ffb800;
     }
   }
-  
+
+  //cadre
+
+  .recent{
+    align-items: end;
+  }
+
+  .cadre{
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    align-items: flex-end;
+  }
+
+

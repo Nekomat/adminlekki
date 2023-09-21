@@ -1,4 +1,11 @@
 
+.container-fluid, .backg{
+    background-color: #3b3c3d!important;
+}
+
+.container-fluid {
+  height: 100vh;
+}
 .content{
     :hover{
         background-color: white;
@@ -16,9 +23,6 @@ tbody{
 }
 .table thead th { position: sticky; top: 70px; z-index: 1; background-color: #38A934; color: white;}
 
-.sticky-top{
-  background-color: #fafafa;
-}
 
 button{
   background-color: #38A934!important;
@@ -28,7 +32,7 @@ button{
 
 button:hover{
   svg{
-    color: #ffb800;
+    color: #38A934;
   }
 }
 
@@ -42,4 +46,13 @@ button:hover{
   svg{
     fill: #38A934;
   }
+}
+
+
+tr{
+  color: white;
+}
+
+tr:hover{
+  background-color: white;
 }

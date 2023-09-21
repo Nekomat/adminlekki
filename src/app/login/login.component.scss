@@ -1,82 +1,102 @@
 
 
 body{
-    background-image: url(../../assets/logo.png);
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-color: #373737;
+  padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
   }
-  
+
+  //card connexion
+
   .card {
-    background: #0590e6!important;
+    background: #38A934!important;
   border-radius: 20px;
   border: none;
+  padding: 20px;
+  width: 500px;
+
+
+  transition: width 1.5s;
   }
-  
-  
-  label{
-    color: black;
-    //font-size: 18px;
+
+  input{
+    border-radius: 5px;
   }
-  
-  
-  
-  #buttonConnexion{
-    background-color: #38A934;
-    border-radius: 45.5px;
-    margin-top: 20px;
-    font-size: 25px;
+
+  input:focus{
+    border: 2px solid #000;
   }
-  
-  
-  #body {
-      background-image: url("/src/assets/logo.png");
-      background-repeat: no-repeat;
-    }
-  
-  
-    img{
-      width: 250px;
-      height: auto;
-      margin-bottom: 20px;
-      margin-top: -60px;
-    }
-  
-  
-    input:focus{
-      border: 2px solid #ffb800;
-    }
-  
+
   ::placeholder{
     text-align: center;
   }
-  
+
+
   .form-floating>.form-control, .form-floating>.form-control-plaintext, .form-floating>.form-select {
     height: calc(3rem + calc(var(--bs-border-width) * 2));
     line-height: 1.25;
   }
-  
-  #buttonConnexion{
-    height: 45px;
+
+
+  label{
+    color: black;
   }
-  
+
+  placeholder{
+    color: #666;
+  }
+
+//bouton
+
+  #buttonConnexion{
+    background-color: #000;
+    border-radius: 45.5px;
+    margin-top: 20px;
+    font-size: 25px;
+    color: white;
+    height: 60px;
+    width: 100%;
+  }
+
+
+  #buttonConnexion:hover{
+    border: 1px solid white;
+  }
+
+  //footer
+
+  p{
+    color: white;
+  }
+
+
+
+  @media screen and (min-width: 1000px) and (max-width: 1400px) {
+    .card{
+      width: 500px;
+    }
+  }
+
+
+
   @media screen and (max-width: 600px) {
     .card{
-      width: 40vh;
+      width: 400px;
     }
   }
-  
-  @media screen and (min-width: 600px) and (max-width: 1400px) {
+
+  @media screen and (max-width: 411px) {
     .card{
-      width: 55vh;
+      width: 300px;
     }
-  }
-  
-  @media screen and (max-width: 389px) {
-    .card{
-      width: 30vh;
-    }
-  
+
     #buttonConnexion{
       font-size: 16px;
     }
   }
+

@@ -1,8 +1,29 @@
+/*
 .date{
     margin-left: 200px;
     margin-top: 40px;
   }
-  
+
   img{
     border: 1px solid #ffb800;
+  } */
+
+  mat-toolbar{
+    background: #3b3c3d;
+    color: white;
+    padding-top: 20px;
+  }
+
+
+
+  h2{
+    font-size: 32px!important;
+    font-weight: 500!important;
+  }
+
+  div{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
   }

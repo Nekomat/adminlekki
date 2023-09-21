@@ -2,75 +2,80 @@
 .bgBlue{
     background-color: #38A934;
   }
-  
+
   .bgYellow{
     background-color: #ffb800;
   }
-  
+
   .colorBlue{
     color: #38A934;
   }
-  
+
   .colorYellow{
     color: #ffb800;
   }
-  
+
   .bgWhite{
     background-color: white;
   }
-  
+
   .colorWhite{
     color: white;
   }
-  
+
   .inlineBlock{
     display: inline-block;
   }
-  
-  
+
+  .content{
+    background: #3b3c3d;
+    height: 100vh;
+  }
+
+
+
   //liste des membres
   .recherche{
     border-radius: 30px;
     border-color: #38A934;
   }
-  
+
   #recherche{
     background-color: white;
     svg{
       fill: #38A934;
     }
   }
-  
+
   .table {
     overflow: auto;
     height: 100px;
   }
   .table thead th { position: sticky; top: 70px; z-index: 1; background-color: #38A934; color: white;}
-  
+
   .sticky-top{
-    background-color: #fafafa;
     top: 0;
   }
-  
+
   button{
     background-color: #38A934!important;
     color: white;
     border-radius: 30px;
   }
-  
+
   .col {
     align-items: center;
   }
-  
-  
+
+
   .toolbar-item-spacer {
       flex: 1 1 auto;
   }
-  
+
   .app-container {
       height: 100%;
       margin: 0;
-  
+
   }
   .app-sidenav {
       width: 230px;
@@ -97,12 +102,19 @@
   }*/
   .table :hover{
       cursor: pointer;
-  
+
   }
-  
+
   .ajouter:hover{
     svg{
       color: #ffb800;
     }
   }
-  
+
+  tr{
+    color: white;
+  }
+
+  tr:hover{
+    background-color: white;
+  }

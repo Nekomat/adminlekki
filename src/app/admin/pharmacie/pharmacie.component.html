@@ -1,24 +1,34 @@
 <app-head></app-head>
-<div style="margin: 10px;">
-    <div class="row">
-      <div class="col-md-6">
-        <input type="search" [(ngModel)]="word" (input)="OnSearch()" name="" id="" class="form-control" placeholder="le nom d'une pharmacie">
+<div class="container-fluid">
+
+  <div class="">
+    <div class="entete">
+      <button class="button" (click)=" OpenAddPharmacie()" >   <span>Ajouter une pharmacie</span> </button>
+
+      <div class="input-group">
+        <span class="input-group-text recherche" id="recherche">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-search colorBlue" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+          </svg>
+        </span>
+        <input type="search" [(ngModel)]="word" (input)="OnSearch()" name="" id="" class="form-control recherche" placeholder="Rechercher une pharmacie">
       </div>
-      <div class="col-md-6">
-       <button class="button" (click)=" OpenAddPharmacie()" >  <i class="bi bi-plus"></i> <span>Ajouter une pharmacie</span>  </button>
-      </div>
+
+  </div>
+
+    <!--la liste des pharmacie -->
+      <div class="pharmacie-card">
+      <mat-card (click)="GoToOnePharmacie(data.id)" class="Pcard" style="width: 300px;" *ngFor="let data of AllPharmacie">
+           <img class="img" width="300" height="300" mat-card-image [src]="data.img" alt="">
+           <mat-card-footer>
+              <div style="margin-left: 8px; ">
+                  <span> {{data.name}} </span> <br>
+                  <span> nombre de produit : <span>10</span> </span> <br>
+                  <span> nombre de commande : <span> 20 </span> </span>
+              </div>
+           </mat-card-footer>
+      </mat-card>
+       </div>
     </div>
-  <!--la liste des pharmacie -->
-     <div class="pharmacie-card">
-    <mat-card (click)="GoToOnePharmacie(data.id)" class="Pcard" style="width: 300px;" *ngFor="let data of AllPharmacie">
-         <img class="img" width="300" height="300" mat-card-image [src]="data.img" alt="">
-         <mat-card-footer>
-            <div style="margin-left: 8px; ">
-                <span> {{data.name}} </span> <br>
-                <span> nombre de produit : <span>10</span> </span> <br>
-                <span> nombre de commande : <span> 20 </span> </span> 
-            </div>
-         </mat-card-footer>
-    </mat-card>
-     </div>
+
 </div>

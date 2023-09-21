@@ -2,72 +2,80 @@
 .bgBlue{
     background-color: #38A934;
   }
-  
+
   .bgYellow{
     background-color: #ffb800;
   }
-  
+
   .colorBlue{
     color: #0590e6;
   }
-  
+
   .colorYellow{
     color: #ffb800;
   }
-  
+
   .bgWhite{
     background-color: white;
   }
-  
+
   .colorWhite{
     color: white;
   }
-  
+
   .inlineBlock{
     display: inline-block;
   }
-  
+
+  body{
+    height: 100vh;
+  }
+
+  body, .container-fluid{
+    background-color: #3b3c3d!important;
+  }
   //liste des commandes
   .recherche{
     border-radius: 30px;
     border-color: #38A934;
   }
-  
+
   #recherche{
     background-color: white;
     svg{
       fill: #38A934;
     }
   }
-  
-  
-  
-  
+
+
+
+
   .table thead th { position: sticky; top: 70px; z-index: 1; background-color: #38A934; color: white;}
-  
+
   .sticky-top{
     background-color: #fafafa;
     top: 0;
   }
-  
+
   tr{
     cursor: pointer;
+    color: white;
   }
-  
+
   tr:hover{
+    color: #38A934!important;
     .status, i{
-      color: #ffb800;
+      color: #38A934;
     }
   }
-  
+
   .icon-arrow{
       color: #38A934;
   }
   .status{
       color: #38A934;
   }
-  
+
   .adresse{
     text-align: justify;
   }
-  

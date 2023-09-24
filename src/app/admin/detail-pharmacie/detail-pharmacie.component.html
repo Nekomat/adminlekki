@@ -82,38 +82,36 @@
                 </div>
                 
                 <div class="button">
-                    <button mat-raised-button color="warn"> Supprimer </button>
+                    <button mat-raised-button color="warn" [disabled]="loaderDelete" (click)="delete()"> <i *ngIf="loaderDelete" class="fa fa-spinner fa-spin"></i> Supprimer </button>
                 </div>
         </mat-tab>
         <mat-tab label="Commandes">
-            <table class="table table-hover text-center">
-                <thead class="head align-middle">
-                  <tr>
-                    <th scope="col">N°</th>
-                    <th scope="col">Client(e)</th>
-                    <th scope="col">Date de commande</th>
-                    <th scope="col">Date de livraison</th>
-                    <th scope="col">Plage horaire</th>
-                    <th scope="col">Lieu de livraison</th>
-                    <th scope="col">Numéro de livraison</th>
-                    <th scope="col">Méthode de paiement</th>
-                    <th scope="col">Statut</th>
-                  </tr>
-                </thead>
-                <tbody class="align-middle">
-                  <tr *ngFor="let data of [1,2,3,4,5,6,7,8]" >
-                    <th scope="row"> 12345 </th>
-                    <td> Gaston loua </td>
-                    <td> 20/09/2023 </td>
-                    <td>  22/09/2023 </td>
-                    <td> 12H-14H </td>
-                    <td class="adresse"> yattaya </td>
-                    <td> 629821308 </td>
-                     <td> payer à la livraison </td>
-                    <td class="status"> livrée <i  class="bi bi-arrow-right-circle icon-arrow"  ></i> </td>
-                  </tr>
-                </tbody>
-              </table>
+          <table class="table table-hover text-center">
+            <thead class="head align-middle">
+              <tr>
+                <th scope="col">N°</th>
+                <th scope="col">Client(e)</th>
+                <th scope="col">Date de commande</th>
+                <th scope="col">Date de livraison</th>
+                <th scope="col">Lieu de livraison</th>
+                <th scope="col">Numéro de livraison</th>
+                <th scope="col">Méthode de paiement</th>
+                <th scope="col">Statut</th>
+              </tr>
+            </thead>
+            <tbody class="align-middle">
+              <tr (click)=" GoToCommandeDetail(data.id)"  *ngFor="let data of onePharmacie.commandes">
+                <th scope="row"> {{data.code}} </th>
+                <td> {{data.userName}} </td> 
+                <td> {{data.date}} </td>
+                <td> {{data.timeDelivry}}  </td>
+                <td class="adresse"> {{data.lieux}} </td>
+                <td> {{data.numero}} </td>
+                <td> payer à la livraison</td>
+                <td class="status"> {{data.status}} <i  class="bi bi-arrow-right-circle icon-arrow"  ></i> </td>
+              </tr>
+            </tbody>
+          </table>
         </mat-tab>
         <mat-tab label="Produits">
              <div class="row" style="margin: 4px;">
@@ -121,7 +119,7 @@
                 <input type="search" placeholder="rechercher un produit" name="" id="" class="form-control">
                </div>
                <div class="col-md-6">
-                <button class="butto" >  <i class="bi bi-plus"></i> <span>Ajouter produit</span>  </button>
+                <button class="butto" (click)="OpenDialog()" >  <i class="bi bi-plus"></i> <span>Ajouter produit</span>  </button>
                </div>
              </div>
             <table class="table table-hover">
@@ -131,15 +129,14 @@
                     <th scope="col">Categorie</th>
                     <th scope="col">poids</th>
                     <th scope="col">Prix</th>
-                    
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="content"  *ngFor="let data of [1,2,4,6,8,9]" >
-                    <th class="ps-2"> paracetamol </th>
-                    <td class="text-center"> inconnu </td>
-                      <td class="text-center"> 12G </td>
-                    <td class="text-center"> 120.000 </td>
+                  <tr class="content"  *ngFor="let data of onePharmacie.products" (click)="OpenEditDualog(data)" >
+                    <th class="ps-2"> {{data.name}} </th>
+                    <td class="text-center"> {{data.cateName}} </td>
+                      <td class="text-center"> {{data.poids}} </td>
+                    <td class="text-center"> {{data.price.toLocaleString('en-US')}} GNF </td>
                   </tr>
                 </tbody>
               </table>

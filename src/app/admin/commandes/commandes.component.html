@@ -9,7 +9,7 @@
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
               </svg>
             </span>
-            <input class="form-control recherche"   placeholder="Rechercher une commande à travers son Numero"  type="search">
+            <input class="form-control recherche" (input)="Search()" [(ngModel)]="word"   placeholder="Rechercher une commande à travers son Numero"  type="search">
           </div>
           </div>
      </div>
@@ -24,27 +24,23 @@
             <th scope="col">Client(e)</th>
             <th scope="col">Date de commande</th>
             <th scope="col">Date de livraison</th>
-            <th scope="col">Plage horaire</th>
             <th scope="col">Lieu de livraison</th>
             <th scope="col">Numéro de livraison</th>
             <th scope="col">Méthode de paiement</th>
-
             <th scope="col">Statut</th>
           </tr>
         </thead>
         <tbody class="align-middle">
-          <tr (click)=" GoToCommandeDetail()"  *ngFor="let data of [1,2,3,4,5,6]">
-            <th scope="row"> 12344 </th>
-            <td> Pharmacie Gaston </td>
-            <td> Gaston loua </td>
-            <td> 09/09/2023 </td>
-            <td> 09/09/2023   </td>
-            <td> 12h-13H </td>
-            <td class="adresse"> yattaya </td>
-            <td> 629821398 </td>
+          <tr (click)=" GoToCommandeDetail(data.id)"  *ngFor="let data of allCommandes">
+            <th scope="row"> {{data.code}} </th>
+            <td> {{data.pharName}} </td>
+            <td> {{data.userName}} </td>
+            <td> {{data.date}} </td>
+            <td> {{data.timeDelivry}}  </td>
+            <td class="adresse"> {{data.lieux}} </td>
+            <td> {{data.numero}} </td>
             <td> payer à la livraison</td>
-
-            <td class="status"> Livrée <i  class="bi bi-arrow-right-circle icon-arrow"  ></i> </td>
+            <td class="status"> {{data.status}} <i  class="bi bi-arrow-right-circle icon-arrow"  ></i> </td>
           </tr>
         </tbody>
       </table>

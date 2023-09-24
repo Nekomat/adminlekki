@@ -42,7 +42,7 @@ const routes: Routes = [
   component:CommandesComponent
  },
  {
-  path:"admin_commandes_detail",
+  path:"admin_commandes_detail/:id",
   component:CommadesDetailComponent
  },
  {
@@ -50,7 +50,7 @@ const routes: Routes = [
   component:ClientsComponent
  },
  {
-  path:'client_detail',
+  path:'client_detail/:id',
   component:ClientsDetailComponent
  },
  //les routes admin Pharmacies
@@ -71,7 +71,7 @@ const routes: Routes = [
   component:PcommandesComponent
  },
  {
-  path:"admin_pharmacie_commende_detail",
+  path:"admin_pharmacie_commende_detail/:id",
   component:CommadesDetailComponent
  },
  {

@@ -11,5 +11,12 @@ export class DataService {
  public MenuHide=true 
  public isAdmin=true 
  public pharmacieId=""
+ public commandId=""
+ public product:any 
+ public adminPharId=""
+ public adminPharName=""
+
+//  pour les messages 
+messages :any 
  
 }

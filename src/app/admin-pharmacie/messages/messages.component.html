@@ -1,6 +1,6 @@
 <app-phead>
 </app-phead>
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="service.messages">
     <!-- Content wrapper start -->
     <div class="content-wrapper">
 
@@ -25,15 +25,15 @@
                                         </div>
                                     </div>
                                 </div>-->
-                                <ul class="users overflow-y-scroll" style="max-height: 95vh;" >
+                                <ul class="users overflow-y-scroll" style="max-height: 95vh;">
                                     <div class="cover" >
-                                    <li class="person" [ngClass]="{'active-user' : false}"  *ngFor="let data of [1,2,3,4,6,9,0] let i = index" >
+                                    <li (click)="upadetMessageStatus(i)" class="person" [ngClass]="{'active-user' : service.messages[index].active == true}"  *ngFor="let data of service.messages let i = index" >
                                         <div class="user">
                                             <img src="../../assets/user1.jpeg" alt="Retail Admin">
                                         </div>
                                         <p class="name-time" >
-                                            <span  class="name"> Gaston  </span>
-                                            <span  [matBadge]="3" ></span>
+                                            <span  class="name"> {{data.nameUser}}  </span>
+                                            <span *ngIf="data.badge>0"  [matBadge]="data.badge" ></span>
                                         </p>
                                     </li>
 
@@ -43,29 +43,28 @@
                         </div>
                         <div class="col-xl-8 col-lg-8 col-md-8 col-sm-9 col-9">
                             <div class="selected-user">
-                                <span>À : <span class="name"> Gaston </span></span>
+                                <span>À : <span class="name"> {{service.messages[index].nameUser}} </span></span>
                             </div>
                             <div class="chat-container" id="s" >
                                 <ul class="chat-box chatContainerScroll" >
-                                    <div *ngFor="let Data of [1,3,4,3,3] " >
-                                    <li class="chat-left client"  >
+                                    <div *ngFor="let Data of service.messages[index].message " >
+                                    <li class="chat-left client" *ngIf="Data.type == 'client'" >
                                         <div class="chat-avatar">
                                             <img src="../../assets/user1.jpeg" alt="Retail Admin">
-                                            <div class="chat-name"> {{'Gaston'}} </div>
                                         </div>
                                         <div class="chat-text">
-                                            bonjour
+                                             {{Data.message}} 
                                            </div>
-                                        <div class="chat-hour"> {{"12/23/2023"}} </div>
+                                        <div class="chat-hour"> {{Data.time}} </div>
                                     </li>
-                                    <li class="chat-right four" >
-                                        <div class="chat-hour"> {{"12/23/2023"}} <span class="fa fa-check-circle"></span></div>
+                                    <li class="chat-right four" *ngIf="Data.type=='admin'">
+                                        <div class="chat-hour"> {{Data.time}} <span class="fa fa-check-circle"></span></div>
                                         <div class="chat-text">
-                                            {{"oui bonjour"}}
+                                            {{Data.message}}
                                         </div>
                                         <div class="chat-avatar">
                                             <img src="../../assets/logo2.png" alt="Retail Admin">
-                                            <div class="chat-name">Pharmacie Gaston</div>
+                                            <div class="chat-name">admin</div>
                                         </div>
                                     </li>
                                 </div>
@@ -75,13 +74,12 @@
                             <div class="form-group mt-3 mb-0">
                                 <div class="row" >
                                    <div class="col-md-11">
-                                    <textarea class="form-control" name="message"  rows="3" placeholder="Écrire un message au client"></textarea>
+                                    <textarea class="form-control" name="message" [(ngModel)]="word"  rows="3" placeholder="Écrire un message au client"></textarea>
                                    </div>
                                    <div class="col-md-1 my-auto mx-auto">
-                                    <i class="bi bi-send-fill senderBtn" ></i>
+                                    <i class="bi bi-send-fill senderBtn" (click)="sendMessage()" ></i>
                                    </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>

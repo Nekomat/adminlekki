@@ -5,25 +5,28 @@
    <form [formGroup]="section" >
       <div class="mb-3">
          <label for="">Nom du produit</label> 
-         <input type="text"  name="nom" class="form-control" placeholder="nom du produit">
+         <input type="text" formControlName="name"  name="nom" class="form-control" placeholder="nom du produit">
       </div> 
       <div class="mb-3">
          <label for="">Prix</label>
-         <input type="number"  name="nom" class="form-control" placeholder="prix">
+         <input type="number" formControlName="poids" name="nom" class="form-control" placeholder="prix">
       </div>
       <div class="mb-3">
          <label for="">Poids</label>
-         <input type="number"  name="nom" class="form-control" placeholder="poids">
+         <input type="text" formControlName="poids"  name="nom" class="form-control" placeholder="poids">
       </div>
+
+
       <div class="mb-3" *ngif="onPharmacie">
-         <label for=""> categorie </label>
-         <select name="" id="" class="form-control">
-             <option value="" *ngFor="let data of onPharmacie" >pharmacie Gaston</option>
+         <label for=""> Categorie </label> 
+         <select name="" id="" class="form-control" formControlName="categories">
+             <option [value]="data" *ngFor="let data of onPharmacie.categories" > {{data}} </option>
             </select>
       </div>
+      
       <div class="mb-3">
          <label for=""> Description </label>
-         <textarea name="" id="" cols="5" rows="5" class="form-control" placeholder="description"></textarea>
+         <textarea name="" id="" formControlName="description" cols="5" rows="5" class="form-control" placeholder="description"></textarea>
       </div>
 
       <div class="mb-3">
@@ -33,7 +36,7 @@
 
    </form>
      <div class="row" [align]="'center'" > 
-        <button mat-raised-button color="primary"  > <i  class="fa fa-spinner fa-spin"></i>
+        <button mat-raised-button color="primary" [disabled]="!loader"  > <i *ngIf="loader" class="fa fa-spinner fa-spin"></i>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-plus-lg me-2" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
           </svg> 

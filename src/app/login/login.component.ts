@@ -48,13 +48,17 @@ public loader=false
     this.service.MenuHide=false
     this.service.activeMenuLink="admin_pharmacie"
     this.service.pharmacieId=take[0].id
+    this.service.adminPharId=take[0].id
+    this.service.adminPharName = take[0].name
     this.router.navigate(["/admin_pharmacie",take[0].id] ,{replaceUrl:true}) 
     localStorage.setItem('id',take[0].id) 
    }else{
     alert('les informations sont incorrectes')
+    this.loader=false
    }
   }else{
     alert('les informations sont incorrectes')
+    this.loader=false
   }
  }
 }

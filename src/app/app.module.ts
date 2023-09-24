@@ -44,7 +44,9 @@ import { ProfilComponent } from './admin-pharmacie/profil/profil.component';
 import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import {provideStorage , getStorage} from '@angular/fire/storage'
+import {provideAuth , getAuth} from '@angular/fire/auth'
 import { environment } from 'src/environments/environment';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -92,7 +94,10 @@ import { environment } from 'src/environments/environment';
     MatBadgeModule,
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideFirestore(() => getFirestore()),
-    provideStorage(()=> getStorage()) 
+    provideStorage(()=> getStorage()) ,
+    provideAuth(()=> getAuth()),
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

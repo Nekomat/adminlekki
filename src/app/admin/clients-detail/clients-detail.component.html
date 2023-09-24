@@ -1,20 +1,30 @@
  
 
    <app-head></app-head>
-<div >
+   <div [align]="'center'" *ngIf="loader" class="loader position-absolute top-50 start-50 translate-middle">
+    <div class="spinner-grow" style="width: 6rem; height: 6rem; color: #38a934;" role="status">
+      <span class="visually-hidden">En chargement...</span>
+    </div>
+  </div>
+
+<div *ngIf="!loader">
     <div class="row text-center mb-2 py-3" >
         <!--<div class="code">
             <i class="bi bi-arrow-left-circle-fill color" (click)="back()" ></i>
           </div>-->
-            <div class="col-md-4 py-2 codeID mx-auto " >
+         
+           <div>
+              <div class="col-md-4 py-2 codeID mx-auto " >
               <h2 class="my-0">
-                Code ID  :<span class="code"> 123345 </span>
+                Code ID  :<span class="code"> {{user.code}} </span>
               </h2>
             </div>
     
             <div class="size mt-2">
-              Client(e) depuis <span class="colorBlue">12/10/2023</span> sur <span class="colorBlue">Ios</span>
+              Client(e) depuis <span class="colorBlue"> {{user.date}} </span> 
             </div>
+           </div>
+           
       </div>
     <div class="row ms-4">
         <div class="col-md-7" >
@@ -30,7 +40,7 @@
                       </svg>
                       Prénom(s) :
                     </div>
-                    <div class="col-md-6 text-start size colorBlue"> Gaston</div>
+                    <div class="col-md-6 text-start size colorBlue"> {{user.name}} </div>
                   </div>
                 </li>
     
@@ -42,7 +52,31 @@
                       </svg>
                       Nom de famille :
                     </div>
-                    <div class="col-md-6 text-start size colorBlue"> Loua </div>
+                    <div class="col-md-6 text-start size colorBlue"> {{user.family}} </div>
+                  </div>
+                </li>
+
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="size col-md-6">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person me-1 colorYellow mb-1" viewBox="0 0 16 16">
+                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                      </svg>
+                      Date de naissance :
+                    </div>
+                    <div class="col-md-6 text-start size colorBlue"> {{user.date}} </div>
+                  </div>
+                </li>
+
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="size col-md-6">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person me-1 colorYellow mb-1" viewBox="0 0 16 16">
+                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                      </svg>
+                      Genre :
+                    </div>
+                    <div class="col-md-6 text-start size colorBlue"> {{user.genre}} </div>
                   </div>
                 </li>
     
@@ -54,7 +88,7 @@
                       </svg>
                       Numéro de téléphone :
                     </div>
-                    <div class="col-md-6 text-start size colorBlue"> 629821308 </div>
+                    <div class="col-md-6 text-start size colorBlue"> {{user.numero}} </div>
                   </div>
                 </li>
     
@@ -66,7 +100,18 @@
                       </svg>
                       E-mail :
                     </div>
-                    <div class="col-md-6 text-start size colorBlue"><a href="mailto:">gaston@gmail.com</a></div>
+                    <div class="col-md-6 text-start size colorBlue"><a href="mailto:"> {{user.email}} </a></div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="size col-md-6">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person me-1 colorYellow mb-1" viewBox="0 0 16 16">
+                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                      </svg>
+                      Mot de passe :
+                    </div>
+                    <div class="col-md-6 text-start size colorBlue"> {{user.password}} </div>
                   </div>
                 </li>
               </ul>
@@ -79,51 +124,16 @@
              
     
               <div class="col-md-4">
-                <button class="btn btn-danger shadow-sm">
+                <button class="btn btn-danger shadow-sm" (click)="DeleteAccount()">
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-trash3 me-1 mb-1" viewBox="0 0 16 16">
                     <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
                   </svg>
                   Supprimer le compte
                 </button>
               </div>
-    
-              <div class="col-md-4">
-                <button mat-raised-button color="warn" class="btn btn-warning" >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-shield-shaded me-1 mb-1" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M8 14.933a.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067v13.866zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z"/>
-                  </svg>
-                  Restreindre le compte
-                </button>
-              </div>
+  
             </div>
         </div>
-    
-        <div class="col-md-5 mx-auto">
-          <div class="row col-md-11 mx-auto">
-            <div class="row mt-5">
-              <ul class="list-group list-group-flush commandes">
-    
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  <div class="size">
-                    Quantité totale de produits commandés :
-                  </div>
-                  <span class="badge  rounded-pill" style="color: #0590e6; font-weight: 400;"> 34 </span>
-                </li>
-    
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  <div class="size">
-                    Pharmacie  la plus aimée :
-                  </div>
-                  <span class="badge  rounded-pill" style="color: #0590e6; font-weight: 400;"> Pharmacie Gaston </span>
-                </li>
-    
-              </ul>
-            </div>
-    
-            </div>
-          </div>
-    
-    
         </div>
      </div>
     

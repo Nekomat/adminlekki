@@ -1,13 +1,13 @@
 <!--en tete-->
 <app-phead></app-phead>
   
-<div [align]="'center'" class="loader position-absolute top-50 start-50 translate-middle" *ngIf="false">
+<div [align]="'center'" class="loader position-absolute top-50 start-50 translate-middle" *ngIf="loader">
   <div class="spinner-grow" style="width: 6rem; height: 6rem; color: #0590e6;" role="status">
     <span class="visually-hidden">En chargement...</span>
   </div>
 </div>
 
-<div class="container-fluid px-3 pt-3" >
+<div class="container-fluid px-3 pt-3"  *ngIf="!loader">
  <!--Statistique-->
  <div class="row mt-5 mb-4 me-2">
   <!--Total effectué-->
@@ -21,7 +21,7 @@
 
       <div class="col-md-9 aling-middle my-auto">
         Total accumulé
-        <h2>{{"10000"}} GNF</h2>
+        <h2>{{commandeDetail.total.toLocaleString('en-US')}} GNF</h2>
       </div>
     </div>
   </div>
@@ -37,7 +37,7 @@
 
       <div class="col-md-9 aling-middle my-auto">
         Sous-total
-        <h2>{{"23333456"}} GNF</h2>
+        <h2>{{commandeDetail.st.toLocaleString('en-US')}} GNF</h2>
       </div>
     </div>
   </div>
@@ -55,7 +55,7 @@
 
       <div class="col-md-9 aling-middle my-auto">
         Livraison
-        <h2>{{"1000"}} GNF</h2>
+        <h2>{{commandeDetail.li.toLocaleString('en-US')}} GNF</h2>
       </div>
     </div>
   </div>
@@ -75,7 +75,7 @@
 
     <div class="col-md-9 text-end">
       Produits
-      <h2>{{"11111"}}</h2>
+      <h2>{{nbreProduit}}</h2>
     </div>
   </div>
 </div>
@@ -91,7 +91,7 @@
 
       <div class="col-md-9 text-end">
         Commandes
-        <h2>{{"11111"}}</h2>
+        <h2>{{commandeDetail.nbreC}}</h2>
       </div>
     </div>
   </div>
@@ -115,27 +115,11 @@
 
       <div class="col-md-9 text-end">
         En traitement
-        <h2>{{"111"}}</h2>
+        <h2>{{commandeDetail.ct}}</h2>
       </div>
     </div>
   </div>
 
-  <!--Acceptées-->
-  <div class="card shadow mx-auto  col-md-2">
-    <div class="row">
-      <div class="col-md-3">
-        <svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
-          <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
-          <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
-        </svg>
-      </div>
-
-      <div class="col-md-9 text-end">
-        Acceptées
-        <h2>0</h2>
-      </div>
-    </div>
-  </div>
 
   <!--En cours-->
   <div class="card mx-auto shadow col-md-2">
@@ -148,7 +132,7 @@
 
       <div class="col-md-9 text-end">
         En cours de livraison
-        <h2>{{"12"}}</h2>
+        <h2>{{commandeDetail.ccl}}</h2>
       </div>
     </div>
   </div>
@@ -164,7 +148,7 @@
 
       <div class="col-md-9 text-end">
         Livrées
-        <h2>{{"222"}}</h2>
+        <h2>{{commandeDetail.cl}}</h2>
       </div>
     </div>
   </div>
@@ -180,12 +164,9 @@
 
       <div class="col-md-9 text-end">
         Annulées
-        <h2>{{"ddf"}}</h2>
+        <h2>{{commandeDetail.ca}}</h2>
       </div>
     </div>
   </div>
 </div>
-
-
-
 </div>

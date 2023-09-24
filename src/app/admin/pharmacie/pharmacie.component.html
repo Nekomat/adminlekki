@@ -1,5 +1,10 @@
 <app-head></app-head>
-<div class="container-fluid">
+<div [align]="'center'" *ngIf="loader" class="loader position-absolute top-50 start-50 translate-middle">
+  <div class="spinner-grow" style="width: 6rem; height: 6rem; color: #38a934;" role="status">
+    <span class="visually-hidden">En chargement...</span>
+  </div>
+</div>
+<div class="container-fluid" *ngIf="!loader">
 
   <div class="">
     <div class="entete">
@@ -22,9 +27,9 @@
            <img class="img" width="300" height="300" mat-card-image [src]="data.img" alt="">
            <mat-card-footer>
               <div style="margin-left: 8px; ">
-                  <span> {{data.name}} </span> <br>
-                  <span> nombre de produit : <span>10</span> </span> <br>
-                  <span> nombre de commande : <span> 20 </span> </span>
+                  <span> {{data.name}} </span> <br> 
+                  <span> nombre de produit : <span> {{data.nbreP}} </span> </span> <br>
+                  <span> nombre de commande : <span> {{data.nbreC}} </span> </span> 
               </div>
            </mat-card-footer>
       </mat-card>

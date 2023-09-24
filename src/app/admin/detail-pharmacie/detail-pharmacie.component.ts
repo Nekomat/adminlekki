@@ -1,8 +1,13 @@
 import { Component , OnInit} from '@angular/core';
-import { doc, Firestore, getDoc, updateDoc } from '@angular/fire/firestore';
+import { collection, deleteDoc, doc, Firestore, getDoc, getDocs, query, updateDoc,where } from '@angular/fire/firestore';
 import { getDownloadURL, ref, Storage, uploadBytes } from '@angular/fire/storage';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DataService } from 'src/app/data.service';
+import { AddProductComponent } from '../add-product/add-product.component';
+import { EditProductComponent } from '../edit-product/edit-product.component';
+
 
 @Component({
   selector: 'app-detail-pharmacie',
@@ -14,9 +19,12 @@ export class DetailPharmacieComponent implements OnInit {
     private fire : Firestore,
     private route : ActivatedRoute ,
     private formCtrl : FormBuilder,
-    private storage : Storage
+    private storage : Storage ,
+    private router:Router ,
+    private matDialog:MatDialog ,
+    private service : DataService
   ){}
-  public onePharmacie :any
+  public onePharmacie :any 
   //control formulaire
   public Section:FormGroup
  async ngOnInit() {
@@ -34,8 +42,23 @@ export class DetailPharmacieComponent implements OnInit {
          latitude:[this.onePharmacie.latitude, [Validators.required]],
          userName : [this.onePharmacie.email],
          password:[this.onePharmacie.password]
+       }) 
+       // prendre les commandes du fournisseurs
+       const refisCommande = await getDocs(query(collection(this.fire,'COMMANDES'),where("idPhar","==",getid)))
+       this.onePharmacie.commandes=[] 
+       refisCommande.forEach(element=>{
+        let take :any = element.data() 
+        take.date = new Date(take.time.seconds*1000).toLocaleDateString('fr')
+        this.onePharmacie.commandes.push(take)
        })
-      }
+       
+      //  prenre les produits de la pharmacie 
+      const refisProduct = await getDocs(query(collection(this.fire,'PRODUCTS'),where("pharId","==",getid))) 
+           this.onePharmacie.products=[]
+           refisProduct.forEach((element)=>{
+              this.onePharmacie.products.push(element.data())
+           })
+      } 
   }
   //take new img 
   file:any
@@ -68,6 +91,7 @@ export class DetailPharmacieComponent implements OnInit {
       })
       alert('Mise à jour effectué')
       this.loader=false
+      this.ngOnInit()
     }else{
       alert('veuillez bien remplir le formulaire')
     }
@@ -77,7 +101,38 @@ export class DetailPharmacieComponent implements OnInit {
   }
 
   // delete pharmacie 
-  delete(){
-    
+  loaderDelete=false
+ async delete(){
+  this.loaderDelete=true
+    deleteDoc(doc(this.fire,"PHARMACIES",this.onePharmacie.id)).then(async()=>{
+      const refProduct = await getDocs(query(collection(this.fire,"PRODUCTS"), where('pharId',"==",this.onePharmacie.id)))
+      refProduct.forEach( async element=>{
+        let take:any = element.data()
+       await deleteDoc(doc(this.fire,"PRODUCTS",take.id)) 
+      })
+      alert('Pharmacie supprimée') 
+      this.loaderDelete=false
+      this.router.navigateByUrl('/pharmacie')
+    })
+  }
+  // go to commande detail 
+  GoToCommandeDetail(id){
+    this.router.navigate(["/admin_commandes_detail",id])
+  }
+  // open add product 
+  OpenDialog(){
+    this.matDialog.open(AddProductComponent)
+    this.matDialog.afterAllClosed.subscribe(()=>{
+      this.ngOnInit()
+    })
+  }
+  // open edit product dialog
+  OpenEditDualog(data){
+    this.service.product=data
+    this.matDialog.open(EditProductComponent)
+    this.matDialog.afterAllClosed.subscribe(()=>{
+      this.loader=true
+      this.ngOnInit()
+    })
   }
 }

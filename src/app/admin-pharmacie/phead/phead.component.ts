@@ -12,6 +12,7 @@ export class PheadComponent implements OnInit {
   private fire : Firestore,
   private router : ActivatedRoute
  ) {}
+ Date = new Date().toLocaleDateString('fr')
   OnePharmacie:any
  async ngOnInit() {
    let getid = this.router.snapshot.paramMap.get('id') 

@@ -1,57 +1,52 @@
 <div class="container" mat-dialog-content>
-    <h1 [align]="'center'" mat-dialog-title  class="titre colorBlue">Ajout d'un produit</h1>
+    <h1 [align]="'center'" mat-dialog-title  class="titre colorBlue">Ajout d'un produit</h1> 
   <div class="row mt-1 mb-3">
-    <div class="mb-3">
-        <label for="">Nom du produit</label> 
-        <input type="text"  name="nom" class="form-control" placeholder="nom du produit">
-     </div> 
-
-     <div class="mb-3">
-        <label for="">Prix</label>
-        <input type="number"  name="nom" class="form-control" placeholder="prix">
-     </div>
-
-     <div class="mb-3">
-        <label for="">Poids</label>
-        <input type="number"  name="nom" class="form-control" placeholder="poids">
-     </div>
-     
-     <div class="mb-3">
-        <label for="">Choisir la pharmacie</label>
-       <select name="" id="" class="form-control">
-        <option value="">pharmacie Gaston</option>
-        <option value="">pharmacie Gaston</option>
-        <option value="">pharmacie Gaston</option>
-       </select>
-     </div>
-
-     <div class="mb-3">
-        <label for=""> categorie </label>
-        <select name="" id="" class="form-control">
-            <option value="">pharmacie Gaston</option>
-            <option value="">pharmacie Gaston</option>
-            <option value="">pharmacie Gaston</option>
-           </select>
-     </div>
-
-     <div class="mb-3">
-        <label for=""> Description </label>
-        <textarea name="" id="" cols="5" rows="5" class="form-control" placeholder="description"></textarea>
-     </div>
-    
-     <div class="mb-3">
-        <label for=""> logo </label>
-        <input type="file"  name="nom" class="form-control" placeholder="latitude">
-     </div>
-     <div class="row" [align]="'center'">
-        <button mat-raised-button color="primary"  > <i  class="fa fa-spinner fa-spin"></i>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-plus-lg me-2" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
-          </svg>
-          Ajouter le produit
-        </button>
+   <form [formGroup]="section">
+      <div class="mb-3">
+         <label for="">Nom du produit</label> 
+         <input type="text" formControlName="name"  name="nom" class="form-control" placeholder="nom du produit">
+      </div> 
+      <div class="mb-3">
+         <label for="">Prix</label>
+         <input type="number" formControlName="price"  name="nom" class="form-control" placeholder="prix">
+      </div>
+      <div class="mb-3">
+         <label for="">Poids</label>
+         <input type="text" formControlName="poids"  name="nom" class="form-control" placeholder="poids">
+      </div>
+      <div class="mb-3">
+         <label for="">Choisir la pharmacie</label>
+        <select (change)="ChoosePhar($event)" formControlName="pharmacie" name="" id="" class="form-control">
+         <option *ngFor="let data of allPhar" [value]="data.id" > {{data.name}} </option>
+        </select>
       </div>
 
+      <div class="mb-3">
+         <label for=""> categorie </label>
+         <select (change)="ChooseCate($event)" formControlName="categorie" name="" id="" class="form-control">
+             <option *ngFor="let data of chosePahrCte" [value]="data" > {{data}} </option>
+            </select> 
+      </div>
+
+      <div class="mb-3">
+         <label for=""> Description </label>
+         <textarea formControlName="description" name="" id="" cols="5" rows="5" class="form-control" placeholder="description"></textarea>
+      </div>
+     
+      <div class="mb-3">
+         <label for=""> photo du produit (300*300) </label>
+         <input (change)="GetFile($event)" type="file"  name="nom" class="form-control" placeholder="latitude">
+      </div>
+      <div class="row" [align]="'center'">
+         <button mat-raised-button color="primary" [disabled]="loader" (click)="AddProduct()"> 
+            <i *ngIf="loader" class="fa fa-spinner fa-spin"></i>
+           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-plus-lg me-2" viewBox="0 0 16 16">
+             <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+           </svg>
+           Ajouter le produit
+         </button>
+       </div>
+   </form>
   </div>
 </div>
 

@@ -1,29 +1,44 @@
 <mat-dialog-content>
     <h5 [align]="'center'" >Ajout d'un nouveau client</h5>
-    <div class="row">
-        <div class="colmd-4">
-            <input type="text"  name="prenom" class="form-control" placeholder="Prenom(s)">
+    <form [formGroup]="section">
+        <div class="row">
+            <div class="colmd-4">
+                <input type="text" formControlName="prenom"  name="prenom" class="form-control" placeholder="Prenom(s)">
+            </div>
+            <div class="colmd-4">
+                <input type="text" formControlName="family"   name="nom" class="form-control" placeholder="Nom de famille">
+            </div>
         </div>
-        <div class="colmd-4">
-            <input type="text"   name="nom" class="form-control" placeholder="Nom de famille">
+        <div class="row">
+            <div class="colmd-4">
+                <input type="date" formControlName="date"  name="date" class="form-control" placeholder="Date de naissance">
+            </div>
+            <div class="colmd-4">
+                <select name="" formControlName="genre" id="" [value]="'Homme'" class="form-control">
+                    <option value="Homme"> Homme </option>
+                    <option value="Femme">Femme</option>
+                </select>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="colmd-4">
-            <input type="text"  name="numero" class="form-control" placeholder="Numéro de téléphone">
+        <div class="row">
+            <div class="colmd-4">
+                <input type="text" formControlName="numero"  name="numero" class="form-control" placeholder="Numéro de téléphone">
+            </div>
+            <div class="colmd-4">
+                <input type="text" formControlName="email"   name="email" class="form-control" placeholder="E-mail">
+            </div>
         </div>
-        <div class="colmd-4">
-            <input type="text"   name="email" class="form-control" placeholder="E-mail">
+        <div class="row">
+            <div class="colmd-4">
+                <input type="text" formControlName="password"  name="password" class="form-control" placeholder="Mot de passe">
+            </div>
+    
         </div>
-    </div>
-    <div class="row">
-        <div class="colmd-4">
-            <input type="text"   name="password" class="form-control" placeholder="Mot de passe">
-        </div>
-
-    </div>
+    </form>
+    
     <div [align]="'center'" class="mt-2">
-     <button mat-raised-button   color="primary">
+     <button mat-raised-button   color="primary" (click)="AddUser()">
+        <i *ngIf="loader" class="fa fa-spinner fa-spin"></i>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-plus-lg me-2" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
       </svg>

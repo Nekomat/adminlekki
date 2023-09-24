@@ -33,9 +33,10 @@ export class AddPharmacieComponent {
   loader=false
   public AddPharmacie(){
     try {
-      this.loader=true
-      if(this.Section.valid){
+      
+      if(this.Section.valid){ 
         if(this.file){
+          this.loader=true
       //add picture to the database
       const refProductImge = ref(this.storage , "Pharmacie/"+this.file.name) 
       uploadBytes(refProductImge,this.file).then(async(snapshot)=>{
@@ -52,9 +53,9 @@ export class AddPharmacieComponent {
           longitude:this.Section.value.longitude,
           latitude:this.Section.value.latitude,
           img:linkPhoto,
-          email:"Phar"+this.Section.value.name+"@lekki.web.app",
+          email: `Phar${this.Section.value.name}@@lekki.web.app`,
           password:this.generateP(),
-          time:Timestamp.now()
+          time:Timestamp.now() 
          })
          this.loader=false
        alert('Pharmacie ajoutée avec succes')
@@ -62,6 +63,7 @@ export class AddPharmacieComponent {
       })
         }else{
           alert('Veuillez bien remplir le formulaire')
+          
         }
       
       }else{

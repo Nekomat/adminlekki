@@ -1,0 +1,28 @@
+h1 {
+  font-size: 32px !important;
+  font-weight: 600 !important;
+  color: white;
+}
+
+.logo {
+  border-radius: 10px;
+  border: 1px solid #eee;
+}
+
+h4 {
+  color: white;
+  //font-weight: 500 !important;
+  font-size: 20px !important;
+  text-overflow: ellipsis;
+  max-width: 250px;
+  overflow: hidden;
+}
+
+span {
+  color: #38a934;
+}
+
+.backg {
+  border-bottom: 0.2px solid white;
+  padding-bottom: 5px;
+}

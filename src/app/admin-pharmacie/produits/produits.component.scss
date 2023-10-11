@@ -1,36 +1,39 @@
-
-.content{
-    :hover{
-        background-color: white;
-        cursor: pointer;
-    }
+.content {
+  :hover {
+    background-color: white;
+    cursor: pointer;
+  }
 }
 
-
-.sticky-top{
+.sticky-top {
   background-color: #fafafa;
 }
 
-button{
-  background-color: #38A934!important;
+button {
+  background-color: #38a934 !important;
   color: white;
   border-radius: 30px;
 }
 
-button:hover{
-  svg{
-    color: #ffb800;
-  }
-}
-
-.recherche{
+.recherche {
   border-radius: 30px;
-  border-color: #38A934;
+  border-color: #38a934;
 }
 
-#recherche{
+#recherche {
   background-color: white;
-  svg{
-    fill: #38A934;
+  svg {
+    fill: #38a934;
   }
+}
+
+.content1 {
+  background: #3b3c3d;
+  color: white;
+  height: calc(100vh - 69px);
+  overflow: scroll;
+}
+
+tr {
+  color: white;
 }

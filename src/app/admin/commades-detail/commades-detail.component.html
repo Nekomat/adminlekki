@@ -1,126 +1,213 @@
-
-
-<div [align]="'center'" class="position-absolute top-50 start-50 translate-middle" *ngIf="loader">
-    <div class="spinner-grow" style="width: 6rem; height: 6rem; color: #0590e6;" role="status">
-      <span class="visually-hidden">Loading...</span>
-    </div>
+<div
+  [align]="'center'"
+  class="position-absolute top-50 start-50 translate-middle"
+  *ngIf="loader"
+>
+  <div
+    class="spinner-grow"
+    style="width: 6rem; height: 6rem; color: #38a934"
+    role="status"
+  >
+    <span class="visually-hidden">Loading...</span>
   </div>
-  
-  <div class="container-fluidA px-3" *ngIf="!loader" >
-  <div class="row my-3 text-center" >
-      <a (click)="GoBack()" class="icon-link icon-link-hover" style="--bs-link-hover-color-rgb: 25, 135, 84; text-decoration: none;" >
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-left mb-1" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
-        </svg>
-        Retourner à la liste
-      </a>
-  
-    <div class="col-md-4 py-2 mb-2 codeID mx-auto " >
+</div>
+
+<div class="container-fluid px-3" *ngIf="!loader">
+  <div class="row my-3 text-center">
+    <a
+      (click)="GoBack()"
+      class="icon-link icon-link-hover"
+      style="--bs-link-hover-color-rgb: 25, 135, 84; text-decoration: none"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="currentColor"
+        class="bi bi-arrow-left mb-1"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+        />
+      </svg>
+      Retourner à la liste
+    </a>
+
+    <div class="col-md-4 py-2 mb-2 codeID mx-auto">
       <h2 class="my-0 text-center">
-        Commande N°<span class="code"> {{oneCommande.code}} </span>
+        Commande N°<span class="code"> {{ oneCommande.code }} </span>
       </h2>
     </div>
-    <h5 class="my-2">Reçue le <span class="colorBlue"> {{oneCommande.date}}</span></h5>
-  
+    <h5 class="my-2">
+      Reçue le <span class="colorGreen"> {{ oneCommande.date }}</span>
+    </h5>
+
     <div>
-      <button (click)="OpenStatus()" mat-raised-button color="primary"  class="ajouter px-3"  >
-        {{oneCommande.status}}
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+      <button
+        (click)="OpenStatus()"
+        mat-raised-button
+        color="primary"
+        class="ajouter px-3"
+      >
+        {{ oneCommande.status }}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          fill="currentColor"
+          class="bi bi-chevron-down"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
+          />
         </svg>
       </button>
     </div>
   </div>
-  
+
   <div class="container-fluid px-0 mx-0">
     <div class="row mb-5">
-      <div class="col-md-5" >
-  
+      <div class="col-md-5">
         <div class="row">
           <h3 class="colorYellow">Facturation</h3>
-          <ul class=" ms-3 list-group list-group-flush commandes">
-  
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              <div class="size">
-                Sous-total :
-              </div>
-              <span class="badge  rounded-pill" style="color: black; font-weight: 400;"> {{oneCommande.st.toLocaleString('en-US')}} GNF</span>
+          <ul class="ms-3 list-group list-group-flush commandes">
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center"
+            >
+              <div class="size">Sous-total :</div>
+              <span
+                class="badge rounded-pill"
+                style="color: black; font-weight: 400"
+              >
+                {{ oneCommande.st.toLocaleString("en-US") }} GNF</span
+              >
             </li>
-  
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              <div class="size">
-                Frais de services :
-              </div>
-              <span class="badge  rounded-pill" style="color: black; font-weight: 400;">{{oneCommande.fs.toLocaleString('en-US')}}  GNF</span>
+
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center"
+            >
+              <div class="size">Frais de services :</div>
+              <span
+                class="badge rounded-pill"
+                style="color: black; font-weight: 400"
+                >{{ oneCommande.fs.toLocaleString("en-US") }} GNF</span
+              >
             </li>
-  
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              <div class="size">
-                Coût de livraison :
-              </div>
-              <span class="badge  rounded-pill" style="color: black; font-weight: 400;">{{oneCommande.ft.toLocaleString('en-US')}} GNF</span>
+
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center"
+            >
+              <div class="size">Coût de livraison :</div>
+              <span
+                class="badge rounded-pill"
+                style="color: black; font-weight: 400"
+                >{{ oneCommande.ft.toLocaleString("en-US") }} GNF</span
+              >
             </li>
-  
-  
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              <div class="size colorBlue">
-                Total :
-              </div>
-              <span class="badge  rounded-pill" style="color: #38A934; font-weight: 400;"> {{oneCommande.total.toLocaleString('en-US')}}  GNF</span>
+
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center"
+            >
+              <div class="size colorBlue">Total :</div>
+              <span
+                class="badge rounded-pill"
+                style="color: #38a934; font-weight: 400"
+              >
+                {{ oneCommande.total.toLocaleString("en-US") }} GNF</span
+              >
             </li>
           </ul>
         </div>
-  
-      <div class="row mt-3">
-        <h3 class="colorYellow">Livraison</h3>
+
+        <div class="row mt-3">
+          <h3 class="colorYellow">Livraison</h3>
           <div class="card col-md-12 ms-3">
-            <ul class="list-group list-group-flush align-middle" >
+            <ul class="list-group list-group-flush align-middle">
               <li class="list-group-item align-middle">
                 <div class="row">
                   <div class="size col-md-6 my-auto">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-geo-alt me-1 colorYellow mb-1" viewBox="0 0 16 16">
-                      <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
-                      <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      fill="currentColor"
+                      class="bi bi-geo-alt me-1 colorYellow mb-1"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"
+                      />
+                      <path
+                        d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
+                      />
                     </svg>
                     Adresse :
                   </div>
-                  <div class="col-md-6 text-start size colorBlue"> {{oneCommande.lieux}} </div>
+                  <div class="col-md-6 text-start size colorBlue">
+                    {{ oneCommande.lieux }}
+                  </div>
                 </div>
               </li>
-  
+
               <li class="list-group-item">
                 <div class="row">
                   <div class="size col-md-6">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-telephone-outbound me-2 colorYellow mb-1" viewBox="0 0 16 16">
-                      <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zM11 .5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-4.146 4.147a.5.5 0 0 1-.708-.708L14.293 1H11.5a.5.5 0 0 1-.5-.5z"/>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="currentColor"
+                      class="bi bi-telephone-outbound me-2 colorYellow mb-1"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zM11 .5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-4.146 4.147a.5.5 0 0 1-.708-.708L14.293 1H11.5a.5.5 0 0 1-.5-.5z"
+                      />
                     </svg>
                     Numéro de livraison :
                   </div>
-                  <div class="col-md-6 text-start size colorBlue">{{oneCommande.numero}} </div>
-                </div>
-              </li>
-            </ul>
-  
-          <small>Date</small>
-          <div class="card mb-3">
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">
-                <div class="row">
-                  <div class="size col-md-6">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-geo me-1 colorYellow mb-1" viewBox="0 0 16 16">
-                      <path fill-rule="evenodd" d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z"/>
-                    </svg>
-                    Date
+                  <div class="col-md-6 text-start size colorGreen">
+                    {{ oneCommande.numero }}
                   </div>
-                  <div class="col-md-6 text-start size colorBlue"> {{oneCommande.timeDelivry}} </div>
                 </div>
               </li>
             </ul>
+
+            <small>Date</small>
+            <div class="card mb-3">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="size col-md-6">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        fill="currentColor"
+                        class="bi bi-geo me-1 colorYellow mb-1"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z"
+                        />
+                      </svg>
+                      Date
+                    </div>
+                    <div class="col-md-6 text-start size colorGreen">
+                      {{ oneCommande.timeDelivry }}
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
-          </div>
-      </div>
-  
-  
+        </div>
+
         <div class="row mt-3">
           <h3 class="colorYellow">Identité du client</h3>
           <div class="card col-md-12 ms-3">
@@ -128,76 +215,136 @@
               <li class="list-group-item">
                 <div class="row">
                   <div class="size col-md-6">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person me-1 colorYellow mb-1" viewBox="0 0 16 16">
-                      <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      fill="currentColor"
+                      class="bi bi-person me-1 colorYellow mb-1"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"
+                      />
                     </svg>
                     Code ID :
                   </div>
-                  <div class="col-md-6 text-start size colorBlue">{{oneCommande.userCode}}  </div>
+                  <div class="col-md-6 text-start size colorGreen">
+                    {{ oneCommande.userCode }}
+                  </div>
                 </div>
               </li>
-  
+
               <li class="list-group-item">
                 <div class="row">
                   <div class="size col-md-6">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person me-1 colorYellow mb-1" viewBox="0 0 16 16">
-                      <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      fill="currentColor"
+                      class="bi bi-person me-1 colorYellow mb-1"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"
+                      />
                     </svg>
                     Prénom(s) :
                   </div>
-                  <div class="col-md-6 text-start size colorBlue"> {{oneCommande.userName}} </div>
+                  <div class="col-md-6 text-start size colorGreen">
+                    {{ oneCommande.userName }}
+                  </div>
                 </div>
               </li>
-  
+
               <li class="list-group-item">
                 <div class="row">
                   <div class="size col-md-6">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-telephone-outbound me-2 colorYellow mb-1" viewBox="0 0 16 16">
-                      <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zM11 .5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-4.146 4.147a.5.5 0 0 1-.708-.708L14.293 1H11.5a.5.5 0 0 1-.5-.5z"/>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="currentColor"
+                      class="bi bi-telephone-outbound me-2 colorYellow mb-1"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zM11 .5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-4.146 4.147a.5.5 0 0 1-.708-.708L14.293 1H11.5a.5.5 0 0 1-.5-.5z"
+                      />
                     </svg>
                     Numéro de téléphone :
                   </div>
-                  <div class="col-md-6 text-start size colorBlue"> {{oneCommande.userNumero}} </div>
+                  <div class="col-md-6 text-start size colorGreen">
+                    {{ oneCommande.userNumero }}
+                  </div>
                 </div>
               </li>
             </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mx-auto">
+        <div class="container-fluid">
+          <h3 class="colorYellow">Produits commandés</h3>
+          <div
+            class="card cardProduct overflow-y-auto ms-3"
+            style="max-height: 70vh"
+          >
+            <ul
+              class="list-group list-group-flush"
+              *ngFor="let data of oneCommande.produtcs"
+            >
+              <li class="d-flex list-group-item align-middle">
+                <div class="col-md-5 mx-auto text-center d-flex align-middle">
+                  <h3
+                    class="my-auto colorBlue d-flex rounded-pill py-2 px-2 align-middle"
+                    style="background-color: #eee"
+                  >
+                    {{ data.qty }}
+                    <span style="color: black" class="d-inline-block mt-1 me-1"
+                      >x</span
+                    >
+                  </h3>
+                  <img
+                    width="150"
+                    class="mx-auto"
+                    height="150"
+                    [src]="data.img"
+                    alt=""
+                  />
+                </div>
+                <div class="col-md-7 my-auto">
+                  <h5>{{ data.name }}</h5>
+                  <h5 class="colorGreen prix">
+                    {{ data.price.toLocaleString("en-US") }} GNF
+                  </h5>
+                  <div class="row">
+                    <h5 class="d-inline-block colorGreen">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        fill="currentColor"
+                        class="bi bi-shop colorYellow mb-1 me-1"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z"
+                        />
+                      </svg>
+                      {{ data.pharName }}
+                    </h5>
+                  </div>
+                </div>
+              </li>
+            </ul>
+
+            <div class="row"></div>
+          </div>
         </div>
       </div>
     </div>
-  
-    <div class="col-md-6 mx-auto">
-  
-        <div class="container-fluid">
-          <h3 class="colorYellow"> Produits commandés </h3>
-          <div class="card cardProduct overflow-y-auto ms-3" style="max-height:70vh;">
-            <ul class="list-group list-group-flush "  *ngFor="let data of oneCommande.produtcs">
-              <li class="d-flex list-group-item align-middle">
-                  <div class="col-md-5 mx-auto text-center d-flex align-middle"  >
-                    <h3 class="my-auto colorBlue d-flex rounded-pill py-2 px-2 align-middle" style="background-color: #eee;"> {{data.qty}} <span style="color: black;" class="d-inline-block mt-1 me-1">x</span></h3>
-                    <img width="150" class="mx-auto" height="150" [src]="data.img" alt="">
-                  </div>
-                  <div class="col-md-7 my-auto" >
-                     <h5> {{data.name}} </h5>
-                     <h5 class="colorBlue prix"> {{data.price.toLocaleString('en-US')}} GNF</h5>
-                     <div class="row">
-                      <h5 class="d-inline-block colorBlue">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-shop colorYellow mb-1 me-1" viewBox="0 0 16 16">
-                          <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z"/>
-                        </svg>
-                          {{data.pharName}}
-                      </h5>
-                     </div>
-                  </div>
-              </li>
-            </ul>
-  
-            <div class="row"  >
-  
-            </div>
-           </div>
-        </div>
-    </div>
   </div>
-  </div>
-  </div>
-  
+</div>

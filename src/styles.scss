@@ -1,7 +1,6 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@use '@angular/material' as mat;
+@use "@angular/material" as mat;
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -13,36 +12,36 @@
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $md-mcgpalette0: (
-    50 : #e7f5e7,
-    100 : #c3e5c2,
-    200 : #9cd49a,
-    300 : #74c371,
-    400 : #56b652,
-    500 : #38a934,
-    600 : #32a22f,
-    700 : #2b9827,
-    800 : #248f21,
-    900 : #177e15,
-    A100 : #b6ffb4,
-    A200 : #84ff81,
-    A400 : #52ff4e,
-    A700 : #39ff35,
-    contrast: (
-        50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #000000,
-        400 : #000000,
-        500 : #ffffff,
-        600 : #ffffff,
-        700 : #ffffff,
-        800 : #ffffff,
-        900 : #ffffff,
-        A100 : #000000,
-        A200 : #000000,
-        A400 : #000000,
-        A700 : #000000,
-    )
+  50: #e7f5e7,
+  100: #c3e5c2,
+  200: #9cd49a,
+  300: #74c371,
+  400: #56b652,
+  500: #38a934,
+  600: #32a22f,
+  700: #2b9827,
+  800: #248f21,
+  900: #177e15,
+  A100: #b6ffb4,
+  A200: #84ff81,
+  A400: #52ff4e,
+  A700: #39ff35,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
 );
 $lekkiadmin-primary: mat.define-palette($md-mcgpalette0);
 $lekkiadmin-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
@@ -52,13 +51,15 @@ $lekkiadmin-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$lekkiadmin-theme: mat.define-light-theme((
-  color: (
-    primary: $lekkiadmin-primary,
-    accent: $lekkiadmin-accent,
-    warn: $lekkiadmin-warn,
+$lekkiadmin-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $lekkiadmin-primary,
+      accent: $lekkiadmin-accent,
+      warn: $lekkiadmin-warn,
+    ),
   )
-));
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -67,5 +68,39 @@ $lekkiadmin-theme: mat.define-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.backg {
+  background: #3b3c3d !important;
+}
+
+.bgGreen {
+  background-color: #38a934;
+}
+
+.bgBlack {
+  background-color: #000;
+}
+
+.colorGreen {
+  color: #38a934;
+}
+
+.colorBlack {
+  color: #000;
+}
+
+.bgWhite {
+  background-color: white;
+}
+
+.colorWhite {
+  color: white;
+}

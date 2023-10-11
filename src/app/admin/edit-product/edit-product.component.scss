@@ -1,74 +1,102 @@
 //Général
-.bgBlue{
-    background-color: #0590e6;
-  }
-  
-  .bgYellow{
-    background-color: #ffb800;
-  }
-  
-  .colorBlue{
-    color: #0590e6;
-  }
-  
-  .colorYellow{
-    color: #ffb800;
-  }
-  
-  .bgWhite{
-    background-color: white;
-  }
-  
-  .colorWhite{
-    color: white;
-  }
-  
-  .inlineBlock{
-    display: inline-block;
-  }
-  
-  
-  .form-control{
-      margin: 4px;
-  }
-  button{
-      //margin: 8px;
-  }
-  
-  label{
-    padding-bottom: 4px;
-    //padding-left: 3px;
-    font-weight: 500;
-  }
-  
-  hr{
-    margin-top: 2px;
-    margin-bottom: 16px;
-    color: #0590e6;
-  }
-  
-  small{
-    color: #0590e6;
-  }
-  
-  h5{
-    color: #0590e6;
-  }
-  
-  #mettreAjour{
-    background-color: #38A934!important;
-    border-radius: 30px;
-    font-size: 18px;
-  }
-  
-  #supprimer{
-    background-color: red!important;
-    border-radius: 30px;
-    color: white;
-    font-size: 18px;
-  }
-  
-  .titre{
-    font-size: 24px;
-  }
-  
+.bgGreen {
+  background-color: #38a934;
+}
+
+.bgBlack {
+  background-color: #000;
+}
+
+.colorGreen {
+  color: #38a934;
+}
+
+.colorBlack {
+  color: #000;
+}
+
+.bgWhite {
+  background-color: white;
+}
+
+.colorWhite {
+  color: white;
+}
+
+.inlineBlock {
+  display: inline-block;
+}
+
+.form-control {
+  margin: 4px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  //justify-content: space-between;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+img {
+  width: 145px;
+  height: 145px;
+  margin-right: 8px;
+}
+
+label {
+  padding-bottom: 4px;
+  //padding-left: 3px;
+  font-weight: 500;
+}
+
+hr {
+  margin-top: 2px;
+  margin-bottom: 16px;
+  color: #38a934;
+}
+
+small {
+  color: #38a934;
+}
+
+h5 {
+  color: #38a934;
+}
+
+#mettreAjour {
+  background-color: #38a934 !important;
+  border-radius: 30px;
+  font-size: 18px;
+}
+
+#supprimer {
+  background-color: red !important;
+  border-radius: 30px;
+  color: white;
+  font-size: 18px;
+}
+
+.titre {
+  font-size: 24px;
+}
+
+button {
+  color: white !important;
+  border-radius: 100px;
+  width: 90%;
+}
+
+.titre {
+  font-size: 24px;
+  text-align: center;
+}
+
+mat-dialog-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

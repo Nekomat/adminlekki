@@ -1,145 +1,441 @@
 <app-head></app-head>
-<div style="margin: 8px;" *ngIf="onePharmacie">
-    <mat-tab-group >
-        <mat-tab label="Detail">
-           <form [formGroup]="Section">
-            <div class="row">
-              <div class="col-md-4">
-                <div class="mb-3">
-                    <label for="">Nom de la pharmacie</label> 
-                    <input type="text" formControlName="name"  name="nom" class="form-control" placeholder="le nom de la pharmacie">
-                 </div> 
-              </div>
-              
-      
-              <div class="col-md-4">
-                <div class="mb-3">
-                    <label for="">Contact</label>
-                    <input type="number" formControlName="contact"  name="nom" class="form-control" placeholder="contact">
-                 </div>
-              </div>
-
-              <div class="col-md-4">
-                 <div class="mb-3">
-                  <label for="">Heure d'ouverture</label>
-                    <input type="time" formControlName="openHour"  name="nom" class="form-control" placeholder="heure d'ouverture">
-                 </div>
-              </div>
-              <div class="col-md-4">
-                <div class="mb-3">
-                    <label for="">Heure de fermeture</label>
-                    <input type="time" formControlName="closeHour"  name="nom" class="form-control" placeholder="heure de fermeture">
-                 </div>
-             </div>
-            
-
-             <div class="col-md-4">
-               <div class="mb-3">
-             <label for=""> longitude </label>
-            <input type="number" formControlName="longitude" name="nom" class="form-control" placeholder="longitude">
-           </div>
-             </div>
-
-             <div class="col-md-4">
-
-                <div class="mb-3">
-                <label for=""> latitude </label>
-                <input type="number" formControlName="latitude"  name="nom" class="form-control" placeholder="latitude">
-                 </div>
-              </div>
-              <div class="col-md-4">
-                <div class="mb-3">
-                    <label for=""> Description </label>
-                    <textarea formControlName="description" name="" id="" cols="2" rows="2" class="form-control" placeholder="description"></textarea>
-                 </div>
-             </div>
-
-             <div class="col-md-4">
-                <div class="mb-3">
-                    <img [src]="onePharmacie.img" width="100" height="100" alt="">
-                 </div>
-             </div>
-
-             <div class="col-md-4"> 
-                <label for=""> changer de logo </label> 
-                <input type="file"  name="nom" class="form-control" placeholder="latitude">
-             </div>
-
-             <div class="col-md-4"> 
-              <label for=""> user name </label> 
-              <input type="text"  formControlName="userName"  name="nom" class="form-control" placeholder="latitude">
-           </div>
-          
-           <div class="col-md-4"> 
-            <label for=""> password </label> 
-            <input type="text"  formControlName="password" name="nom" class="form-control" placeholder="latitude">
-         </div>
-
+<div class="content1" *ngIf="onePharmacie">
+  <mat-tab-group>
+    <mat-tab label="Information sur la pharmacie">
+      <form class="px-3 flex" [formGroup]="Section">
+        <div class="first">
+          <P>Ouvertures</P>
+          <div class="jour">
+            <div class="ouvert">
+              <p>Lundi :</p>
+              <select name="" id="">
+                <option value="ouverte" selected>Ouverte</option>
+                <option value="fermee">Fermée</option>
+              </select>
             </div>
-          </form>
-                <div class="button">
-                    <button (click)="Update()" mat-raised-button color="primary" [disabled]="loader"> Mettre à jour </button>
-                </div>
-                
-                <div class="button">
-                    <button mat-raised-button color="warn" [disabled]="loaderDelete" (click)="delete()"> <i *ngIf="loaderDelete" class="fa fa-spinner fa-spin"></i> Supprimer </button>
-                </div>
-        </mat-tab>
-        <mat-tab label="Commandes">
-          <table class="table table-hover text-center">
-            <thead class="head align-middle">
-              <tr>
-                <th scope="col">N°</th>
-                <th scope="col">Client(e)</th>
-                <th scope="col">Date de commande</th>
-                <th scope="col">Date de livraison</th>
-                <th scope="col">Lieu de livraison</th>
-                <th scope="col">Numéro de livraison</th>
-                <th scope="col">Méthode de paiement</th>
-                <th scope="col">Statut</th>
-              </tr>
-            </thead>
-            <tbody class="align-middle">
-              <tr (click)=" GoToCommandeDetail(data.id)"  *ngFor="let data of onePharmacie.commandes">
-                <th scope="row"> {{data.code}} </th>
-                <td> {{data.userName}} </td> 
-                <td> {{data.date}} </td>
-                <td> {{data.timeDelivry}}  </td>
-                <td class="adresse"> {{data.lieux}} </td>
-                <td> {{data.numero}} </td>
-                <td> payer à la livraison</td>
-                <td class="status"> {{data.status}} <i  class="bi bi-arrow-right-circle icon-arrow"  ></i> </td>
-              </tr>
-            </tbody>
-          </table>
-        </mat-tab>
-        <mat-tab label="Produits">
-             <div class="row" style="margin: 4px;">
-               <div class="col-md-6">
-                <input type="search" placeholder="rechercher un produit" name="" id="" class="form-control">
-               </div>
-               <div class="col-md-6">
-                <button class="butto" (click)="OpenDialog()" >  <i class="bi bi-plus"></i> <span>Ajouter produit</span>  </button>
-               </div>
-             </div>
-            <table class="table table-hover">
-                <thead class="head text-center" >
-                  <tr>
-                    <th scope="col">Nom du produit</th>
-                    <th scope="col">Categorie</th>
-                    <th scope="col">poids</th>
-                    <th scope="col">Prix</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="content"  *ngFor="let data of onePharmacie.products" (click)="OpenEditDualog(data)" >
-                    <th class="ps-2"> {{data.name}} </th>
-                    <td class="text-center"> {{data.cateName}} </td>
-                      <td class="text-center"> {{data.poids}} </td>
-                    <td class="text-center"> {{data.price.toLocaleString('en-US')}} GNF </td>
-                  </tr>
-                </tbody>
-              </table>
-        </mat-tab>
-      </mat-tab-group>
+            <div class="mb-3 form">
+              <label for="">Heure d'ouverture</label>
+              <input
+                type="time"
+                formControlName="openHour"
+                name="nom"
+                class="form-control"
+                placeholder="heure d'ouverture"
+              />
+            </div>
+
+            <div class="mb-3 form">
+              <label for="">Heure de fermeture</label>
+              <input
+                type="time"
+                formControlName="closeHour"
+                name="nom"
+                class="form-control"
+                placeholder="heure de fermeture"
+              />
+            </div>
+          </div>
+
+          <div class="jour">
+            <div class="ouvert">
+              <p>Mardi :</p>
+              <select name="" id="">
+                <option value="ouverte" selected>Ouverte</option>
+                <option value="fermee">Fermée</option>
+              </select>
+            </div>
+            <div class="mb-3 form">
+              <label for="">Heure d'ouverture</label>
+              <input
+                type="time"
+                formControlName="openHour"
+                name="nom"
+                class="form-control"
+                placeholder="heure d'ouverture"
+              />
+            </div>
+
+            <div class="mb-3 form">
+              <label for="">Heure de fermeture</label>
+              <input
+                type="time"
+                formControlName="closeHour"
+                name="nom"
+                class="form-control"
+                placeholder="heure de fermeture"
+              />
+            </div>
+          </div>
+
+          <div class="jour">
+            <div class="ouvert">
+              <p>Mercredi :</p>
+              <select name="" id="">
+                <option value="ouverte" selected>Ouverte</option>
+                <option value="fermee">Fermée</option>
+              </select>
+            </div>
+            <div class="mb-3 form">
+              <label for="">Heure d'ouverture</label>
+              <input
+                type="time"
+                formControlName="openHour"
+                name="nom"
+                class="form-control"
+                placeholder="heure d'ouverture"
+              />
+            </div>
+
+            <div class="mb-3 form">
+              <label for="">Heure de fermeture</label>
+              <input
+                type="time"
+                formControlName="closeHour"
+                name="nom"
+                class="form-control"
+                placeholder="heure de fermeture"
+              />
+            </div>
+          </div>
+
+          <div class="jour">
+            <div class="ouvert">
+              <p>Jeudi :</p>
+              <select name="" id="">
+                <option value="ouverte" selected>Ouverte</option>
+                <option value="fermee">Fermée</option>
+              </select>
+            </div>
+            <div class="mb-3 form">
+              <label for="">Heure d'ouverture</label>
+              <input
+                type="time"
+                formControlName="openHour"
+                name="nom"
+                class="form-control"
+                placeholder="heure d'ouverture"
+              />
+            </div>
+
+            <div class="mb-3 form">
+              <label for="">Heure de fermeture</label>
+              <input
+                type="time"
+                formControlName="closeHour"
+                name="nom"
+                class="form-control"
+                placeholder="heure de fermeture"
+              />
+            </div>
+          </div>
+
+          <div class="jour">
+            <div class="ouvert">
+              <p>Vendredi :</p>
+              <select name="" id="">
+                <option value="ouverte" selected>Ouverte</option>
+                <option value="fermee">Fermée</option>
+              </select>
+            </div>
+            <div class="mb-3 form">
+              <label for="">Heure d'ouverture</label>
+              <input
+                type="time"
+                formControlName="openHour"
+                name="nom"
+                class="form-control"
+                placeholder="heure d'ouverture"
+              />
+            </div>
+
+            <div class="mb-3 form">
+              <label for="">Heure de fermeture</label>
+              <input
+                type="time"
+                formControlName="closeHour"
+                name="nom"
+                class="form-control"
+                placeholder="heure de fermeture"
+              />
+            </div>
+          </div>
+
+          <div class="jour">
+            <div class="ouvert">
+              <p>Samedi :</p>
+              <select name="" id="">
+                <option value="ouverte" selected>Ouverte</option>
+                <option value="fermee">Fermée</option>
+              </select>
+            </div>
+            <div class="mb-3 form">
+              <label for="">Heure d'ouverture</label>
+              <input
+                type="time"
+                formControlName="openHour"
+                name="nom"
+                class="form-control"
+                placeholder="heure d'ouverture"
+              />
+            </div>
+
+            <div class="mb-3 form">
+              <label for="">Heure de fermeture</label>
+              <input
+                type="time"
+                formControlName="closeHour"
+                name="nom"
+                class="form-control"
+                placeholder="heure de fermeture"
+              />
+            </div>
+          </div>
+
+          <div class="jour">
+            <div class="ouvert">
+              <p>Dimanche :</p>
+              <select name="" id="">
+                <option value="ouverte" selected>Ouverte</option>
+                <option value="fermee">Fermée</option>
+              </select>
+            </div>
+            <div class="mb-3 form">
+              <label for="">Heure d'ouverture</label>
+              <input
+                type="time"
+                formControlName="openHour"
+                name="nom"
+                class="form-control"
+                placeholder="heure d'ouverture"
+              />
+            </div>
+
+            <div class="mb-3 form">
+              <label for="">Heure de fermeture</label>
+              <input
+                type="time"
+                formControlName="closeHour"
+                name="nom"
+                class="form-control"
+                placeholder="heure de fermeture"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="second">
+          <div class="mb-3">
+            <label for="">Nom de la pharmacie</label>
+            <input
+              type="text"
+              formControlName="name"
+              name="nom"
+              class="form-control"
+              placeholder="le nom de la pharmacie"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="">Numéro de téléphone</label>
+            <input
+              type="number"
+              formControlName="contact"
+              name="nom"
+              class="form-control"
+              placeholder="contact"
+            />
+          </div>
+          <div class="flex">
+            <div class="mb-3">
+              <img [src]="onePharmacie.img" width="100" height="100" alt="" />
+            </div>
+
+            <div id="grow">
+              <label for=""> Changer la photo de couverture </label>
+              <input
+                type="file"
+                name="nom"
+                class="form-control"
+                placeholder="latitude"
+              />
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for=""> Longitude </label>
+            <input
+              type="number"
+              formControlName="longitude"
+              name="nom"
+              class="form-control"
+              placeholder="longitude"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for=""> Latitude </label>
+            <input
+              type="number"
+              formControlName="latitude"
+              name="nom"
+              class="form-control"
+              placeholder="latitude"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for=""> Description </label>
+            <textarea
+              formControlName="description"
+              name=""
+              id=""
+              cols="2"
+              rows="2"
+              class="form-control"
+              placeholder="description"
+            ></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label for=""> Nom d'utilisateur </label>
+            <input
+              type="text"
+              formControlName="userName"
+              name="nom"
+              class="form-control"
+              placeholder="latitude"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for=""> Mot de passe actuel </label>
+            <input
+              type="text"
+              formControlName="password"
+              name="nom"
+              class="form-control"
+              placeholder="latitude"
+            />
+          </div>
+
+          <div class="boutton">
+            <button
+              (click)="Update()"
+              mat-raised-button
+              color="primary"
+              [disabled]="loader"
+            >
+              Mettre à jour
+            </button>
+
+            <button
+              mat-raised-button
+              color="warn"
+              [disabled]="loaderDelete"
+              (click)="delete()"
+            >
+              <i *ngIf="loaderDelete" class="fa fa-spinner fa-spin"></i>
+              Supprimer
+            </button>
+          </div>
+        </div>
+      </form>
+    </mat-tab>
+    <mat-tab label="Commandes">
+      <table class="px-2 table table-hover text-center">
+        <thead class="head align-middle">
+          <tr>
+            <th scope="col">N°</th>
+            <th scope="col">Client(e)</th>
+            <th scope="col">Date de commande</th>
+            <th scope="col">Date de livraison</th>
+            <th scope="col">Lieu de livraison</th>
+            <th scope="col">Numéro de livraison</th>
+            <th scope="col">Méthode de paiement</th>
+            <th scope="col">Statut</th>
+          </tr>
+        </thead>
+        <tbody class="align-middle">
+          <tr
+            (click)="GoToCommandeDetail(data.id)"
+            *ngFor="let data of onePharmacie.commandes"
+          >
+            <th scope="row">{{ data.code }}</th>
+            <td>{{ data.userName }}</td>
+            <td>{{ data.date }}</td>
+            <td>{{ data.timeDelivry }}</td>
+            <td class="adresse">{{ data.lieux }}</td>
+            <td>{{ data.numero }}</td>
+            <td>payer à la livraison</td>
+            <td class="status">
+              {{ data.status }}
+              <i class="bi bi-arrow-right-circle icon-arrow"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-tab>
+    <mat-tab label="Produits">
+      <div class="flex sticky-top py-3">
+        <div class="text-center">
+          <button
+            mat-raised-button
+            (click)="OpenDialog()"
+            color="primary"
+            class="ajouter"
+            style="color: #fff"
+          >
+            Ajouter un nouveau produit
+          </button>
+        </div>
+        <div class="grow text-start">
+          <div class="input-group">
+            <span class="input-group-text recherche" id="recherche">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                class="bi bi-search colorBlue"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                />
+              </svg>
+            </span>
+            <input
+              type="text"
+              class="form-control recherche"
+              placeholder="Faire une recherche rapide"
+            />
+          </div>
+        </div>
+      </div>
+
+      <table class="px-2 table table-hover">
+        <thead class="head text-center">
+          <tr>
+            <th scope="col">Nom du produit</th>
+            <th scope="col">Categorie</th>
+            <th scope="col">poids</th>
+            <th scope="col">Prix</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            class="content"
+            *ngFor="let data of onePharmacie.products"
+            (click)="OpenEditDualog(data)"
+          >
+            <th class="ps-2">{{ data.name }}</th>
+            <td class="text-center">{{ data.cateName }}</td>
+            <td class="text-center">{{ data.poids }}</td>
+            <td class="text-center">
+              {{ data.price.toLocaleString("en-US") }} GNF
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-tab>
+  </mat-tab-group>
 </div>

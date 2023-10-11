@@ -1,88 +1,63 @@
-//Général
-.bgBlue{
-    background-color: #38A934;
+.textdEnvoie {
+  font-size: 22px;
+  line-height: 2rem;
+}
+
+//Body
+
+.quantite {
+  background-color: #ffb800 !important;
+}
+.ajouter {
+  background-color: #38a934;
+  color: white;
+  border-radius: 30px;
+  font-size: 18px;
+}
+
+.ajouter:hover {
+  svg {
+    color: #000;
   }
-  
-  .bgYellow{
-    background-color: #ffb800;
+}
+
+.annuler {
+  border-radius: 30px;
+  font-size: 18px;
+}
+
+textarea {
+  font-size: 18px;
+  line-height: 2rem;
+  border-color: #38a934;
+  border-radius: 20px;
+  cursor: text;
+}
+
+label {
+  font-size: 20px;
+  padding-top: 3px;
+}
+
+.form-check-input {
+  font-size: 20px;
+  margin-left: 0;
+  margin-right: 8px;
+}
+
+.form-check-input:checked {
+  background-color: #38a934;
+  border-color: #38a934;
+}
+
+li {
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.annulerCommande {
+  color: red;
+  input:checked {
+    background-color: red;
   }
-  
-  .colorBlue{
-    color: #38A934;
-  }
-  
-  .colorYellow{
-    color: #ffb800;
-  }
-  
-  .bgWhite{
-    background-color: white;
-  }
-  
-  .colorWhite{
-    color: white;
-  }
-  
-  .textdEnvoie{
-    font-size: 22px;
-    line-height: 2rem;
-  }
-  
-  //Body
-  
-  .quantite{
-    background-color: #ffb800!important;
-  }
-  .ajouter{
-    background-color: #38A934;
-    border-radius: 30px;
-    font-size: 18px;
-  }
-  
-  .ajouter:hover{
-    svg{
-      color: #ffb800;
-    }
-  }
-  
-  .annuler{
-    border-radius: 30px;
-    font-size: 18px;
-  }
-  
-  textarea{
-    font-size: 18px;
-    line-height: 2rem;
-    border-color: #38A934;
-    border-radius: 20px;
-    cursor: text;
-  }
-  
-  label{
-    font-size: 20px;
-    padding-top: 3px;
-  }
-  
-  .form-check-input{
-    font-size: 20px;
-    margin-left: 0;
-    margin-right: 8px;
-  }
-  
-  .form-check-input:checked {
-    background-color: #38A934;
-    border-color: #38A934;
-  }
-  
-  li{
-    padding-bottom: 20px;
-    padding-top: 20px;
-  }
-  
-  .annulerCommande{
-    color: red;
-    input:checked{
-      background-color: red;
-    }
-  }
-  
+}

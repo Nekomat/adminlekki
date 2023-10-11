@@ -1,67 +1,68 @@
-
 .container-fluid {
   background: #3b3c3d;
   height: 100vh;
 }
 
-.button{
+.button {
   width: 400px;
-    padding: 6px;
-    color: white;
-    border-radius: 100px;
-    border: 2px solid #38A934;
-    background-color: #38A934;
+  padding: 6px;
+  color: white;
+  border-radius: 100px;
+  border: 2px solid #38a934;
+  background-color: #38a934;
 
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    transition: border 1s;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  transition: border 1s;
 }
 
-.button:hover{
+.button:hover {
   border-color: #fff;
 }
 
-.button > span{
+.button > span {
   font-size: 18px;
 }
 
-
-.pharmacie-card{
-    display: flex;
-    flex-flow: wrap;
-    margin: auto;
+.pharmacie-card {
+  display: flex;
+  flex-flow: wrap;
+  margin: auto;
 }
 
-.Pcard{
-    margin: 8px;
+.Pcard:hover {
+  transform: translateY(-5px);
+  transition: transform 0.5s;
 }
 
-.Pcard:hover{
-    cursor: pointer;
+.Pcard {
+  margin: 8px;
 }
 
+.Pcard:hover {
+  cursor: pointer;
+}
 
 //entete
 
-.entete{
+.entete {
   display: flex;
   justify-content: space-around;
 }
 
-
-.recherche{
+.recherche {
   border-radius: 30px;
-  border-color: #38A934;
+  border-color: #38a934;
 }
 
-#recherche{
+#recherche {
   background-color: white;
-  svg{
-    fill: #38A934;
+  svg {
+    fill: #38a934;
   }
 }
 
-.input-group{
+.input-group {
   width: 700px;
 }

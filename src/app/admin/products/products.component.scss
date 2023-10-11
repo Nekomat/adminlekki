@@ -1,58 +1,56 @@
-
-.container-fluid, .backg{
-    background-color: #3b3c3d!important;
+.container-fluid {
+  background-color: #3b3c3d !important;
+  overflow-y: auto;
 }
 
 .container-fluid {
   height: 100vh;
 }
-.content{
-    :hover{
-        background-color: white;
-        cursor: pointer;
-    }
+.content {
+  :hover {
+    background-color: white;
+    cursor: pointer;
+  }
 }
-tbody{
-    max-height: 500px;
-    overflow: scroll;
+tbody {
+  max-height: 500px;
+  overflow: scroll;
 }
 
-.table          {
+.table {
   overflow: auto;
   height: 100px;
 }
-.table thead th { position: sticky; top: 70px; z-index: 1; background-color: #38A934; color: white;}
+.table thead th {
+  position: sticky;
+  top: 70px;
+  z-index: 1;
+  background-color: #38a934;
+  color: white;
+}
 
-
-button{
-  background-color: #38A934!important;
+button {
+  background-color: #38a934 !important;
   color: white;
   border-radius: 30px;
 }
 
-button:hover{
-  svg{
-    color: #38A934;
-  }
-}
-
-.recherche{
+.recherche {
   border-radius: 30px;
-  border-color: #38A934;
+  border-color: #38a934;
 }
 
-#recherche{
+#recherche {
   background-color: white;
-  svg{
-    fill: #38A934;
+  svg {
+    fill: #38a934;
   }
 }
 
-
-tr{
+tr {
   color: white;
 }
 
-tr:hover{
+tr:hover {
   background-color: white;
 }

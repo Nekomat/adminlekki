@@ -1,18 +1,26 @@
-<mat-toolbar>
-    <mat-toolbar-row class="shadow">
-      <nav class="navbar col-md-12">
-        <div class="container-fluid">
-          <h4 class="my-0"> {{Date}} </h4>
-          <h1 class="colorYellow my-0">Tableau de bord</h1>
-          <form class="d-flex my-auto" *ngIf=" OnePharmacie">
-            <img  width="55px" [src]="OnePharmacie.img" class="rounded-pill logoPartenaire" alt="LogoPartenaire">
-            <div class="ps-2">
-              <h4 class="mb-0">Admin pharmacie</h4>
-              <span class="depuis ps-1 inlineBlock"><span class=""> {{ OnePharmacie.name}} </span></span>
-            </div>
-          </form>
-        </div>
-      </nav>
-    </mat-toolbar-row>
-  </mat-toolbar>
-
+<mat-toolbar class="backg colorWhite sticky-top">
+  <mat-toolbar-row>
+    <nav class="navbar col-md-12">
+      <div class="container-fluid">
+        <!--<h4 class="my-0"> {{Date}} </h4>-->
+        <h1>Tableau de bord</h1>
+        <form class="d-flex my-auto" *ngIf="OnePharmacie">
+          <img
+            width="55px"
+            [src]="OnePharmacie.img"
+            class="logo"
+            alt="LogoPartenaire"
+          />
+          <div class="ps-2 my-auto">
+            <h4 class="mb-0">
+              {{ OnePharmacie.name }}
+            </h4>
+            <span class="depuis ps-1 inlineBlock"
+              ><span class=""> Administrateur </span></span
+            >
+          </div>
+        </form>
+      </div>
+    </nav>
+  </mat-toolbar-row>
+</mat-toolbar>

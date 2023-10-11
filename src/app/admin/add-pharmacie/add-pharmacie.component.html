@@ -1,55 +1,106 @@
-<div class="container" mat-dialog-content>
-    <h1 [align]="'center'" mat-dialog-title  class="titre colorBlue">Ajout d'une pharmacie</h1>
-  <div class="row mt-1 mb-3">
-   <form [formGroup]="Section" >
-      <div class="mb-3">
-         <label for="">Nom de la pharmacie</label> 
-         <input type="text" formControlName="name"  name="nom" class="form-control" placeholder="le nom de la pharmacie">
-      </div> 
- 
-      <div class="mb-3">
-         <label for="">Contact</label>
-         <input type="number" formControlName="contact"  name="nom" class="form-control" placeholder="numéro d'appel">
-      </div>
- 
-      <div class="mb-3">
-         <label for="">Heure d'ouverture</label>
-         <input type="time" formControlName="openHour"  name="nom" class="form-control" placeholder="heure d'ouverture">
-      </div>
-      
-      <div class="mb-3">
-         <label for="">Heure de fermeture</label>
-         <input type="time" formControlName="closeHour"  name="nom" class="form-control" placeholder="heure de fermeture">
-      </div>
- 
-      <div class="mb-3">
-         <label for=""> Description </label>
-         <textarea formControlName="description" name="" id="" cols="5" rows="5" class="form-control" placeholder="description"></textarea>
-      </div>
- 
-      <div class="mb-3">
-         <label for=""> longitude </label>
-         <input type="number" formControlName="longitude"  name="nom" class="form-control" placeholder="longitude">
-      </div>
- 
-      <div class="mb-3">
-         <label for=""> latitude </label>
-         <input type="number" formControlName="latitude"  name="nom" class="form-control" placeholder="latitude">
-      </div>
-      <div class="mb-3">
-         <label for=""> logo </label>
-         <input type="file" (change)="TakeImg($event)"  name="nom" class="form-control" placeholder="latitude">
-      </div>
-      <div class="row" [align]="'center'">
-         <button mat-raised-button [disabled]="loader" color="primary" (click)="AddPharmacie()" > <i *ngIf="loader" class="fa fa-spinner fa-spin"></i>
-           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-plus-lg me-2" viewBox="0 0 16 16">
-             <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
-           </svg>
-           Ajouter la pharmacie 
-         </button>
-       </div>
-   </form>
-    
+<h1 mat-dialog-title class="titre shadow colorGreen">Ajout d'une pharmacie</h1>
+<mat-dialog-content>
+  <form class="py-2" [formGroup]="Section">
+    <div class="mb-3">
+      <label for="">Nom de la pharmacie</label>
+      <input
+        type="text"
+        formControlName="name"
+        name="nom"
+        class="form-control"
+        placeholder="nom de la pharmacie"
+      />
+    </div>
 
-  </div>
-</div>
+    <div class="mb-3">
+      <label for="">Numéro de téléphone</label>
+      <input
+        type="number"
+        formControlName="contact"
+        name="nom"
+        class="form-control"
+        placeholder="numéro de téléphone"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="">Heure d'ouverture</label>
+      <input
+        type="time"
+        formControlName="openHour"
+        name="nom"
+        class="form-control"
+        placeholder="heure d'ouverture"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="">Heure de fermeture</label>
+      <input
+        type="time"
+        formControlName="closeHour"
+        name="nom"
+        class="form-control"
+        placeholder="heure de fermeture"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for=""> Description </label>
+      <textarea
+        formControlName="description"
+        name=""
+        id=""
+        cols="5"
+        rows="5"
+        class="form-control"
+        placeholder="description"
+      ></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for=""> Longitude </label>
+      <input
+        type="number"
+        formControlName="longitude"
+        name="nom"
+        class="form-control"
+        placeholder="longitude"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for=""> Latitude </label>
+      <input
+        type="number"
+        formControlName="latitude"
+        name="nom"
+        class="form-control"
+        placeholder="latitude"
+      />
+    </div>
+    <div class="mb-3">
+      <label for=""> Photo de couverture </label>
+      <input
+        type="file"
+        (change)="TakeImg($event)"
+        name="nom"
+        class="form-control"
+        placeholder="latitude"
+      />
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions class="shadow">
+  <button
+    mat-raised-button
+    [disabled]="loader"
+    class="mx-auto"
+    (click)="AddPharmacie()"
+    color="primary"
+  >
+    <i *ngIf="loader" class="fa fa-spinner fa-spin"></i>
+
+    Ajouter la pharmacie
+  </button>
+</mat-dialog-actions>

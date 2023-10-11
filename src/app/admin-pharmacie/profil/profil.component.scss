@@ -1,5 +1,97 @@
 .button {
-    display: inline-block;
-    margin: 4px;
-    margin-left: 50px;
+  display: inline-block;
+  margin: 4px;
+  margin-left: 50px;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-around;
+
+  flex-wrap: wrap;
+}
+
+.first,
+.second {
+  flex-grow: 1;
+  margin: 10px;
+}
+
+button {
+  color: white !important;
+  border-radius: 100px;
+  flex-grow: 1;
+  margin: 8px;
+}
+
+i {
+  font-size: 20px;
+}
+
+.boutton {
+  display: flex;
+  justify-content: space-around;
+}
+
+img {
+  border-radius: 15px;
+  margin-right: 10px;
+}
+
+#grow {
+  flex-grow: 1;
+}
+
+.recherche {
+  border-radius: 30px;
+  border-color: #38a934;
+}
+
+#recherche {
+  background-color: white;
+
+  svg {
+    fill: #38a934;
+  }
+}
+
+.grow {
+  flex-grow: 0.5;
+}
+
+.content1 {
+  background: #3b3c3d;
+  color: white;
+  height: calc(100vh - 69px);
+  overflow: scroll;
+}
+
+.jour {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border: 1px solid #fff;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.form {
+  flex-grow: 0.3;
+}
+
+.jour p {
+  width: 80px;
+  margin: 0;
+  //flex-grow: 0.3;
+}
+
+form {
+  background-color: #3b3c3d;
+  color: white;
+  overflow: scroll;
+}
+
+.content {
 }

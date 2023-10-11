@@ -1,120 +1,98 @@
-//Général
-.bgBlue{
-    background-color: #38A934;
-  }
+.inlineBlock {
+  display: inline-block;
+}
 
-  .bgYellow{
-    background-color: #ffb800;
-  }
+.content {
+  background: #3b3c3d;
+  height: 100vh;
+  width: 100%;
+  overflow-y: auto;
+}
 
-  .colorBlue{
-    color: #38A934;
-  }
+//liste des membres
+.recherche {
+  border-radius: 30px;
+  border-color: #38a934;
+}
 
-  .colorYellow{
-    color: #ffb800;
+#recherche {
+  background-color: white;
+  svg {
+    fill: #38a934;
   }
+}
 
-  .bgWhite{
-    background-color: white;
-  }
+.table {
+  overflow: auto;
+  height: 100px;
+}
+.table thead th {
+  position: sticky;
+  top: 70px;
+  z-index: 1;
+  background-color: #38a934;
+  color: white;
+}
 
-  .colorWhite{
-    color: white;
-  }
+.sticky-top {
+  top: 0;
+}
 
-  .inlineBlock{
-    display: inline-block;
-  }
+button {
+  background-color: #38a934 !important;
+  color: white;
+  border-radius: 30px;
+}
 
-  .content{
-    background: #3b3c3d;
-    height: 100vh;
-  }
+.col {
+  align-items: center;
+}
 
+.toolbar-item-spacer {
+  flex: 1 1 auto;
+}
 
-
-  //liste des membres
-  .recherche{
-    border-radius: 30px;
-    border-color: #38A934;
-  }
-
-  #recherche{
-    background-color: white;
-    svg{
-      fill: #38A934;
-    }
-  }
-
-  .table {
-    overflow: auto;
-    height: 100px;
-  }
-  .table thead th { position: sticky; top: 70px; z-index: 1; background-color: #38A934; color: white;}
-
-  .sticky-top{
-    top: 0;
-  }
-
-  button{
-    background-color: #38A934!important;
-    color: white;
-    border-radius: 30px;
-  }
-
-  .col {
-    align-items: center;
-  }
-
-
-  .toolbar-item-spacer {
-      flex: 1 1 auto;
-  }
-
-  .app-container {
-      height: 100%;
-      margin: 0;
-
-  }
-  .app-sidenav {
-      width: 230px;
-      color: white;
-  }
-  .app-sidenav-content {
-      display: flex;
-      height: 100%;
-      align-items: center;
-      justify-content: center;
-  }
-  .div{
-      display: inline;
-  }
-  .date{
-      margin-left: 200px;
-      margin-top: 40px;
-  }
-  /*.row{
+.app-container {
+  height: 100%;
+  margin: 0;
+}
+.app-sidenav {
+  width: 230px;
+  color: white;
+}
+.app-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.div {
+  display: inline;
+}
+.date {
+  margin-left: 200px;
+  margin-top: 40px;
+}
+/*.row{
       margin-top: 10px;
       input{
           margin: 2px;
       }
   }*/
-  .table :hover{
-      cursor: pointer;
+.table :hover {
+  cursor: pointer;
+}
 
+.ajouter:hover {
+  svg {
+    color: #ffb800;
   }
+}
 
-  .ajouter:hover{
-    svg{
-      color: #ffb800;
-    }
-  }
+tr {
+  color: white;
+}
 
-  tr{
-    color: white;
-  }
-
-  tr:hover{
-    background-color: white;
-  }
+tr:hover {
+  background-color: white;
+}

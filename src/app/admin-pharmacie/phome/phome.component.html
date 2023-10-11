@@ -1,172 +1,260 @@
 <!--en tete-->
 <app-phead></app-phead>
-  
-<div [align]="'center'" class="loader position-absolute top-50 start-50 translate-middle" *ngIf="loader">
-  <div class="spinner-grow" style="width: 6rem; height: 6rem; color: #0590e6;" role="status">
+
+<div *ngIf="loader" [align]="'center'" class="container-fluid">
+  <div
+    class="spinner-grow position-absolute top-50 start-50 translate-middle"
+    style="width: 6rem; height: 6rem; color: #38a934"
+    role="status"
+  >
     <span class="visually-hidden">En chargement...</span>
   </div>
 </div>
 
-<div class="container-fluid px-3 pt-3"  *ngIf="!loader">
- <!--Statistique-->
- <div class="row mt-5 mb-4 me-2">
-  <!--Total effectué-->
-  <div class="card shadow mx-auto pb-3 col-md-3">
-    <div class="row">
-      <div class="col-md-3 text-center bgBlue py-2 rounded-2">
-        <svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" fill="#fff" class="bi bi-wallet2" viewBox="0 0 16 16">
-          <path d="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499L12.136.326zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484L5.562 3zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z"/>
-        </svg>
+<div *ngIf="!loader" class="container-fluid backg px-3 pt-3">
+  <!--Facturation-->
+  <h3>Facturation</h3>
+  <div class="d-flex mt-5 mb-4 me-2">
+    <!--Total effectué-->
+    <div class="card stat-card shadow mx-auto pb-3 position-relative">
+      <div class="absolu position-absolute top-0">Total accumulé</div>
+      <div class="end">
+        <div class="svg">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="65"
+            height="65"
+            fill="#000"
+            class="bi bi-wallet2"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499L12.136.326zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484L5.562 3zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z"
+            />
+          </svg>
+        </div>
       </div>
 
-      <div class="col-md-9 aling-middle my-auto">
-        Total accumulé
-        <h2>{{commandeDetail.total.toLocaleString('en-US')}} GNF</h2>
+      <div class="px-2">
+        <h2>{{ commandeDetail.total.toLocaleString("en-US") }} GNF</h2>
+      </div>
+    </div>
+
+    <!--Total effectué-->
+    <div class="card stat-card shadow mx-auto pb-3">
+      <div class="row">
+        <div class="col-md-3 text-center bgYellow py-2 rounded-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="65"
+            height="65"
+            fill="#000"
+            class="bi bi-shop"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z"
+            />
+          </svg>
+        </div>
+
+        <div class="col-md-9 aling-middle my-auto">
+          Sous-total
+          <h2>{{ commandeDetail.st.toLocaleString("en-US") }} GNF</h2>
+        </div>
+      </div>
+    </div>
+
+    <!--Total effectué-->
+    <div class="card stat-card shadow mx-auto pb-3">
+      <div class="row">
+        <div class="col-md-3 text-center bgYellow py-2 rounded-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="70"
+            height="70"
+            fill="#000"
+            class="bi bi-truck"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"
+            />
+          </svg>
+        </div>
+
+        <div class="col-md-9 aling-middle my-auto">
+          Livraison
+          <h2>{{ commandeDetail.li.toLocaleString("en-US") }} GNF</h2>
+        </div>
       </div>
     </div>
   </div>
 
-  <!--Total effectué-->
-  <div class="card shadow mx-auto pb-3 col-md-3">
-    <div class="row">
-      <div class="col-md-3 text-center bgYellow py-2 rounded-2">
-        <svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" fill="#fff" class="bi bi-shop" viewBox="0 0 16 16">
-          <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z"/>
-        </svg>
-      </div>
+  <div class="row my-5 pt-5">
+    <!--Produits-->
+    <div class="card shadow mx-auto col-md-2">
+      <div class="row">
+        <div class="col-md-3">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="65"
+            height="65"
+            fill="currentColor"
+            class="bi bi-view-list"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M3 4.5h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1H3zM1 2a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 2zm0 12a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 14z"
+            />
+          </svg>
+        </div>
 
-      <div class="col-md-9 aling-middle my-auto">
-        Sous-total
-        <h2>{{commandeDetail.st.toLocaleString('en-US')}} GNF</h2>
+        <div class="col-md-9 text-end">
+          Produits
+          <h2>{{ nbreProduit }}</h2>
+        </div>
+      </div>
+    </div>
+
+    <!--commandes-->
+    <div class="card shadow mx-auto col-md-2">
+      <div class="row">
+        <div class="col-md-3">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="65"
+            height="65"
+            fill="currentColor"
+            class="bi bi-view-list"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M3 4.5h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1H3zM1 2a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 2zm0 12a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 14z"
+            />
+          </svg>
+        </div>
+
+        <div class="col-md-9 text-end">
+          Commandes
+          <h2>{{ commandeDetail.nbreC }}</h2>
+        </div>
       </div>
     </div>
   </div>
 
+  <!--Commandes-->
+  <div class="row mt-5 me-2">
+    <div>
+      <h3 class="my-3 colorBlue pointor titreCommande">
+        Commandes <i class="bi bi-arrow-right"></i>
+      </h3>
+    </div>
+    <!--Traitement-->
+    <div class="card shadow mx-auto col-md-2">
+      <div class="row">
+        <div class="col-md-3">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="65"
+            height="65"
+            fill="currentColor"
+            class="bi bi-patch-question"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8.05 9.6c.336 0 .504-.24.554-.627.04-.534.198-.815.847-1.26.673-.475 1.049-1.09 1.049-1.986 0-1.325-.92-2.227-2.262-2.227-1.02 0-1.792.492-2.1 1.29A1.71 1.71 0 0 0 6 5.48c0 .393.203.64.545.64.272 0 .455-.147.564-.51.158-.592.525-.915 1.074-.915.61 0 1.03.446 1.03 1.084 0 .563-.208.885-.822 1.325-.619.433-.926.914-.926 1.64v.111c0 .428.208.745.585.745z"
+            />
+            <path
+              d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z"
+            />
+            <path d="M7.001 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0z" />
+          </svg>
+        </div>
 
-
-  <!--Total effectué-->
-  <div class="card shadow mx-auto pb-3 col-md-3 position-relative">
-    <div class="row ">
-      <div class="col-md-3 text-center bgYellow py-2 rounded-2">
-        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="#fff" class="bi bi-truck" viewBox="0 0 16 16">
-          <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-        </svg>
+        <div class="col-md-9 text-end">
+          En traitement
+          <h2>{{ commandeDetail.ct }}</h2>
+        </div>
       </div>
+    </div>
 
-      <div class="col-md-9 aling-middle my-auto">
-        Livraison
-        <h2>{{commandeDetail.li.toLocaleString('en-US')}} GNF</h2>
+    <!--En cours-->
+    <div class="card mx-auto shadow col-md-2">
+      <div class="row">
+        <div class="col-md-3">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="70"
+            height="70"
+            fill="currentColor"
+            class="bi bi-truck"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"
+            />
+          </svg>
+        </div>
+
+        <div class="col-md-9 text-end">
+          En cours de livraison
+          <h2>{{ commandeDetail.ccl }}</h2>
+        </div>
+      </div>
+    </div>
+
+    <!--Livrée-->
+    <div class="card mx-auto shadow bgBlue colorWhite col-md-2">
+      <div class="row">
+        <div class="col-md-3">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="65"
+            height="65"
+            fill="currentColor"
+            class="bi bi-house-door"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z"
+            />
+          </svg>
+        </div>
+
+        <div class="col-md-9 text-end">
+          Livrées
+          <h2>{{ commandeDetail.cl }}</h2>
+        </div>
+      </div>
+    </div>
+
+    <!--Annulées-->
+    <div
+      class="card mx-auto colorWhite shadow col-md-2"
+      style="background-color: red"
+    >
+      <div class="row">
+        <div class="col-md-3">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="65"
+            height="65"
+            fill="currentColor"
+            class="bi bi-trash3"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"
+            />
+          </svg>
+        </div>
+
+        <div class="col-md-9 text-end">
+          Annulées
+          <h2>{{ commandeDetail.ca }}</h2>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
-<div class="row my-5 pt-5">
-
-
-<!--Produits-->
-<div class="card shadow mx-auto col-md-2">
-  <div class="row">
-    <div class="col-md-3">
-      <svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" fill="currentColor" class="bi bi-view-list" viewBox="0 0 16 16">
-        <path d="M3 4.5h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1H3zM1 2a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 2zm0 12a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 14z"/>
-      </svg>
-    </div>
-
-    <div class="col-md-9 text-end">
-      Produits
-      <h2>{{nbreProduit}}</h2>
-    </div>
-  </div>
-</div>
-
- <!--commandes-->
- <div class="card shadow mx-auto col-md-2">
-    <div class="row">
-      <div class="col-md-3">
-        <svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" fill="currentColor" class="bi bi-view-list" viewBox="0 0 16 16">
-          <path d="M3 4.5h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1H3zM1 2a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 2zm0 12a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 14z"/>
-        </svg>
-      </div>
-
-      <div class="col-md-9 text-end">
-        Commandes
-        <h2>{{commandeDetail.nbreC}}</h2>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!--Commandes-->
-<div class="row mt-5 me-2">
-  <div>
-    <h3 class="my-3 colorBlue pointor titreCommande" >Commandes <i class="bi bi-arrow-right"></i></h3>
-  </div>
-  <!--Traitement-->
-  <div class="card shadow mx-auto col-md-2">
-    <div class="row">
-      <div class="col-md-3">
-        <svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" fill="currentColor" class="bi bi-patch-question" viewBox="0 0 16 16">
-          <path d="M8.05 9.6c.336 0 .504-.24.554-.627.04-.534.198-.815.847-1.26.673-.475 1.049-1.09 1.049-1.986 0-1.325-.92-2.227-2.262-2.227-1.02 0-1.792.492-2.1 1.29A1.71 1.71 0 0 0 6 5.48c0 .393.203.64.545.64.272 0 .455-.147.564-.51.158-.592.525-.915 1.074-.915.61 0 1.03.446 1.03 1.084 0 .563-.208.885-.822 1.325-.619.433-.926.914-.926 1.64v.111c0 .428.208.745.585.745z"/>
-          <path d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z"/>
-          <path d="M7.001 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0z"/>
-        </svg>
-      </div>
-
-      <div class="col-md-9 text-end">
-        En traitement
-        <h2>{{commandeDetail.ct}}</h2>
-      </div>
-    </div>
-  </div>
-
-
-  <!--En cours-->
-  <div class="card mx-auto shadow col-md-2">
-    <div class="row">
-      <div class="col-md-3">
-        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-truck" viewBox="0 0 16 16">
-          <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-        </svg>
-      </div>
-
-      <div class="col-md-9 text-end">
-        En cours de livraison
-        <h2>{{commandeDetail.ccl}}</h2>
-      </div>
-    </div>
-  </div>
-
-  <!--Livrée-->
-  <div class="card mx-auto shadow bgBlue colorWhite col-md-2">
-    <div class="row">
-      <div class="col-md-3">
-        <svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
-          <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z"/>
-        </svg>
-      </div>
-
-      <div class="col-md-9 text-end">
-        Livrées
-        <h2>{{commandeDetail.cl}}</h2>
-      </div>
-    </div>
-  </div>
-
-  <!--Annulées-->
-  <div class="card mx-auto colorWhite shadow col-md-2" style="background-color: red;">
-    <div class="row">
-      <div class="col-md-3">
-        <svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
-          <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
-        </svg>
-      </div>
-
-      <div class="col-md-9 text-end">
-        Annulées
-        <h2>{{commandeDetail.ca}}</h2>
-      </div>
-    </div>
-  </div>
-</div>
 </div>

@@ -1,21 +1,316 @@
 <app-phead></app-phead>
-<div style="margin: 4px;" *ngIf="onePharmacie">
+<div class="content1" *ngIf="onePharmacie">
+  <form class="px-3 flex" [formGroup]="Section">
+    <div class="first">
+      <P>Ouvertures</P>
+      <div class="jour">
+        <div class="ouvert">
+          <p>Lundi :</p>
+          <select name="" id="">
+            <option value="ouverte" selected>Ouverte</option>
+            <option value="fermee">Fermée</option>
+          </select>
+        </div>
+        <div class="mb-3 form">
+          <label for="">Heure d'ouverture</label>
+          <input
+            type="time"
+            formControlName="openHour"
+            name="nom"
+            class="form-control"
+            placeholder="heure d'ouverture"
+          />
+        </div>
+
+        <div class="mb-3 form">
+          <label for="">Heure de fermeture</label>
+          <input
+            type="time"
+            formControlName="closeHour"
+            name="nom"
+            class="form-control"
+            placeholder="heure de fermeture"
+          />
+        </div>
+      </div>
+
+      <div class="jour">
+        <div class="ouvert">
+          <p>Mardi :</p>
+          <select name="" id="">
+            <option value="ouverte" selected>Ouverte</option>
+            <option value="fermee">Fermée</option>
+          </select>
+        </div>
+        <div class="mb-3 form">
+          <label for="">Heure d'ouverture</label>
+          <input
+            type="time"
+            formControlName="openHour"
+            name="nom"
+            class="form-control"
+            placeholder="heure d'ouverture"
+          />
+        </div>
+
+        <div class="mb-3 form">
+          <label for="">Heure de fermeture</label>
+          <input
+            type="time"
+            formControlName="closeHour"
+            name="nom"
+            class="form-control"
+            placeholder="heure de fermeture"
+          />
+        </div>
+      </div>
+
+      <div class="jour">
+        <div class="ouvert">
+          <p>Mercredi :</p>
+          <select name="" id="">
+            <option value="ouverte" selected>Ouverte</option>
+            <option value="fermee">Fermée</option>
+          </select>
+        </div>
+        <div class="mb-3 form">
+          <label for="">Heure d'ouverture</label>
+          <input
+            type="time"
+            formControlName="openHour"
+            name="nom"
+            class="form-control"
+            placeholder="heure d'ouverture"
+          />
+        </div>
+
+        <div class="mb-3 form">
+          <label for="">Heure de fermeture</label>
+          <input
+            type="time"
+            formControlName="closeHour"
+            name="nom"
+            class="form-control"
+            placeholder="heure de fermeture"
+          />
+        </div>
+      </div>
+
+      <div class="jour">
+        <div class="ouvert">
+          <p>Jeudi :</p>
+          <select name="" id="">
+            <option value="ouverte" selected>Ouverte</option>
+            <option value="fermee">Fermée</option>
+          </select>
+        </div>
+        <div class="mb-3 form">
+          <label for="">Heure d'ouverture</label>
+          <input
+            type="time"
+            formControlName="openHour"
+            name="nom"
+            class="form-control"
+            placeholder="heure d'ouverture"
+          />
+        </div>
+
+        <div class="mb-3 form">
+          <label for="">Heure de fermeture</label>
+          <input
+            type="time"
+            formControlName="closeHour"
+            name="nom"
+            class="form-control"
+            placeholder="heure de fermeture"
+          />
+        </div>
+      </div>
+
+      <div class="jour">
+        <div class="ouvert">
+          <p>Vendredi :</p>
+          <select name="" id="">
+            <option value="ouverte" selected>Ouverte</option>
+            <option value="fermee">Fermée</option>
+          </select>
+        </div>
+        <div class="mb-3 form">
+          <label for="">Heure d'ouverture</label>
+          <input
+            type="time"
+            formControlName="openHour"
+            name="nom"
+            class="form-control"
+            placeholder="heure d'ouverture"
+          />
+        </div>
+
+        <div class="mb-3 form">
+          <label for="">Heure de fermeture</label>
+          <input
+            type="time"
+            formControlName="closeHour"
+            name="nom"
+            class="form-control"
+            placeholder="heure de fermeture"
+          />
+        </div>
+      </div>
+
+      <div class="jour">
+        <div class="ouvert">
+          <p>Samedi :</p>
+          <select name="" id="">
+            <option value="ouverte" selected>Ouverte</option>
+            <option value="fermee">Fermée</option>
+          </select>
+        </div>
+        <div class="mb-3 form">
+          <label for="">Heure d'ouverture</label>
+          <input
+            type="time"
+            formControlName="openHour"
+            name="nom"
+            class="form-control"
+            placeholder="heure d'ouverture"
+          />
+        </div>
+
+        <div class="mb-3 form">
+          <label for="">Heure de fermeture</label>
+          <input
+            type="time"
+            formControlName="closeHour"
+            name="nom"
+            class="form-control"
+            placeholder="heure de fermeture"
+          />
+        </div>
+      </div>
+
+      <div class="jour">
+        <div class="ouvert">
+          <p>Dimanche :</p>
+          <select name="" id="">
+            <option value="ouverte" selected>Ouverte</option>
+            <option value="fermee">Fermée</option>
+          </select>
+        </div>
+        <div class="mb-3 form">
+          <label for="">Heure d'ouverture</label>
+          <input
+            type="time"
+            formControlName="openHour"
+            name="nom"
+            class="form-control"
+            placeholder="heure d'ouverture"
+          />
+        </div>
+
+        <div class="mb-3 form">
+          <label for="">Heure de fermeture</label>
+          <input
+            type="time"
+            formControlName="closeHour"
+            name="nom"
+            class="form-control"
+            placeholder="heure de fermeture"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="second">
+      <div class="mb-3">
+        <label for="">Nom de ma pharmacie</label>
+        <input
+          type="text"
+          formControlName="name"
+          name="nom"
+          class="form-control"
+          placeholder="le nom de la pharmacie"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="">Numéro de téléphone</label>
+        <input
+          type="number"
+          formControlName="contact"
+          name="nom"
+          class="form-control"
+          placeholder="contact"
+        />
+      </div>
+      <div class="flex">
+        <div class="mb-3">
+          <img [src]="onePharmacie.img" width="100" height="100" alt="" />
+        </div>
+
+        <div id="grow">
+          <label for=""> Changer ma photo de couverture </label>
+          <input
+            type="file"
+            name="nom"
+            class="form-control"
+            placeholder="latitude"
+          />
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for=""> Longitude </label>
+        <input
+          type="number"
+          formControlName="longitude"
+          name="nom"
+          class="form-control"
+          placeholder="longitude"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for=""> Latitude </label>
+        <input
+          type="number"
+          formControlName="latitude"
+          name="nom"
+          class="form-control"
+          placeholder="latitude"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for=""> Description de ma pharmacie </label>
+        <textarea
+          formControlName="description"
+          name=""
+          id=""
+          cols="2"
+          rows="2"
+          class="form-control"
+          placeholder="description"
+        ></textarea>
+      </div>
+    </div>
+  </form>
+  <!--
    <form [formGroup]="Section">
       <div class="row">
          <div class="col-md-4">
            <div class="mb-3">
-               <label for="">Nom de la pharmacie</label> 
+               <label for="">Nom de la pharmacie</label>
                <input type="text" formControlName="name"  name="nom" class="form-control" placeholder="le nom de la pharmacie">
-            </div> 
+            </div>
          </div>
- 
+
          <div class="col-md-4">
            <div class="mb-3">
                <label for="">Contact</label>
                <input type="number" formControlName="contact"  name="nom" class="form-control" placeholder="contact">
             </div>
          </div>
- 
+
          <div class="col-md-4">
             <div class="mb-3">
              <label for="">Heure d'ouverture</label>
@@ -28,17 +323,17 @@
                <input type="time" formControlName="closeHour"  name="nom" class="form-control" placeholder="heure de fermeture">
             </div>
         </div>
-       
- 
+
+
         <div class="col-md-4">
           <div class="mb-3">
         <label for=""> longitude </label>
        <input type="number" formControlName="longitude"  name="nom" class="form-control" placeholder="longitude">
       </div>
         </div>
- 
+
         <div class="col-md-4">
- 
+
            <div class="mb-3">
            <label for=""> latitude </label>
            <input type="number" formControlName="latitude"  name="nom" class="form-control" placeholder="latitude">
@@ -56,23 +351,22 @@
                <textarea formControlName="description" name="" id="" cols="2" rows="2" class="form-control" placeholder="description"></textarea>
             </div>
         </div>
- 
+
         <div class="col-md-4">
            <div class="mb-3">
                <img [src]="onePharmacie.img" width="100" height="100" alt="">
             </div>
         </div>
- 
-        <div class="col-md-4"> 
-           <label for=""> changer de logo </label> 
+
+        <div class="col-md-4">
+           <label for=""> changer de logo </label>
            <input type="file" (change)="TakeImg($event)" name="nom" class="form-control" placeholder="latitude">
         </div>
- 
+
        </div>
            <div class="button" [align]="'center'">
                <button mat-raised-button  color="primary" (click)="Update()"> <i *ngIf="loader" class="fa fa-spinner fa-spi "></i> Mettre à jour </button>
            </div>
    </form>
-    
-          
+  -->
 </div>

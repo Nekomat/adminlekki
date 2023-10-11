@@ -1,48 +1,116 @@
-<h2 mat-dialog-title [align]="'center'" style="font-size: 24px; color: #ffb800;" class="mb-3">Status et envoi de message au client</h2>
+<h2
+  mat-dialog-title
+  [align]="'center'"
+  style="font-size: 24px; color: #000"
+  class="mb-3"
+>
+  Status et envoie de message au client
+</h2>
 <mat-dialog-content>
-    <div class="row">
-        <div class="col-md-4 text-center">
+  <div class="row">
+    <div class="col-md-4 text-center">
+      <ul class="list-group list-group-flush text-start">
+        <li class="list-group-item form-check form-switch">
+          <input
+            class="form-check-input my-auto"
+            type="checkbox"
+            role="switch"
+            id="enTraitement"
+            [checked]="true"
+            [disabled]="true"
+          />
+          <label class="form-check-label my-auto" for="enTraitement"
+            >En traitement</label
+          >
+        </li>
 
-            <ul class="list-group list-group-flush text-start">
-              <li class="list-group-item form-check form-switch">
-                  <input class="form-check-input my-auto" type="checkbox" role="switch" id="enTraitement" [checked]="true" [disabled]="true">
-                  <label class="form-check-label my-auto" for="enTraitement">En traitement</label>
-              </li>
-            
-              <li class="list-group-item form-check form-switch">
-                  <input class="form-check-input my-auto" type="checkbox" (change)="change($event)" role="switch" name="En cour de livraison" id="livraisonEnCours" [checked]="statut[1].checked" [disabled]="statut[1].active"   >
-                  <label class="form-check-label my-auto" for="livraisonEnCours">En cours de livraison</label>
-              </li>
-              <li class="list-group-item form-check form-switch">
-                  <input class="form-check-input my-auto" type="checkbox" (change)="change($event)" role="switch" id="livree" name="Livrée" [checked]="statut[2].checked" [disabled]="statut[2].active"  >
-                  <label class="form-check-label my-auto" for="livree" >Livrée</label>
-              </li>
+        <li class="list-group-item form-check form-switch">
+          <input
+            class="form-check-input my-auto"
+            type="checkbox"
+            (change)="change($event)"
+            role="switch"
+            name="En cour de livraison"
+            id="livraisonEnCours"
+            [checked]="statut[1].checked"
+            [disabled]="statut[1].active"
+          />
+          <label class="form-check-label my-auto" for="livraisonEnCours"
+            >En cours de livraison</label
+          >
+        </li>
+        <li class="list-group-item form-check form-switch">
+          <input
+            class="form-check-input my-auto"
+            type="checkbox"
+            (change)="change($event)"
+            role="switch"
+            id="livree"
+            name="Livrée"
+            [checked]="statut[2].checked"
+            [disabled]="statut[2].active"
+          />
+          <label class="form-check-label my-auto" for="livree">Livrée</label>
+        </li>
 
-              <li class="list-group-item form-check form-switch annulerCommande">
-                  <input class="form-check-input my-auto" type="checkbox" (change)="change($event)" role="switch" id="annuler" name="Annulée" [checked]="statut[3].checked" [disabled]="statut[3].active" >
-                  <label class="form-check-label my-auto" for="annuler">Annuler cette commande</label>
-              </li>
-            </ul>
-
-        </div>
-        <div class="col-md-8" >
-            <div class="row">
-              <small>*Vous pouvez personnaliser le messae en apportant des modifications directements</small>
-              <textarea name="" id="" cols="90" rows="8" [(ngModel)]="Texte" autofocus="autofocus"></textarea>
-            </div>
-            <div class="row mt-3">
-
-            </div>
-        </div>
+        <li class="list-group-item form-check form-switch annulerCommande">
+          <input
+            class="form-check-input my-auto"
+            type="checkbox"
+            (change)="change($event)"
+            role="switch"
+            id="annuler"
+            name="Annulée"
+            [checked]="statut[3].checked"
+            [disabled]="statut[3].active"
+          />
+          <label class="form-check-label my-auto" for="annuler"
+            >Annuler cette commande</label
+          >
+        </li>
+      </ul>
     </div>
+    <div class="col-md-8">
+      <div class="row">
+        <small
+          >*Vous pouvez personnaliser le messae en apportant des modifications
+          directements</small
+        >
+        <textarea
+          name=""
+          id=""
+          cols="90"
+          rows="8"
+          [(ngModel)]="Texte"
+          autofocus="autofocus"
+        ></textarea>
+      </div>
+      <div class="row mt-3"></div>
+    </div>
+  </div>
 </mat-dialog-content>
-<mat-dialog-actions  [align]="'end'" class="gap-4 pt-0">
-  <button class="annuler" mat-raised-button mat-dialog-close  >Annuler</button>
-  <button class="ajouter" mat-raised-button color="primary" [disabled]="loader" (click)="ChangeStatus()"  >
-    <i *ngIf="loader"  class="fa fa-spinner fa-spin"></i>
-       Envoyer le message au client
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-send ms-2" viewBox="0 0 16 16">
-    <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/>
+<mat-dialog-actions [align]="'end'" class="gap-4 pt-0">
+  <button class="annuler" mat-raised-button mat-dialog-close>Annuler</button>
+  <button
+    class="ajouter"
+    mat-raised-button
+    color="primary"
+    [disabled]="loader"
+    (click)="ChangeStatus()"
+  >
+    <i *ngIf="loader" class="fa fa-spinner fa-spin"></i>
+    Envoyer le message au client
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      fill="currentColor"
+      class="bi bi-send ms-2"
+      viewBox="0 0 16 16"
+    >
+      <path
+        d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"
+      />
     </svg>
-    </button>
+  </button>
 </mat-dialog-actions>

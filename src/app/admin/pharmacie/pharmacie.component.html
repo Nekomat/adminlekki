@@ -1,39 +1,79 @@
 <app-head></app-head>
-<div [align]="'center'" *ngIf="loader" class="loader position-absolute top-50 start-50 translate-middle">
-  <div class="spinner-grow" style="width: 6rem; height: 6rem; color: #38a934;" role="status">
+<div
+  [align]="'center'"
+  *ngIf="loader"
+  class="loader position-absolute top-50 start-50 translate-middle"
+>
+  <div
+    class="spinner-grow"
+    style="width: 6rem; height: 6rem; color: #38a934"
+    role="status"
+  >
     <span class="visually-hidden">En chargement...</span>
   </div>
 </div>
 <div class="container-fluid" *ngIf="!loader">
-
-  <div class="">
+  <div>
     <div class="entete">
-      <button class="button" (click)=" OpenAddPharmacie()" >   <span>Ajouter une pharmacie</span> </button>
+      <button class="button" (click)="OpenAddPharmacie()">
+        <span>Ajouter une pharmacie</span>
+      </button>
 
       <div class="input-group">
         <span class="input-group-text recherche" id="recherche">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-search colorBlue" viewBox="0 0 16 16">
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="currentColor"
+            class="bi bi-search colorGreen"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+            />
           </svg>
         </span>
-        <input type="search" [(ngModel)]="word" (input)="OnSearch()" name="" id="" class="form-control recherche" placeholder="Rechercher une pharmacie">
+        <input
+          type="search"
+          [(ngModel)]="word"
+          (input)="OnSearch()"
+          name=""
+          id=""
+          class="form-control recherche"
+          placeholder="Rechercher une pharmacie"
+        />
       </div>
-
-  </div>
-
-    <!--la liste des pharmacie -->
-      <div class="pharmacie-card">
-      <mat-card (click)="GoToOnePharmacie(data.id)" class="Pcard" style="width: 300px;" *ngFor="let data of AllPharmacie">
-           <img class="img" width="300" height="300" mat-card-image [src]="data.img" alt="">
-           <mat-card-footer>
-              <div style="margin-left: 8px; ">
-                  <span> {{data.name}} </span> <br> 
-                  <span> nombre de produit : <span> {{data.nbreP}} </span> </span> <br>
-                  <span> nombre de commande : <span> {{data.nbreC}} </span> </span> 
-              </div>
-           </mat-card-footer>
-      </mat-card>
-       </div>
     </div>
 
+    <!--la liste des pharmacie -->
+    <div class="pharmacie-card">
+      <mat-card
+        (click)="GoToOnePharmacie(data.id)"
+        class="Pcard"
+        style="width: 300px"
+        *ngFor="let data of AllPharmacie"
+      >
+        <img
+          class="img"
+          width="300"
+          height="300"
+          mat-card-image
+          [src]="data.img"
+          alt=""
+        />
+        <mat-card-footer>
+          <div style="margin-left: 8px">
+            <h5>{{ data.name }}</h5>
+            <p>
+              nombre de produits : <span> {{ data.nbreP }} </span>
+            </p>
+            <p>
+              nombre de commandes : <span> {{ data.nbreC }} </span>
+            </p>
+          </div>
+        </mat-card-footer>
+      </mat-card>
+    </div>
+  </div>
 </div>

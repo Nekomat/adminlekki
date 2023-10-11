@@ -1,137 +1,109 @@
-//Général
-.bgBlue{
-    background-color: #38A934;
-  }
-  
-  .bgYellow{
-    background-color: #ffb800;
-  }
-  
-  .colorBlue{
-    color: #38A934;
-  }
-  
-  .colorYellow{
-    color: #ffb800;
-  }
-  
-  .bgWhite{
-    background-color: white;
-  }
-  
-  .colorWhite{
+.inlineBlock {
+  display: inline-block;
+}
+
+a {
+  color: #38a934;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  text-align: start;
+  svg {
     color: white;
   }
-  
-  .inlineBlock{
-    display: inline-block;
+}
+
+a:hover {
+  svg {
+    color: #000;
   }
-  
-  a{
-    color: #38A934;
+}
+
+//body
+
+.codeID {
+  background-color: #38a934;
+  color: white;
+  border-bottom-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+.code {
+  color: #fff;
+  letter-spacing: 4px;
+  display: inline-block;
+  margin-left: 7px;
+}
+
+.ajouter {
+  background-color: #000;
+  border-radius: 30px;
+  font-size: 18px;
+  color: white;
+}
+
+.ajouter:hover {
+  svg {
+    color: #38a934;
+  }
+}
+
+.statut {
+  padding: 2px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  i {
+    font-size: 20px;
+  }
+  :hover {
     cursor: pointer;
-    position: absolute;
-    top: 10px;
-    left: 0px;
-    text-align: start;
-    svg{
-      color: white;
-    }
   }
-  
-  a:hover{
-    svg{
-      color: #ffb800;
-    }
+}
+.client {
+  h6 {
+    margin-left: 10px;
+    color: #38a934;
   }
-  
-  //body
-  
-  .codeID{
-    background-color: #38A934;
-    color: white;
-    border-bottom-left-radius: 50px;
-    border-top-right-radius: 50px;
+  h6:hover {
+    cursor: pointer;
   }
-  
-  .code{
-    color: #ffb800;
-    letter-spacing: 4px;
-    display: inline-block;
-    margin-left: 7px;
+  p {
+    padding-top: 10px;
   }
-  
-  .ajouter{
-    background-color: #ffb800;
-    border-radius: 30px;
-    font-size: 18px;
+}
+.adresse {
+  h6 {
+    margin-left: 10px;
   }
-  
-  .ajouter:hover{
-    svg{
-      color: #38A934;
-    }
-  }
-  
-  .statut{
-      padding: 2px;
-      background-color: darkgoldenrod;
-      color: white;
-      text-align: center;
-      border-radius: 10px;
-      i{
-          font-size: 20px;
-      }
-      :hover{
-          cursor: pointer;
-      }
-  }
-  .client{
-      h6{
-          margin-left: 10px;
-          color: #38A934;
-      }
-      h6:hover{
-          cursor: pointer;
-      }
-      p{
-         padding-top: 10px;
-      }
-  }
-  .adresse{
-      h6{
-          margin-left: 10px;
-      }
-  }
-  
-  .cardProduct{
-    border-color: #38A934;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  
-  .list-group-flush{
-    border-color: #eee;
-  
-  }
-  
-  
-  .size{
-    font-size: 20px;
-  }
-  
-  li span{
-    font-size: 20px;
-    display: inline-block;
-  }
-  
-  
-  small{
-    margin-top: 10px;
-  }
-  
-  .prix{
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-  
+}
+
+.cardProduct {
+  border-color: #38a934;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.list-group-flush {
+  border-color: #eee;
+}
+
+.size {
+  font-size: 20px;
+}
+
+li span {
+  font-size: 20px;
+  display: inline-block;
+}
+
+small {
+  margin-top: 10px;
+}
+
+.prix {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

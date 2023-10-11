@@ -1,50 +1,67 @@
-  <app-head></app-head>
-  <div class="content">
-    <div class="row sticky-top py-3">
-      <div class="col-md-6 text-center">
-          <button mat-raised-button color="primary" class="ajouter" (click)="OpenSaveClient()" >
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-plus-lg me-1" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
-            </svg>
-            Ajouter un nouveau client 
-          </button>
-      </div>
-      <div class="col-md-5 text-start">
-        <div class="input-group">
-          <span class="input-group-text recherche" id="recherche">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-search colorBlue" viewBox="0 0 16 16">
-              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-            </svg>
-          </span>
-          <input type="text" (input)="Search()" [(ngModel)]="word" class="form-control recherche"  placeholder="Faire une recherche rapide">
-        </div>
+<app-head></app-head>
+<div class="content">
+  <div class="row py-3">
+    <div class="col-md-6 text-center">
+      <button
+        mat-raised-button
+        color="primary"
+        class="ajouter"
+        style="color: #fff"
+        (click)="OpenSaveClient()"
+      >
+        Ajouter un nouveau client
+      </button>
+    </div>
+    <div class="col-md-5 text-start">
+      <div class="input-group">
+        <span class="input-group-text recherche" id="recherche">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="currentColor"
+            class="bi bi-search colorBlue"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+            />
+          </svg>
+        </span>
+        <input
+          type="text"
+          (input)="Search()"
+          [(ngModel)]="word"
+          class="form-control recherche"
+          placeholder="Faire une recherche rapide"
+        />
       </div>
     </div>
-    <table class="table table-hover text-center align-middle">
-      <thead class="head" >
-        <tr>
-          <th scope="col">Code ID</th>
-          <th scope="col">Prenom(s)</th>
-          <th scope="col">Nom</th>
-          <th scope="col">Date de naissance</th>
-          <th scope="col">Genre</th>
-          <th scope="col">Numéro</th>
-          <th scope="col">E-mail</th>
-          <th>Date d'inscription</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr (click)="GoToOneClient(data.id)"  *ngFor="let data of allUser" >
-          <th scope="row" > {{data.code}}  </th>
-          <td> {{data.name}} </td>
-           <td> {{data.family}} </td>
-           <td> {{data.date}} </td>
-           <td> {{data.genre}} </td>
-           <td> {{data.numero}} </td>   
-           <td> {{data.email}} </td>
-           <td> {{data.Date}} </td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-  
+  </div>
+  <table class="table table-hover text-center align-middle">
+    <thead class="head">
+      <tr>
+        <th scope="col">Code ID</th>
+        <th scope="col">Prenom(s)</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Date de naissance</th>
+        <th scope="col">Genre</th>
+        <th scope="col">Numéro</th>
+        <th scope="col">E-mail</th>
+        <th>Date d'inscription</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr (click)="GoToOneClient(data.id)" *ngFor="let data of allUser">
+        <th scope="row">{{ data.code }}</th>
+        <td>{{ data.name }}</td>
+        <td>{{ data.family }}</td>
+        <td>{{ data.date }}</td>
+        <td>{{ data.genre }}</td>
+        <td>{{ data.numero }}</td>
+        <td>{{ data.email }}</td>
+        <td>{{ data.Date }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,23 +1,146 @@
+//Général
+.bgGreen {
+  background-color: #38a934;
+}
+
+.bgBlack {
+  background-color: #000;
+}
+
+.colorGreen {
+  color: #38a934;
+}
+
+.colorBlack {
+  color: #000;
+}
+
+.bgWhite {
+  background-color: white;
+}
+
+.colorWhite {
+  color: white;
+}
+
 .button {
-    display: inline-block;
-    margin: 4px;
-    margin-left: 50px;
+  display: inline-block;
+  margin: 4px;
+  margin-left: 50px;
 }
 
+.flex {
+  display: flex;
+  justify-content: space-around;
 
-.sticky-top{
-  background-color: #fafafa;
-  top: 0;
+  flex-wrap: wrap;
 }
 
+.first,
+.second {
+  flex-grow: 1;
+  margin: 10px;
+}
 
-.butto{
-    padding: 6px;
-    color: white;
-    border-radius: 10px;
-    background-color: #38A934;
-    border-color: white;
-    i{
-        font-size: 20px;
-    }
+button {
+  color: white !important;
+  border-radius: 100px;
+  flex-grow: 1;
+  margin: 8px;
+}
+
+i {
+  font-size: 20px;
+}
+
+.boutton {
+  display: flex;
+  justify-content: space-around;
+}
+
+img {
+  border-radius: 15px;
+  margin-right: 10px;
+}
+
+#grow {
+  flex-grow: 1;
+}
+
+.table :hover {
+  cursor: pointer;
+}
+
+tr {
+  color: white;
+}
+
+tr:hover {
+  background-color: white;
+}
+
+.recherche {
+  border-radius: 30px;
+  border-color: #38a934;
+}
+
+#recherche {
+  background-color: white;
+
+  svg {
+    fill: #38a934;
+  }
+}
+
+.grow {
+  flex-grow: 0.5;
+}
+
+.table {
+  overflow: auto;
+  height: 100px;
+}
+
+.table thead th {
+  position: sticky;
+  top: 70px;
+  z-index: 1;
+  background-color: #38a934;
+  color: white;
+}
+
+.content1 {
+  background: #3b3c3d;
+  color: white;
+  height: 100vh;
+}
+
+mat-tab-group {
+  --mat-tab-header-inactive-label-text-color: #fff;
+  --mat-tab-header-inactive-hover-label-text-color: #fff;
+}
+
+.jour {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border: 1px solid #fff;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.form {
+  flex-grow: 0.3;
+}
+
+.jour p {
+  width: 80px;
+  margin: 0;
+  //flex-grow: 0.3;
+}
+
+form {
+  background-color: #3b3c3d;
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CommandeDetailComponent } from './admin-pharmacie/commande-detail/commande-detail.component';
 import { MessagesComponent } from './admin-pharmacie/messages/messages.component';
 import { PcommandesComponent } from './admin-pharmacie/pcommandes/pcommandes.component';
 import { PhomeComponent } from './admin-pharmacie/phome/phome.component';
@@ -72,7 +73,7 @@ const routes: Routes = [
  },
  {
   path:"admin_pharmacie_commende_detail/:id",
-  component:CommadesDetailComponent
+  component:CommandeDetailComponent
  },
  {
   path:"admin_pharmacie_messages",

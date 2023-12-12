@@ -27,6 +27,7 @@ export class PaddProductComponent implements OnInit {
   poids:['',[Validators.required]],
   categories:['',[Validators.required]],
   description:['',[Validators.required]],
+  smallDescribe:[""]
  })
  file:any 
  TakeImg(event){
@@ -35,7 +36,8 @@ export class PaddProductComponent implements OnInit {
  onPharmacie:any
 async ngOnInit() {
    let getid = this.route.snapshot.paramMap.get('id') 
-   const refPharmacie = await getDoc(doc(this.fire,"PHARMACIES",getid)) 
+   console.log(getid);
+   const refPharmacie = await getDoc(doc(this.fire,"PHARMACIES",this.service.adminPharId)) 
     if(refPharmacie.exists()){  
       this.onPharmacie = refPharmacie.data() 
     } 
@@ -59,14 +61,16 @@ sousCate=""
       setDoc(refDoc,{ 
         id:refDoc.id,
         name:this.section.value.name,
-        price:this.section.value.price,
+        price:this.section.value.prix,
         poids:this.section.value.poids,
         pharId:this.service.adminPharId,
         pharName:this.onPharmacie.name,
         photo:linkImg,
-        cateName:this.sousCate,
+        cateName:this.section.value,
         description:this.section.value.description,
         time:Timestamp.now() ,
+        smallDescribe:this.section.value.smallDescribe,
+        disponible:'true'
       })
       this.loader = false 
       this.dialogCtrl.closeAll()
@@ -75,6 +79,7 @@ sousCate=""
       alert('Veuillez ajouter une photo')
     }
   }else{
+    console.log(this.section.value)
     alert("Veuillez bien remplir le formulaire")
   }
  }

@@ -29,6 +29,13 @@
          <label for=""> Description </label>
          <textarea name="" id="" formControlName="description" cols="5" rows="5" class="form-control" placeholder="description"></textarea>
       </div>
+      <div class="mb-3">
+         <label for=""> disponibilité </label>
+         <select formControlName="disponible" class="form-control">
+           <option value="true"> disponible </option>
+           <option value="false"> Indisponible </option>
+         </select>
+         </div>
 
       <div class="mb-3">
          <label for=""> logo </label>
@@ -37,7 +44,7 @@
    </form>
 
      <div class="row gap-3 text-end">
-        <button id="mettreAjour" mat-raised-button [disabled]="!loader" color="primary" (click)="Update()" >  <i *ngIf="loader"  class="fa fa-spinner fa-spin"></i> Mettre à jour  </button>
+        <button id="mettreAjour" mat-raised-button [disabled]="loader" color="primary" (click)="Update()" >  <i *ngIf="loader"  class="fa fa-spinner fa-spin"></i> Mettre à jour  </button>
         <div>
           <button id="supprimer" mat-raised-button color="warn" (click)="deleteProduct()" > supprimer le produits </button>
         </div>

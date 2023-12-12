@@ -26,6 +26,9 @@ export class ProduitsComponent implements OnInit {
  OpenEditProduct(data){
   this.service.product=data
   this.dialogCtrl.open(PeditProductComponent)
+  this.dialogCtrl.afterOpened.subscribe(()=>{
+    this.ngOnInit()
+  })
  }
  
  product:Array<any>=[]

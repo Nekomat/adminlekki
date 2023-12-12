@@ -18,11 +18,10 @@ export class AddPharmacieComponent {
  public Section:FormGroup = this.formCtrl.group({
    name:["",[Validators.required]],
    contact:["",[Validators.required]],
-   openHour:["",[Validators.required]],
-   closeHour:["",[Validators.required]],
    description:["",[Validators.required]],
    longitude:["" , [Validators.required]],
    latitude:["", [Validators.required]],
+   contactEmail:["",[Validators.required]]
   })
   //take img 
   file:any
@@ -33,7 +32,6 @@ export class AddPharmacieComponent {
   loader=false
   public AddPharmacie(){
     try {
-      
       if(this.Section.valid){ 
         if(this.file){
           this.loader=true
@@ -47,15 +45,14 @@ export class AddPharmacieComponent {
           id:refPharmacie.id,
           name:this.Section.value.name , 
           contact:this.Section.value.contact, 
-          openHour:this.Section.value.openHour, 
-          closeHour:this.Section.value.closeHour, 
           description : this.Section.value.description, 
           longitude:this.Section.value.longitude,
           latitude:this.Section.value.latitude,
           img:linkPhoto,
-          email: `Phar${this.Section.value.name}@@lekki.web.app`,
+          email: `Phar${this.Section.value.name.replace(/ +/g, "")}@lekki.web.app`,
           password:this.generateP(),
-          time:Timestamp.now() 
+          time:Timestamp.now() ,
+          contactEmail:this.Section.value.contactEmail
          })
          this.loader=false
        alert('Pharmacie ajoutée avec succes')

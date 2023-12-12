@@ -30,6 +30,8 @@ export class ClientsComponent implements OnInit {
  allUser:Array<any>=[]
  allUserSearch:Array<any>=[]
  async ngOnInit() {
+  // ajouter des categorie 
+  
   const refAllUser = await getDocs(collection(this.fire,"USERS"))
   refAllUser.forEach(element=>{
     let take:any = element.data()

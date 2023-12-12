@@ -44,14 +44,14 @@
       </mat-list-item>
     </div>
     <div *ngIf="!service.isAdmin" class="admin-pharmacie">
-      <mat-list-item  [routerLink]="'/admin_pharmacie/'+service.pharmacieId"  [activated]="service.activeMenuLink == 'admin_pharmacie'" (click)="service.activeMenuLink = 'admin_pharmacie'" >
+      <!-- <mat-list-item  [routerLink]="'/admin_pharmacie/'+service.pharmacieId"  [activated]="service.activeMenuLink == 'admin_pharmacie'" (click)="service.activeMenuLink = 'admin_pharmacie'" >
         <div class="d-flex" >
           <span class="my-auto"><mat-icon>home</mat-icon></span>
           <h6 class="my-auto">
             Acceuil
           </h6>
         </div>
-      </mat-list-item>
+      </mat-list-item> -->
 
       <mat-list-item  [routerLink]="'/admin_pharmacie_profil/'+service.pharmacieId" [activated]="service.activeMenuLink == 'admin_pharmacie_profil'" (click)="service.activeMenuLink = 'admin_pharmacie_profil'" >
         <div class="d-flex" >
@@ -70,20 +70,20 @@
           </h6>
         </div>
       </mat-list-item>
-      <mat-list-item class="mb-2"  [routerLink]="'/admin_pharmacie_products/'+service.pharmacieId" [activated]="service.activeMenuLink == 'admin_pharmacie_products'" (click)="service.activeMenuLink = 'admin_pharmacie_products'" >
+      <!-- <mat-list-item class="mb-2"  [routerLink]="'/admin_pharmacie_products/'+service.pharmacieId" [activated]="service.activeMenuLink == 'admin_pharmacie_products'" (click)="service.activeMenuLink = 'admin_pharmacie_products'" >
         <div class="d-flex" >
           <span class="my-auto"><mat-icon >art_track</mat-icon> </span>
           <h6 class="my-auto">
             Produits
           </h6>
         </div>
-      </mat-list-item>
+      </mat-list-item> -->
 
       <mat-list-item class="mb-2"  routerLink="/admin_pharmacie_messages" [activated]="service.activeMenuLink == 'admin_pharmacie_messages'" (click)="service.activeMenuLink = 'admin_pharmacie_messages'" >
         <div class="d-flex" >
           <span class="my-auto"><mat-icon >chat</mat-icon> </span>
           <h6 class="my-auto">
-            Messages
+            Ordonnances
           </h6>
         </div>
       </mat-list-item>
@@ -91,7 +91,7 @@
 
 
     <hr class="mt-4">
-    <mat-list-item>
+    <mat-list-item (click)="reload()" >
       <div class="d-flex" >
         <span class="my-auto"><mat-icon>meeting_room</mat-icon> </span>
         <h6 class="my-auto">Se déconnecter</h6>

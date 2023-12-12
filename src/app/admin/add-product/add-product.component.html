@@ -11,16 +11,7 @@
         placeholder="nom du produit"
       />
     </div>
-    <div class="mb-3">
-      <label for="">Prix</label>
-      <input
-        type="number"
-        formControlName="price"
-        name="nom"
-        class="form-control"
-        placeholder="prix"
-      />
-    </div>
+    
     <div class="mb-3">
       <label for="">Poids</label>
       <input
@@ -31,7 +22,19 @@
         placeholder="poids"
       />
     </div>
+
     <div class="mb-3">
+      <label for=""> combien dans la boite </label>
+      <input
+        type="text"
+        formControlName="smallDescribe"
+        name="nom"
+        class="form-control"
+        placeholder="par exemple le nombre de contenu qui existe dans une boite de produit"
+      />
+    </div>
+    
+    <!-- <div class="mb-3">
       <label for="">Choisir une pharmacie</label>
       <select
         (change)="ChoosePhar($event)"
@@ -44,7 +47,7 @@
           {{ data.name }}
         </option>
       </select>
-    </div>
+    </div> -->
 
     <div class="mb-3">
       <label for=""> Choisir une catégorie </label>
@@ -55,7 +58,7 @@
         id=""
         class="form-select"
       >
-        <option *ngFor="let data of chosePahrCte" [value]="data">
+        <option *ngFor="let data of choseCate" [value]="data">
           {{ data }}
         </option>
       </select>

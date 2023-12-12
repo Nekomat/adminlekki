@@ -1,0 +1,14 @@
+<div mat-dialog-content>
+  <h6>Ajouter une  categorie</h6> 
+    <div class="mb-3">
+        <label for="">nom de la categorie</label>
+        <input type="text" [(ngModel)]="cate"   name="nom" class="form-control" placeholder="nom de la categorie">
+     </div>
+
+     <div class="mb-3">
+       <button  mat-raised-button (click)="addCate()" color="primary">Ajouter</button>
+     </div>
+     <div class="mb-3">
+        <button (click)="close()"  mat-raised-button color="primary">Ferme</button>
+      </div>
+</div>

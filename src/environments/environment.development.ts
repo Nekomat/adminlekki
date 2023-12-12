@@ -1,12 +1,11 @@
 export const environment = {
   firebaseConfig : {
-    apiKey: "AIzaSyAKettrvrHlTUfax4zj5bCuE0lCRlFJ_cw",
-    authDomain: "lekki-91c38.firebaseapp.com",
-    projectId: "lekki-91c38",
-    storageBucket: "lekki-91c38.appspot.com",
-    messagingSenderId: "895646909545",
-    appId: "1:895646909545:web:c1f110f1e9c035c5d40ef8",
-    measurementId: "G-B20XEGZFLW"
+    apiKey: "AIzaSyCYuCkHmwiYLY_umlvke9o0QqpukZcO4_k",
+  authDomain: "lekki-e8ea2.firebaseapp.com",
+  projectId: "lekki-e8ea2",
+  storageBucket: "lekki-e8ea2.appspot.com",
+  messagingSenderId: "1038536809720",
+  appId: "1:1038536809720:web:8d8e7d89be5e231bd62f0d"
   },
   //gestion admin
   UserName:'admin',

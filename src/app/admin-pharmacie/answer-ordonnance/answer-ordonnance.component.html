@@ -1,0 +1,23 @@
+<div matDialogContent>
+    <h6>Repondre à l'ordonnance</h6> 
+    <div class="row">
+     <div class="col-md-12">
+        <input type="number" [(ngModel)]="Total" class="form-control" placeholder="Veuillez mettre votre montant total pour la commande">
+     </div>
+    </div>
+    <div class="row">
+     <div class="col-md-12">
+        <input type="number" [(ngModel)]="fs" class="form-control" placeholder="frais de livraison">
+     </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+         <textarea class="form-control" [(ngModel)]="description" name="" id="" cols="30" rows="10" placeholder="Note sur la commande"></textarea>
+      </div>
+     </div>
+     <div class="row">
+      <div class="col-md-12">
+         <button mat-raised-button color="primary" [disabled]="loader"  (click)="Envoyer()" ><i *ngIf="loader" class="fa fa-spinner fa-spin"></i> Envoyer</button>
+      </div>
+     </div>
+  </div>

@@ -46,11 +46,12 @@ public loader=false
    if(take[0]){
     this.service.isAdmin=false
     this.service.MenuHide=false
-    this.service.activeMenuLink="admin_pharmacie"
+    this.service.activeMenuLink="admin_pharmacie_profil"
+    this.service.pharmacie=take[0]
     this.service.pharmacieId=take[0].id
     this.service.adminPharId=take[0].id
     this.service.adminPharName = take[0].name
-    this.router.navigate(["/admin_pharmacie",take[0].id] ,{replaceUrl:true}) 
+    this.router.navigate(["/admin_pharmacie_profil",take[0].id] ,{replaceUrl:true}) 
     localStorage.setItem('id',take[0].id) 
    }else{
     alert('les informations sont incorrectes')

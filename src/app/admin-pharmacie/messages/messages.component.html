@@ -1,112 +1,71 @@
 <app-phead> </app-phead>
-<div class="container-fluid" *ngIf="service.messages">
-  <!-- Content wrapper start -->
-  <div class="content-wrapper">
-    <!-- Row start -->
-    <div class="row gutters">
-      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-        <div class="card m-0">
-          <!-- Row start -->
-          <div class="row no-gutters">
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-3 col-3">
-              <div class="users-container">
-                <!--<div class="chat-search-box">
-                                    <div class="input-group">
-                                        <input class="form-control" placeholder="Search">
-                                        <div class="input-group-btn">
-                                            <button type="button" class="btn btn-info">
-                                                <i class="fa fa-search"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>-->
-                <ul class="users overflow-y-scroll" style="max-height: 95vh">
-                  <div class="cover">
-                    <li
-                      (click)="upadetMessageStatus(i)"
-                      class="person"
-                      [ngClass]="{
-                        'active-user': service.messages[index].active == true
-                      }"
-                      *ngFor="let data of service.messages; let i = index"
-                    >
-                      <div class="user">
-                        <img src="../../assets/user1.jpeg" alt="Retail Admin" />
-                      </div>
-                      <p class="name-time">
-                        <span class="name"> {{ data.nameUser }} </span>
-                        <span
-                          *ngIf="data.badge > 0"
-                          [matBadge]="data.badge"
-                        ></span>
-                      </p>
-                    </li>
-                  </div>
-                </ul>
-              </div>
-            </div>
-            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-9 col-9">
-              <div class="selected-user">
-                <span
-                  >À :
-                  <span class="name">
-                    {{ service.messages[index].nameUser }}
-                  </span></span
-                >
-              </div>
-              <div class="chat-container" id="s">
-                <ul class="chat-box chatContainerScroll">
-                  <div *ngFor="let Data of service.messages[index].message">
-                    <li class="chat-left client" *ngIf="Data.type == 'client'">
-                      <div class="chat-avatar">
-                        <img src="../../assets/user1.jpeg" alt="Retail Admin" />
-                      </div>
-                      <div class="chat-text">
-                        {{ Data.message }}
-                      </div>
-                      <div class="chat-hour">{{ Data.time }}</div>
-                    </li>
-                    <li class="chat-right four" *ngIf="Data.type == 'admin'">
-                      <div class="chat-hour">
-                        {{ Data.time }} <span class="fa fa-check-circle"></span>
-                      </div>
-                      <div class="chat-text">
-                        {{ Data.message }}
-                      </div>
-                      <div class="chat-avatar">
-                        <img src="../../assets/logo2.png" alt="Retail Admin" />
-                        <div class="chat-name">admin</div>
-                      </div>
-                    </li>
-                  </div>
-                </ul>
-              </div>
-              <div class="form-group mt-3 mb-0">
-                <div class="row">
-                  <div class="col-md-11">
-                    <textarea
-                      class="form-control"
-                      name="message"
-                      [(ngModel)]="word"
-                      rows="3"
-                      placeholder="Écrire un message au client"
-                    ></textarea>
-                  </div>
-                  <div class="col-md-1 my-auto mx-auto">
-                    <i
-                      class="bi bi-send-fill senderBtn"
-                      (click)="sendMessage()"
-                    ></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Row end -->
+
+<!-- 
+ <div *ngIf="!service.messages" class="no">
+  <p> Vous n'avez pas encore reçu ici, vous recevez aussi les ordonnances envoyées par les utilisateurs</p>
+ </div> -->
+
+ <div class="content">
+  <div class="container-fluid backg px-0 mx-0 sticky-top">
+    <div class="row py-3">
+      <div class="col-md-5 mx-auto">
+        <div class="input-group">
+          <span class="input-group-text recherche" id="recherche">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="currentColor"
+              class="bi bi-search"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+              />
+            </svg>
+          </span>
+          <!-- <input
+            class="form-control recherche"
+            
+            [(ngModel)]="word"
+            placeholder="Rechercher une ordonnance à travers son Numero"
+            type="search"
+          /> -->
         </div>
       </div>
     </div>
-    <!-- Row end -->
+
+
+
+    <div class="second">
+      <table class="table table-hover text-center">
+        <thead class="head align-middle">
+          <tr>
+            <th scope="col">N°</th>
+            <th scope="col">Client(e)</th>
+            <th scope="col">Date d'ordonnqce</th>
+            <th scope="col">Numéro du client</th>
+            <th scope="col">Statut</th> 
+            <th scope="col">Action</th> 
+          </tr>
+        </thead>
+        <tbody class="align-middle">
+          <tr *ngFor="let data of ordonnances">
+            <th scope="row"> {{data.code}} </th>
+            <td> {{data.name}} </td> 
+            <td> {{data.date}} </td>
+            <td> {{data.numero}} </td> 
+            <td> {{data.statut}} </td>
+             <td class="status">
+              <span (click)="showPicture(data)">Voir l'ordonnance </span> / <span *ngIf="data.statut == 'En cour de traitement'" (click)="repondre(data)" >Repondre</span>
+              <i class="bi bi-arrow-right-circle icon-arrow" ></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    
   </div>
-  <!-- Content wrapper end -->
-</div>
+
+ 

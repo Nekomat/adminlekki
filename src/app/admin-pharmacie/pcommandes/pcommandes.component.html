@@ -30,6 +30,8 @@
     </div>
   </div>
 
+
+  
   <div class="second">
     <table class="table table-hover text-center">
       <thead class="head align-middle">
@@ -37,31 +39,24 @@
           <th scope="col">N°</th>
           <th scope="col">Client(e)</th>
           <th scope="col">Date de commande</th>
-          <th scope="col">Date de livraison</th>
-
           <th scope="col">Lieu de livraison</th>
-          <th scope="col">Numéro de livraison</th>
-          <th scope="col">Méthode de paiement</th>
-
-          <th scope="col">Statut</th>
+          <th scope="col">Numéro du client</th>
+          <th scope="col">Statut</th> 
         </tr>
       </thead>
       <tbody class="align-middle">
         <tr
           (click)="GoToCommandeDetail(data.id)"
-          *ngFor="let data of commandes"
+          *ngFor="let data of commandes" 
         >
           <th scope="row">{{ data.code }}</th>
           <td>{{ data.name }}</td>
           <td>{{ data.date }}</td>
-          <td>{{ data.timeDelivry }}</td>
           <td class="adresse">{{ data.lieux }}</td>
           <td>{{ data.numero }}</td>
-          <td>payer à la livraison</td>
-
           <td class="status">
-            {{ data.status }}
-            <i class="bi bi-arrow-right-circle icon-arrow"></i>
+            {{ data.statut }} 
+            <i class="bi bi-arrow-right-circle icon-arrow" (click)="GoToCommandeDetail(data.id)"></i>
           </td>
         </tr>
       </tbody>

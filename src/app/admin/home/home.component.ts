@@ -1,5 +1,5 @@
 import { Component , OnInit } from '@angular/core';
-import { collection, Firestore,getDocs } from '@angular/fire/firestore';
+import { collection, Firestore,getDocs, updateDoc ,doc} from '@angular/fire/firestore';
 import { DataService } from 'src/app/data.service';
 
 @Component({
@@ -34,7 +34,6 @@ totalProduits = 0
 // loader
 loader = true
 async ngOnInit()  {
-    //  prendres les commandes 
     const refCommandes = await getDocs(collection(this.fire,"COMMANDES")) 
      refCommandes.forEach(element=>{
       let take:any = element.data() 
@@ -43,7 +42,7 @@ async ngOnInit()  {
       this.comandesDetail.ft+=take.ft
       this.comandesDetail.st+=take.st
       // pour le status des commandes 
-      if(take.status == 'En traitement'){
+      if(take.status == 'En cour de traitement'){
       this.comandesDetail.ct+=1
       }else if (take.status == "En cour de livraison"){
           this.comandesDetail.ccl+=1

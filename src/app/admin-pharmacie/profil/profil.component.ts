@@ -21,22 +21,51 @@ export class ProfilComponent implements OnInit {
    //control formulaire
   public Section:FormGroup
   public onePharmacie :any
+  CloseAndOpenHour=[{
+    index:0,
+    open:'',
+    close:''
+  },{
+    index:1,
+    open:'',
+    close:''
+  },{
+    index:2,
+    open:'',
+    close:''
+  },{
+    index:3,
+    open:'',
+    close:''
+  },{
+    index:4,
+    open:'',
+    close:''
+  },{
+    index:5,
+    open:'',
+    close:''
+  },{
+    index:6,
+    open:'',
+    close:''
+  }]
   async ngOnInit() {
        let getid = this.route.snapshot.paramMap.get('id')
        let refPharmacie = await getDoc(doc(this.fire,"PHARMACIES",getid))
        if(( refPharmacie).exists()){
-         this.onePharmacie=refPharmacie.data()
+         this.onePharmacie=refPharmacie.data() 
+          if(this.onePharmacie.CloseAndOpenHour){
+            this.CloseAndOpenHour = this.onePharmacie.CloseAndOpenHour
+          }
          this.Section= this.formCtrl.group({
           name:[this.onePharmacie.name,[Validators.required]],
           contact:[this.onePharmacie.contact,[Validators.required]],
-          openHour:[this.onePharmacie.openHour,[Validators.required]],
-          closeHour:[this.onePharmacie.closeHour,[Validators.required]],
           description:[this.onePharmacie.description,[Validators.required]],
            longitude:[this.onePharmacie.longitude , [Validators.required]],
            latitude:[this.onePharmacie.latitude, [Validators.required]],
            userName : [this.onePharmacie.email],
            password:[this.onePharmacie.password],
-           categories:[this.onePharmacie.categories]
          })
        }
 
@@ -52,8 +81,6 @@ export class ProfilComponent implements OnInit {
      //
     if(this.Section.valid){
       this.loader=true
-      let categories = this.Section.value.categories as string
-      let TakeCate = categories.split(',') 
       if(this.file){
         const refProductImge = ref(this.storage , "Pharmacie/"+this.file.name) 
         let refImg = await uploadBytes(refProductImge,this.file)
@@ -62,15 +89,13 @@ export class ProfilComponent implements OnInit {
       updateDoc(doc(this.fire,"PHARMACIES",this.route.snapshot.paramMap.get('id') ),{
         name:this.Section.value.name , 
         contact:this.Section.value.contact, 
-        openHour:this.Section.value.openHour, 
-        closeHour:this.Section.value.closeHour, 
         description : this.Section.value.description, 
         longitude:this.Section.value.longitude,
         latitude:this.Section.value.latitude,
         img:this.onePharmacie.img,
         email:this.Section.value.userName,
         password:this.Section.value.password,
-        categories:TakeCate
+        CloseAndOpenHour:this.CloseAndOpenHour 
       })
       alert('Mise à jour avec succes')
       this.loader=false

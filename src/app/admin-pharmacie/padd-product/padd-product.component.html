@@ -9,15 +9,26 @@
       </div> 
       <div class="mb-3">
          <label for="">Prix</label>
-         <input type="number" formControlName="poids" name="nom" class="form-control" placeholder="prix">
+         <input type="number" formControlName="prix" name="nom" class="form-control" placeholder="prix">
       </div>
       <div class="mb-3">
          <label for="">Poids</label>
          <input type="text" formControlName="poids"  name="nom" class="form-control" placeholder="poids">
       </div>
 
+      <div class="mb-3">
+        <label for=""> combien dans la boite </label>
+      <input
+        type="text"
+        formControlName="smallDescribe"
+        name="nom"
+        class="form-control"
+        placeholder="par exemple le nombre de contenu qui existe dans une boite de produit"
+      />
+      </div>
 
-      <div class="mb-3" *ngif="onPharmacie">
+
+      <div class="mb-3" *ngIf="onPharmacie">
          <label for=""> Categorie </label> 
          <select name="" id="" class="form-control" formControlName="categories">
              <option [value]="data" *ngFor="let data of onPharmacie.categories" > {{data}} </option>
@@ -36,7 +47,7 @@
 
    </form>
      <div class="row" [align]="'center'" > 
-        <button mat-raised-button color="primary" [disabled]="!loader"  > <i *ngIf="loader" class="fa fa-spinner fa-spin"></i>
+        <button mat-raised-button color="primary" (click)="AddProduct()" [disabled]="loader"  > <i *ngIf="loader" class="fa fa-spinner fa-spin"></i>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-plus-lg me-2" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
           </svg> 

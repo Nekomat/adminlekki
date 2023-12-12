@@ -12,9 +12,12 @@ export class DataService {
  public isAdmin=true 
  public pharmacieId=""
  public commandId=""
+ public commande:any
  public product:any 
  public adminPharId=""
  public adminPharName=""
+ public pharmacie:any
+ public ordonance:any
 
 //  pour les messages 
 messages :any 

@@ -26,7 +26,7 @@ import { DataService } from 'src/app/data.service';
 export class EditProductComponent implements OnInit {
   constructor(
     private fire: Firestore,
-    private service: DataService,
+    public service: DataService,
     private formCtrl: FormBuilder,
     private matDialog: MatDialog,
     private storage: Storage
@@ -39,6 +39,7 @@ export class EditProductComponent implements OnInit {
     poids: [this.service.product.poids, [Validators.required]],
     description: [this.service.product.description, [Validators.required]],
     pharmacie: [this.service.product.pharId, [Validators.required]],
+    disponible:[this.service.product.disponible,[Validators.required]]
   });
   PharmacieData: any;
   async ngOnInit() {
@@ -101,8 +102,6 @@ export class EditProductComponent implements OnInit {
           photo: this.service.product.photo,
           description: this.section.value.description,
           poids: this.section.value.poids,
-          pharName: this.service.product.pharName,
-          pharId: this.service.product.pharId,
           cateName: this.service.product.cateName,
         });
         this.loadeUpdate = false;

@@ -2,6 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { collection, Firestore, getDocs } from '@angular/fire/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import { DataService } from 'src/app/data.service';
+import { AddCategorieComponent } from '../add-categorie/add-categorie.component';
 import { AddProductComponent } from '../add-product/add-product.component';
 import { EditProductComponent } from '../edit-product/edit-product.component';
 
@@ -17,16 +18,38 @@ export class ProductsComponent implements OnInit {
   ){} 
  //open add product 
  OpenAddProduct(){
-  this.dialogCtrl.open(AddProductComponent)
+  this.dialogCtrl.open(AddProductComponent) 
+  this.dialogCtrl.afterAllClosed.subscribe(()=>{
+    this.allProduct=[]
+    this.allProductForSearch=[]
+    this.ngOnInit()
+  })
  }
  //open edit product 
  OpenEditProduct(data){
   this.service.product=data
   this.dialogCtrl.open(EditProductComponent)
+  this.dialogCtrl.afterAllClosed.subscribe(()=>{
+    this.allProduct=[]
+    this.allProductForSearch=[]
+    this.ngOnInit()
+  })
+
  }
+  // ouvrir cate modal 
+  OpenCateModal(){
+    this.dialogCtrl.open(AddCategorieComponent)
+    this.dialogCtrl.afterAllClosed.subscribe(()=>{
+      this.allProduct=[]
+      this.allProductForSearch=[]
+      this.ngOnInit()
+    })
+  }
  allProduct:Array<any>=[]
  allProductForSearch:Array<any>=[]
 async ngOnInit() { 
+  this.allProduct=[]
+  this.allProductForSearch=[]
     // prendre tout les produits 
     const refProduct = await getDocs(collection(this.fire,"PRODUCTS")) 
     refProduct.forEach(element=>{

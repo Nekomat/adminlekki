@@ -1,5 +1,5 @@
 import { Component ,OnInit} from '@angular/core';
-import { collection, doc, Firestore, getDocs,setDoc, Timestamp } from '@angular/fire/firestore';
+import { collection, doc, Firestore, getDoc, getDocs,setDoc, Timestamp } from '@angular/fire/firestore';
 import { getDownloadURL, ref, Storage, uploadBytes } from '@angular/fire/storage';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -20,31 +20,32 @@ export class AddProductComponent implements OnInit {
 //  control Formulaire 
 section:FormGroup = this.formCtrl.group({
   name:["",[Validators.required]],
-  price:["",[Validators.required]],
   poids:["",[Validators.required]],
-  pharmacie:['',[Validators.required]],
   categorie:["",[Validators.required]] ,
-  description :["",[Validators.required]]  
+  description :["",[Validators.required]],
+  smallDescribe:[''],
 })
-allPhar : Array<any>=[]
-chosePahrCte:Array<any>=[]
+// allPhar : Array<any>=[]
+choseCate:Array<any>=[]
 async ngOnInit() {
-    const refAllPhar = await getDocs(collection(this.fire,"PHARMACIES"))
-    refAllPhar.forEach(element => {
-      this.allPhar.push(element.data()) 
-    })
+  const getCate = await getDoc(doc(this.fire,"CATEGORIE",'ZZJrAv46HHtHG48X7lVQ')) 
+  if(getCate.exists()){
+    let take:any = getCate.data()
+    this.choseCate = take.cate
+  }
  }
  // chose pharmacie 
- chosePharDetail={id:"",name:"" , cateName:""} 
- ChoosePhar(event){
-  let take = this.allPhar.find(e=>e.id == event.target.value)
-  this.chosePharDetail.id = take.id
-  this.chosePharDetail.name=take.name
-  this.chosePahrCte = take.categories
- }
+//  chosePharDetail={id:"",name:"" , cateName:""} 
+//  ChoosePhar(event){
+//   let take = this.allPhar.find(e=>e.id == event.target.value)
+//   this.chosePharDetail.id = take.id 
+//   this.chosePharDetail.name=take.name 
+//   this.chosePahrCte = take.categories
+//  }
  // chose categories
+ cate=""
  ChooseCate(event){
-  this.chosePharDetail.cateName = event.target.value
+  this.cate = event.target.value
  }
  // uploadPicture 
  file:any
@@ -65,17 +66,15 @@ async ngOnInit() {
        setDoc(refdoc,{
         id:refdoc.id,
         name:this.section.value.name,
-        price:this.section.value.price,
         poids:this.section.value.poids,
-        pharId:this.chosePharDetail.id,
-        pharName:this.chosePharDetail.name,
         photo:linkImg,
-        cateName:this.chosePharDetail.cateName,
+        cateName:this.cate,
         description:this.section.value.description,
-        time:Timestamp.now()
+        time:Timestamp.now(),
+        smallDescribe:this.section.value.smallDescribe
        })
-       alert("Produit ajouté")
-       this.loader = false
+       alert("Produit ajouté") 
+       this.loader = false 
        this.dialogCtrl.closeAll()
     }else{
      alert('Veuillez ajouter une photo')

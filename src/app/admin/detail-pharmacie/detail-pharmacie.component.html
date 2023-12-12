@@ -2,227 +2,205 @@
 <div class="content1" *ngIf="onePharmacie">
   <mat-tab-group>
     <mat-tab label="Information sur la pharmacie">
-      <form class="px-3 flex" [formGroup]="Section">
-        <div class="first">
-          <P>Ouvertures</P>
-          <div class="jour">
-            <div class="ouvert">
-              <p>Lundi :</p>
-              <select name="" id="">
-                <option value="ouverte" selected>Ouverte</option>
-                <option value="fermee">Fermée</option>
-              </select>
+         <div class="px-3 flex">
+          <div class="first">
+            <P>Ouvertures</P>
+            <div class="jour">
+              <div class="ouvert">
+                <p>Lundi :</p>
+              </div>
+              <div class="mb-3 form">
+                <label for="">Heure d'ouverture</label>
+                <input
+                  type="time"
+                 [(ngModel)]="CloseAndOpenHour[0].open"
+                  name="nom"
+                  class="form-control"
+                  placeholder="heure d'ouverture"
+                />
+              </div>
+  
+              <div class="mb-3 form">
+                <label for="">Heure de fermeture</label>
+                <input
+                  type="time"
+                  [(ngModel)]="CloseAndOpenHour[0].close"
+                  name="nom"
+                  class="form-control"
+                  placeholder="heure de fermeture"
+                />
+              </div>
             </div>
-            <div class="mb-3 form">
-              <label for="">Heure d'ouverture</label>
-              <input
-                type="time"
-                formControlName="openHour"
-                name="nom"
-                class="form-control"
-                placeholder="heure d'ouverture"
-              />
+  
+            <div class="jour">
+              <div class="ouvert">
+                <p>Mardi :</p>
+              </div>
+              <div class="mb-3 form">
+                <label for="">Heure d'ouverture</label>
+                <input
+                  type="time"
+                  [(ngModel)]="CloseAndOpenHour[1].open"
+                  name="nom"
+                  class="form-control"
+                  placeholder="heure d'ouverture"
+                />
+              </div>
+  
+              <div class="mb-3 form">
+                <label for="">Heure de fermeture</label>
+                <input
+                  type="time"
+                  [(ngModel)]="CloseAndOpenHour[1].close"
+                  name="nom"
+                  class="form-control"
+                  placeholder="heure de fermeture"
+                />
+              </div>
             </div>
-
-            <div class="mb-3 form">
-              <label for="">Heure de fermeture</label>
-              <input
-                type="time"
-                formControlName="closeHour"
-                name="nom"
-                class="form-control"
-                placeholder="heure de fermeture"
-              />
+  
+            <div class="jour">
+              <div class="ouvert">
+                <p>Mercredi :</p>
+              </div>
+              <div class="mb-3 form">
+                <label for="">Heure d'ouverture</label>
+                <input
+                
+                  type="time"
+                  [(ngModel)]="CloseAndOpenHour[2].open"
+                  name="nom"
+                  class="form-control"
+                  placeholder="heure d'ouverture"
+                />
+              </div>
+  
+              <div class="mb-3 form">
+                <label for="">Heure de fermeture</label>
+                <input
+                  type="time"
+                  [(ngModel)]="CloseAndOpenHour[2].close"
+                  name="nom"
+                  class="form-control"
+                  placeholder="heure de fermeture"
+                />
+              </div>
             </div>
-          </div>
-
-          <div class="jour">
-            <div class="ouvert">
-              <p>Mardi :</p>
-              <select name="" id="">
-                <option value="ouverte" selected>Ouverte</option>
-                <option value="fermee">Fermée</option>
-              </select>
+  
+            <div class="jour">
+              <div class="ouvert">
+                <p>Jeudi :</p>
+              </div>
+              <div class="mb-3 form">
+                <label for="">Heure d'ouverture</label>
+                <input
+                
+                  type="time"
+                  [(ngModel)]="CloseAndOpenHour[3].open"
+                  name="nom"
+                  class="form-control"
+                  placeholder="heure d'ouverture"
+                />
+              </div>
+  
+              <div class="mb-3 form">
+                <label for="">Heure de fermeture</label>
+                <input
+                
+                  type="time"
+                  [(ngModel)]="CloseAndOpenHour[3].close"
+                  name="nom"
+                  class="form-control"
+                  placeholder="heure de fermeture"
+                />
+              </div>
             </div>
-            <div class="mb-3 form">
-              <label for="">Heure d'ouverture</label>
-              <input
-                type="time"
-                formControlName="openHour"
-                name="nom"
-                class="form-control"
-                placeholder="heure d'ouverture"
-              />
+  
+            <div class="jour">
+              <div class="ouvert">
+                <p>Vendredi :</p>
+              </div>
+              <div class="mb-3 form">
+                <label for="">Heure d'ouverture</label>
+                <input
+                  type="time"
+                  [(ngModel)]="CloseAndOpenHour[4].open"
+                  name="nom"
+                  class="form-control"
+                  placeholder="heure d'ouverture"
+                />
+              </div>
+  
+              <div class="mb-3 form">
+                <label for="">Heure de fermeture</label>
+                <input
+                  type="time"
+                  [(ngModel)]="CloseAndOpenHour[4].close"
+                  name="nom"
+                  class="form-control"
+                  placeholder="heure de fermeture"
+                />
+              </div>
             </div>
-
-            <div class="mb-3 form">
-              <label for="">Heure de fermeture</label>
-              <input
-                type="time"
-                formControlName="closeHour"
-                name="nom"
-                class="form-control"
-                placeholder="heure de fermeture"
-              />
+  
+            <div class="jour">
+              <div class="ouvert">
+                <p>Samedi :</p>
+              </div>
+              <div class="mb-3 form">
+                <label for="">Heure d'ouverture</label>
+                <input
+                
+                  type="time"
+                  [(ngModel)]="CloseAndOpenHour[5].open"
+                  name="nom"
+                  class="form-control"
+                  placeholder="heure d'ouverture"
+                />
+              </div>
+  
+              <div class="mb-3 form">
+                <label for="">Heure de fermeture</label>
+                <input
+               
+                  type="time"
+                  [(ngModel)]="CloseAndOpenHour[5].close"
+                  name="nom"
+                  class="form-control"
+                  placeholder="heure de fermeture"
+                />
+              </div>
             </div>
-          </div>
-
-          <div class="jour">
-            <div class="ouvert">
-              <p>Mercredi :</p>
-              <select name="" id="">
-                <option value="ouverte" selected>Ouverte</option>
-                <option value="fermee">Fermée</option>
-              </select>
-            </div>
-            <div class="mb-3 form">
-              <label for="">Heure d'ouverture</label>
-              <input
-                type="time"
-                formControlName="openHour"
-                name="nom"
-                class="form-control"
-                placeholder="heure d'ouverture"
-              />
-            </div>
-
-            <div class="mb-3 form">
-              <label for="">Heure de fermeture</label>
-              <input
-                type="time"
-                formControlName="closeHour"
-                name="nom"
-                class="form-control"
-                placeholder="heure de fermeture"
-              />
-            </div>
-          </div>
-
-          <div class="jour">
-            <div class="ouvert">
-              <p>Jeudi :</p>
-              <select name="" id="">
-                <option value="ouverte" selected>Ouverte</option>
-                <option value="fermee">Fermée</option>
-              </select>
-            </div>
-            <div class="mb-3 form">
-              <label for="">Heure d'ouverture</label>
-              <input
-                type="time"
-                formControlName="openHour"
-                name="nom"
-                class="form-control"
-                placeholder="heure d'ouverture"
-              />
-            </div>
-
-            <div class="mb-3 form">
-              <label for="">Heure de fermeture</label>
-              <input
-                type="time"
-                formControlName="closeHour"
-                name="nom"
-                class="form-control"
-                placeholder="heure de fermeture"
-              />
-            </div>
-          </div>
-
-          <div class="jour">
-            <div class="ouvert">
-              <p>Vendredi :</p>
-              <select name="" id="">
-                <option value="ouverte" selected>Ouverte</option>
-                <option value="fermee">Fermée</option>
-              </select>
-            </div>
-            <div class="mb-3 form">
-              <label for="">Heure d'ouverture</label>
-              <input
-                type="time"
-                formControlName="openHour"
-                name="nom"
-                class="form-control"
-                placeholder="heure d'ouverture"
-              />
-            </div>
-
-            <div class="mb-3 form">
-              <label for="">Heure de fermeture</label>
-              <input
-                type="time"
-                formControlName="closeHour"
-                name="nom"
-                class="form-control"
-                placeholder="heure de fermeture"
-              />
-            </div>
-          </div>
-
-          <div class="jour">
-            <div class="ouvert">
-              <p>Samedi :</p>
-              <select name="" id="">
-                <option value="ouverte" selected>Ouverte</option>
-                <option value="fermee">Fermée</option>
-              </select>
-            </div>
-            <div class="mb-3 form">
-              <label for="">Heure d'ouverture</label>
-              <input
-                type="time"
-                formControlName="openHour"
-                name="nom"
-                class="form-control"
-                placeholder="heure d'ouverture"
-              />
-            </div>
-
-            <div class="mb-3 form">
-              <label for="">Heure de fermeture</label>
-              <input
-                type="time"
-                formControlName="closeHour"
-                name="nom"
-                class="form-control"
-                placeholder="heure de fermeture"
-              />
-            </div>
-          </div>
-
-          <div class="jour">
-            <div class="ouvert">
-              <p>Dimanche :</p>
-              <select name="" id="">
-                <option value="ouverte" selected>Ouverte</option>
-                <option value="fermee">Fermée</option>
-              </select>
-            </div>
-            <div class="mb-3 form">
-              <label for="">Heure d'ouverture</label>
-              <input
-                type="time"
-                formControlName="openHour"
-                name="nom"
-                class="form-control"
-                placeholder="heure d'ouverture"
-              />
-            </div>
-
-            <div class="mb-3 form">
-              <label for="">Heure de fermeture</label>
-              <input
-                type="time"
-                formControlName="closeHour"
-                name="nom"
-                class="form-control"
-                placeholder="heure de fermeture"
-              />
+  
+            <div class="jour">
+              <div class="ouvert">
+                <p>Dimanche :</p>
+              </div>
+              <div class="mb-3 form">
+                <label for="">Heure d'ouverture</label>
+                <input
+                
+                  type="time"
+                  [(ngModel)]="CloseAndOpenHour[6].open"
+                  name="nom"
+                  class="form-control"
+                  placeholder="heure d'ouverture"
+                />
+              </div>
+  
+              <div class="mb-3 form">
+                <label for="">Heure de fermeture</label>
+                <input
+                  type="time"
+                  [(ngModel)]="CloseAndOpenHour[6].close"
+                  name="nom"
+                  class="form-control"
+                  placeholder="heure de fermeture"
+                />
+              </div>
             </div>
           </div>
-        </div>
-
+          <form  [formGroup]="Section">
         <div class="second">
           <div class="mb-3">
             <label for="">Nom de la pharmacie</label>
@@ -234,7 +212,7 @@
               placeholder="le nom de la pharmacie"
             />
           </div>
-
+  
           <div class="mb-3">
             <label for="">Numéro de téléphone</label>
             <input
@@ -249,7 +227,7 @@
             <div class="mb-3">
               <img [src]="onePharmacie.img" width="100" height="100" alt="" />
             </div>
-
+  
             <div id="grow">
               <label for=""> Changer la photo de couverture </label>
               <input
@@ -257,6 +235,7 @@
                 name="nom"
                 class="form-control"
                 placeholder="latitude"
+                (change)="TakeImg($event)"
               />
             </div>
           </div>
@@ -270,7 +249,7 @@
               placeholder="longitude"
             />
           </div>
-
+  
           <div class="mb-3">
             <label for=""> Latitude </label>
             <input
@@ -281,7 +260,7 @@
               placeholder="latitude"
             />
           </div>
-
+  
           <div class="mb-3">
             <label for=""> Description </label>
             <textarea
@@ -294,7 +273,7 @@
               placeholder="description"
             ></textarea>
           </div>
-
+  
           <div class="mb-3">
             <label for=""> Nom d'utilisateur </label>
             <input
@@ -305,7 +284,7 @@
               placeholder="latitude"
             />
           </div>
-
+  
           <div class="mb-3">
             <label for=""> Mot de passe actuel </label>
             <input
@@ -316,7 +295,7 @@
               placeholder="latitude"
             />
           </div>
-
+  
           <div class="boutton">
             <button
               (click)="Update()"
@@ -326,7 +305,7 @@
             >
               Mettre à jour
             </button>
-
+  
             <button
               mat-raised-button
               color="warn"
@@ -339,10 +318,13 @@
           </div>
         </div>
       </form>
+         </div>
+       
+       
     </mat-tab>
     <mat-tab label="Commandes">
-      <table class="px-2 table table-hover text-center">
-        <thead class="head align-middle">
+      <table class=" table table-hover">
+        <thead class="head text-center">
           <tr>
             <th scope="col">N°</th>
             <th scope="col">Client(e)</th>
@@ -354,10 +336,11 @@
             <th scope="col">Statut</th>
           </tr>
         </thead>
-        <tbody class="align-middle">
+        <tbody >
           <tr
             (click)="GoToCommandeDetail(data.id)"
             *ngFor="let data of onePharmacie.commandes"
+            class="content"
           >
             <th scope="row">{{ data.code }}</th>
             <td>{{ data.userName }}</td>
@@ -374,7 +357,7 @@
         </tbody>
       </table>
     </mat-tab>
-    <mat-tab label="Produits">
+    <!-- <mat-tab label="Produits">
       <div class="flex sticky-top py-3">
         <div class="text-center">
           <button
@@ -436,6 +419,6 @@
           </tr>
         </tbody>
       </table>
-    </mat-tab>
+    </mat-tab> -->
   </mat-tab-group>
 </div>

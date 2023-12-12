@@ -23,6 +23,9 @@ unReadMessage = 0
        onSnapshot(doc(this.fire,"PHARMACIES", this.service.adminPharId),(data)=>{
          if(data.exists()){
           let take:any = data.data()
+          if(!take.message){
+            return
+          }
           let message = take.messages as Array<any>
           message.forEach(element=>{
             element.badge=0
@@ -44,5 +47,8 @@ unReadMessage = 0
        })
     }
   })
+  }
+  reload(){
+    window.location.reload()
   }
 }

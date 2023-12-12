@@ -26,38 +26,73 @@ export class DetailPharmacieComponent implements OnInit {
   ){}
   public onePharmacie :any 
   //control formulaire
-  public Section:FormGroup
+  public Section:FormGroup 
+  CloseAndOpenHour=[{
+    index:1,
+    open:'',
+    close:''
+  },{
+    index:2,
+    open:'',
+    close:''
+  },{
+    index:3,
+    open:'',
+    close:''
+  },{
+    index:4,
+    open:'',
+    close:''
+  },{
+    index:5,
+    open:'',
+    close:''
+  },{
+    index:6,
+    open:'',
+    close:''
+  },{
+    index:0,
+    open:'',
+    close:''
+  }]
  async ngOnInit() {
       let getid = this.route.snapshot.paramMap.get('id') 
       const refPharmacie = await getDoc(doc(this.fire,"PHARMACIES", getid))
       if(refPharmacie.exists()){
-      this.onePharmacie=refPharmacie.data()
+      this.onePharmacie=refPharmacie.data() 
+       if(this.onePharmacie.CloseAndOpenHour){
+        this.CloseAndOpenHour = this.onePharmacie.CloseAndOpenHour 
+       } 
      this.Section= this.formCtrl.group({
         name:[this.onePharmacie.name,[Validators.required]],
         contact:[this.onePharmacie.contact,[Validators.required]],
-        openHour:[this.onePharmacie.openHour,[Validators.required]],
-        closeHour:[this.onePharmacie.closeHour,[Validators.required]],
         description:[this.onePharmacie.description,[Validators.required]],
          longitude:[this.onePharmacie.longitude , [Validators.required]],
          latitude:[this.onePharmacie.latitude, [Validators.required]],
          userName : [this.onePharmacie.email],
-         password:[this.onePharmacie.password]
+         password:[this.onePharmacie.password],
+         hour:[""]
        }) 
        // prendre les commandes du fournisseurs
+         this.onePharmacie.commandeNumber = 0
        const refisCommande = await getDocs(query(collection(this.fire,'COMMANDES'),where("idPhar","==",getid)))
        this.onePharmacie.commandes=[] 
        refisCommande.forEach(element=>{
-        let take :any = element.data() 
+        this.onePharmacie.commandeNumber++
+        let take :any = element.data()
         take.date = new Date(take.time.seconds*1000).toLocaleDateString('fr')
         this.onePharmacie.commandes.push(take)
        })
        
-      //  prenre les produits de la pharmacie 
-      const refisProduct = await getDocs(query(collection(this.fire,'PRODUCTS'),where("pharId","==",getid))) 
-           this.onePharmacie.products=[]
-           refisProduct.forEach((element)=>{
-              this.onePharmacie.products.push(element.data())
-           })
+      // //  prenre les produits de la pharmacie 
+      // this.onePharmacie.p=0
+      // const refisProduct = await getDocs(query(collection(this.fire,'PRODUCTS'),where("pharId","==",getid))) 
+      //      this.onePharmacie.products=[]
+      //      refisProduct.forEach((element)=>{
+      //       this.onePharmacie.p++
+      //         this.onePharmacie.products.push(element.data())
+      //      })
       } 
   }
   //take new img 
@@ -80,14 +115,13 @@ export class DetailPharmacieComponent implements OnInit {
       updateDoc(doc(this.fire,"PHARMACIES",this.route.snapshot.paramMap.get('id') ),{
         name:this.Section.value.name , 
         contact:this.Section.value.contact, 
-        openHour:this.Section.value.openHour, 
-        closeHour:this.Section.value.closeHour, 
         description : this.Section.value.description, 
         longitude:this.Section.value.longitude,
         latitude:this.Section.value.latitude,
         img:this.onePharmacie.img,
         email:this.Section.value.userName,
         password:this.Section.value.password,
+        CloseAndOpenHour:this.CloseAndOpenHour
       })
       alert('Mise à jour effectué')
       this.loader=false
@@ -98,8 +132,8 @@ export class DetailPharmacieComponent implements OnInit {
   } catch (error) {
     alert('erreur veuillez reeassayer')
   }
-  }
-
+  } 
+ 
   // delete pharmacie 
   loaderDelete=false
  async delete(){
@@ -123,7 +157,7 @@ export class DetailPharmacieComponent implements OnInit {
   OpenDialog(){
     this.matDialog.open(AddProductComponent)
     this.matDialog.afterAllClosed.subscribe(()=>{
-      this.ngOnInit()
+      this.ngOnInit() 
     })
   }
   // open edit product dialog

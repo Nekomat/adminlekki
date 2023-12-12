@@ -47,6 +47,10 @@ import {provideStorage , getStorage} from '@angular/fire/storage'
 import {provideAuth , getAuth} from '@angular/fire/auth'
 import { environment } from 'src/environments/environment';
 import { HttpClientModule } from '@angular/common/http';
+import { AddCategorieComponent } from './admin/add-categorie/add-categorie.component';
+import { AnswerCommandeComponent } from './admin-pharmacie/answer-commande/answer-commande.component';
+import { CommandeDetailComponent } from './admin-pharmacie/commande-detail/commande-detail.component';
+import { AnswerOrdonnanceComponent } from './admin-pharmacie/answer-ordonnance/answer-ordonnance.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,6 +77,10 @@ import { HttpClientModule } from '@angular/common/http';
     PeditProductComponent,
     PheadComponent,
     ProfilComponent,
+    AddCategorieComponent,
+    AnswerCommandeComponent,
+    CommandeDetailComponent,
+    AnswerOrdonnanceComponent,
     
   ],
 

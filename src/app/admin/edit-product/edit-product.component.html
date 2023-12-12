@@ -14,7 +14,7 @@
 
     <div class="mb-3 flex">
       <div>
-        <img src="/../assets/Icone LEKKI.png" alt="" />
+        <img [src]="this.service.product.photo" alt="" />
       </div>
 
       <div class="grow">
@@ -41,7 +41,7 @@
       </div>
     </div>
 
-    <div class="mb-3" *ngIf="PharmacieData">
+    <!-- <div class="mb-3" *ngIf="PharmacieData">
       <label for="">Choisir la pharmacie</label>
       <select
         (change)="changePhar($event)"
@@ -54,7 +54,7 @@
           {{ data.name }}
         </option>
       </select>
-    </div>
+    </div> -->
 
     <div class="mb-3">
       <label for=""> Choisir la catégorie </label>
@@ -83,6 +83,13 @@
         placeholder="description"
       ></textarea>
     </div>
+    <!-- <div class="mb-3">
+    <select formControlName="disponible" class="form-control">
+      <label for=""> disponibilité </label>
+      <option value="true"> disponible </option>
+      <option value="false"> Indisponible </option>
+    </select>
+    </div> -->
 
     <div class="mb-3">
       <label for=""> Changer l'image de ce produit </label>

@@ -24,6 +24,7 @@ constructor(
   poids:[this.service.product.poids,[Validators.required]],
   categorie:[this.service.product.cateName,[Validators.required]] ,
   description:[this.service.product.description,[Validators.required]],
+  disponible:[this.service.product.disponible,[Validators.required]]
  })
  sousCate:Array<any>=[]
  pharName=""
@@ -48,7 +49,7 @@ async Update(){
     if(this.file){
       const refProductImge = ref(this.storage , "Product/"+this.file.name) 
       let refImg = await uploadBytes(refProductImge,this.file)
-      this.service.product.img = await getDownloadURL(refImg.ref) 
+      this.service.product.photo = await getDownloadURL(refImg.ref) 
     }
     updateDoc(doc(this.fire,'PRODUCTS',this.service.product.id),{
       name:this.section.value.name,
@@ -56,9 +57,10 @@ async Update(){
         poids:this.section.value.poids,
         pharId:this.service.adminPharId,
         pharName:this.pharName,
-        photo:this.service.product.img,
+        photo:this.service.product.photo,
         cateName:this.section.value.categorie,
         description:this.section.value.description,
+        disponible:this.section.value.disponible
     })
     alert('Produit modifié')
     this.dialogCtrl.closeAll()

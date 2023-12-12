@@ -28,14 +28,14 @@ constructor(private dialogCtrl : MatDialog , private router : Router ,
       })
       // prendre le nombre de commandes 
       take.nbreC=0
-      const refIscommande = await getDocs(collection(this.fire,"COMMANDES"))
+      const refIscommande = await getDocs(query(collection(this.fire,"COMMANDES"), where("idPhar","==",take.id)))
        refIscommande.forEach(elementC=>{
         take.nbreC+=1
        })
       this.AllPharmacie.push(take)
-      
+      this.pharmacie=this.AllPharmacie
      })
-     this.pharmacie=this.AllPharmacie
+    
      this.loader = false
      
   }

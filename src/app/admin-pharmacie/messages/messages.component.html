@@ -57,7 +57,7 @@
             <td> {{data.numero}} </td> 
             <td> {{data.statut}} </td>
              <td class="status">
-              <span (click)="showPicture(data)">Voir l'ordonnance </span> / <span *ngIf="data.statut == 'En cour de traitement'" (click)="repondre(data)" >Repondre</span>
+              <span (click)="showPicture(data)">Voir l'ordonnance </span> / <span *ngIf="data.statut=='En cour traitement'" (click)="repondre(data)" >Repondre</span>
               <i class="bi bi-arrow-right-circle icon-arrow" ></i>
             </td>
           </tr>

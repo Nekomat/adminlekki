@@ -15,40 +15,7 @@ export class AppComponent implements OnInit{
   }  
 unReadMessage = 0
  async ngOnInit() {
-  this.router.events
-  .pipe(
-    filter((e): e is NavigationEnd => e instanceof NavigationEnd)
-  ).subscribe((ev)=>{
-    if(this.service.activeMenuLink == "admin_pharmacie"){
-       onSnapshot(doc(this.fire,"PHARMACIES", this.service.adminPharId),(data)=>{
-         if(data.exists()){
-          let take:any = data.data()
-          if(!take.message){
-            return
-          }
-          let message = take.messages as Array<any>
-          message.forEach(element=>{
-            element.badge=0
-            element.active=false
-            element.message.forEach(element2=>{
-              if(element2.type == "client"){
-                if(element2.vuAdmin == false){
-                  element.badge+=1 
-                  this.unReadMessage++
-                  new Audio('/assets/son.wav').play()
-                }
-              }
-              
-            })
-          })
-          this.service.messages = message 
-          this.service.messages.sort((a,b)=>b.badge - a.badge)
-         }
-       })
-    }
-  })
+  
   }
-  reload(){
-    window.location.reload()
-  }
+ 
 }

@@ -37,8 +37,7 @@ loader = false
         setDoc(refUser,{
              id:user.user.uid,
              code:code,
-              name:this.section.value.prenom,
-              family : this.section.value.family,
+               name:this.section.value.prenom,
                numero : this.section.value.numero,
                email:`${code}@lekki.com`,
                password:this.section.value.password,

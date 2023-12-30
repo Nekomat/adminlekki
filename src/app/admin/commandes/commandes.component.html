@@ -23,7 +23,6 @@
             <th scope="col">Pharmacie</th>
             <th scope="col">Client(e)</th>
             <th scope="col">Date de commande</th>
-            <th scope="col">Date de livraison</th>
             <th scope="col">Lieu de livraison</th>
             <th scope="col">Numéro de livraison</th>
             <th scope="col">Méthode de paiement</th>
@@ -34,13 +33,12 @@
           <tr (click)=" GoToCommandeDetail(data.id)"  *ngFor="let data of allCommandes">
             <th scope="row"> {{data.code}} </th>
             <td> {{data.pharName}} </td>
-            <td> {{data.userName}} </td>
+            <td> {{data.name}} </td>
             <td> {{data.date}} </td>
-            <td> {{data.timeDelivry}}  </td>
-            <td class="adresse"> {{data.lieux}} </td>
-            <td> {{data.numero}} </td>
+            <td> {{data.lieux}}  </td>
+            <td class="adresse"> {{data.numero}} </td>
             <td> payer à la livraison</td>
-            <td class="status"> {{data.status}} <i  class="bi bi-arrow-right-circle icon-arrow"  ></i> </td>
+            <td class="status"> {{data.statut}} <i  class="bi bi-arrow-right-circle icon-arrow"  ></i> </td>
           </tr>
         </tbody>
       </table>

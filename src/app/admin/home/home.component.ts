@@ -37,21 +37,24 @@ async ngOnInit()  {
     const refCommandes = await getDocs(collection(this.fire,"COMMANDES")) 
      refCommandes.forEach(element=>{
       let take:any = element.data() 
-      this.comandesDetail.total+=take.total 
-      this.comandesDetail.fs+=take.fs
-      this.comandesDetail.ft+=take.ft
-      this.comandesDetail.st+=take.st
-      // pour le status des commandes 
-      if(take.status == 'En cour de traitement'){
+       if(take.statut == 'Livrée'){
+        this.comandesDetail.total+=take.total 
+        this.comandesDetail.fs+=take.fs
+        this.comandesDetail.ft+=take.ft
+        this.comandesDetail.st+=take.st
+       }
+      
+      // // pour le status des commandes 
+      if(take.statut == 'En cour de traitement'){
       this.comandesDetail.ct+=1
-      }else if (take.status == "En cour de livraison"){
+      }else if (take.statut == "En cour de livraison"){
           this.comandesDetail.ccl+=1
-      }else if (take.status == 'Livrée'){
+      }else if (take.statut == 'Livrée'){
          this.comandesDetail.cl+=1
-      }else if (take.status == 'Annuléé') {
-         this.comandesDetail.ca+=1
+      }else if (take.statut == 'Annuléé') {
+         this.comandesDetail.ca+=1 
       }
-   this.comandesDetail.allCt+=1
+   this.comandesDetail.allCt+=1 
      })
     //  prendre le total des clients 
     const refClients = await getDocs(collection(this.fire,"USERS"))

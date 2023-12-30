@@ -18,33 +18,35 @@ export class ProductsComponent implements OnInit {
   ){} 
  //open add product 
  OpenAddProduct(){
+  this.typeOfModal="add"
   this.dialogCtrl.open(AddProductComponent) 
   this.dialogCtrl.afterAllClosed.subscribe(()=>{
-    this.allProduct=[]
-    this.allProductForSearch=[]
-    this.ngOnInit()
+    if(this.typeOfModal=='add'){
+      this.ngOnInit()
+    }
+   
   })
  }
  //open edit product 
  OpenEditProduct(data){
   this.service.product=data
   this.dialogCtrl.open(EditProductComponent)
-  this.dialogCtrl.afterAllClosed.subscribe(()=>{
-    this.allProduct=[]
-    this.allProductForSearch=[]
-    this.ngOnInit()
+  this.dialogCtrl.afterAllClosed.subscribe(()=>{ 
+    if(this.typeOfModal=='product'){
+      this.ngOnInit()
+    }
+    
   })
 
  }
+ typeOfModal = "product"
   // ouvrir cate modal 
-  OpenCateModal(){
-    this.dialogCtrl.open(AddCategorieComponent)
-    this.dialogCtrl.afterAllClosed.subscribe(()=>{
-      this.allProduct=[]
-      this.allProductForSearch=[]
-      this.ngOnInit()
-    })
-  }
+  // OpenCateModal(){
+  //   this.dialogCtrl.open(AddCategorieComponent)
+  //   this.dialogCtrl.afterAllClosed.subscribe(()=>{
+  //     this.ngOnInit() 
+  //   })
+  // }
  allProduct:Array<any>=[]
  allProductForSearch:Array<any>=[]
 async ngOnInit() { 

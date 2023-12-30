@@ -19,7 +19,11 @@ export class CommadesDetailComponent implements OnInit {
      private service : DataService
     ){}
   //open status commande 
-  OpenStatus(){
+  OpenStatus(){ 
+    if(this.oneCommande.statut=='En cour de traitement'){
+      alert("la commande n'est pas encore traitée par une pharmacie") 
+      return
+    }
     this.service.commandId=this.route.snapshot.paramMap.get('id') 
     this.dialogCtrl.open(CommadesStatusComponent)
     this.dialogCtrl.afterAllClosed.subscribe(()=>{

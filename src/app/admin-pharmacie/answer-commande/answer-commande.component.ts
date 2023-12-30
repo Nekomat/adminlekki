@@ -31,7 +31,7 @@ async Envoyer(){
         'outboundSMSMessageRequest': {
           'address': `tel:+224${this.service.commande.numero}`,
           'senderAddress': 'tel:+2240000',
-          "senderName": "Lekki",
+          "senderName": "Lekki appli",
           'outboundSMSTextMessage': { 
               'message': `Bonjour votre commande N°${this.service.commande.code} a été traitée avec succes veuillez vous rendre dans lekki la section commande pour plus de detail` 
           }
@@ -48,15 +48,17 @@ async Envoyer(){
             pharContact:this.service.pharmacie.contact
            }) 
            this.loader=false
-           alert("Reponse envoyer à l'utilisateur")
-           this.dialogCtrl.closeAll()
-        },()=>{
+           alert("Reponse envoyer à l'utilisateur")  
+           this.dialogCtrl.closeAll()  
+        },()=>{    
           alert('Erreur veuillez reessayer') 
           this.loader = false
         })
-  }else{
+  }else{ 
     alert('Veuillez bien remplir le formulaire')
   }
+}else{
+  alert('Veuillez bien remplir le formulaire')
 }
  }
 }

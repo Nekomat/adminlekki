@@ -18,4 +18,7 @@ unReadMessage = 0
   
   }
  
+    reload(){
+      window.location.reload()
+    }
 }

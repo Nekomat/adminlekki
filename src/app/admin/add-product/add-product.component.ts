@@ -68,10 +68,8 @@ async ngOnInit() {
         name:this.section.value.name,
         poids:this.section.value.poids,
         photo:linkImg,
-        cateName:this.cate,
         description:this.section.value.description,
         time:Timestamp.now(),
-        smallDescribe:this.section.value.smallDescribe
        })
        alert("Produit ajouté") 
        this.loader = false 

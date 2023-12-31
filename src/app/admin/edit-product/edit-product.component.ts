@@ -34,31 +34,29 @@ export class EditProductComponent implements OnInit {
   //  controle formulaire
   section: FormGroup = this.formCtrl.group({
     name: [this.service.product.name, [Validators.required]],
-    price: [this.service.product.price, [Validators.required]],
-    categorie: [this.service.product.cateName, [Validators.required]],
     poids: [this.service.product.poids, [Validators.required]],
     description: [this.service.product.description, [Validators.required]],
-    pharmacie: [this.service.product.pharId, [Validators.required]],
-    disponible:[this.service.product.disponible,[Validators.required]]
+  
+   
   });
   PharmacieData: any;
   async ngOnInit() {
-    const refPharmacie = await getDoc(
-      doc(this.fire, 'PHARMACIES', this.service.product.pharId)
-    );
-    if (refPharmacie.exists()) {
-      this.PharmacieData = refPharmacie.data();
-      const refAllPhar = await getDocs(collection(this.fire, 'PHARMACIES'));
-      this.PharmacieData.allPhar = [];
-      refAllPhar.forEach((element) => {
-        this.PharmacieData.allPhar.push(element.data());
-      });
-      let i = this.PharmacieData.allPhar.findIndex(
-        (e) => e.id == this.service.product.pharId
-      );
-      this.categorie = this.PharmacieData.allPhar[i].categories;
-      console.log(this.categorie);
-    }
+    // const refPharmacie = await getDoc(
+    //   doc(this.fire, 'PHARMACIES', this.service.product.pharId)
+    // );
+    // if (refPharmacie.exists()) {
+    //   this.PharmacieData = refPharmacie.data();
+    //   const refAllPhar = await getDocs(collection(this.fire, 'PHARMACIES'));
+    //   this.PharmacieData.allPhar = [];
+    //   refAllPhar.forEach((element) => {
+    //     this.PharmacieData.allPhar.push(element.data());
+    //   });
+    //   let i = this.PharmacieData.allPhar.findIndex(
+    //     (e) => e.id == this.service.product.pharId
+    //   );
+    //   this.categorie = this.PharmacieData.allPhar[i].categories;
+    //   console.log(this.categorie);
+    // }
   }
 
   //get picture
@@ -98,11 +96,10 @@ export class EditProductComponent implements OnInit {
         }
         updateDoc(doc(this.fire, 'PRODUCTS', this.service.product.id), {
           name: this.section.value.name,
-          price: this.section.value.price,
           photo: this.service.product.photo,
           description: this.section.value.description,
           poids: this.section.value.poids,
-          cateName: this.service.product.cateName,
+        
         });
         this.loadeUpdate = false;
         alert('Produit mis à jour avec succès');

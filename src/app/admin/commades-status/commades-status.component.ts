@@ -100,7 +100,7 @@ async  ngOnInit() {
         'outboundSMSMessageRequest': {
           'address': `tel:+224${this.commadeData.userNumero}`,
           'senderAddress': 'tel:+2240000',
-          "senderName": "Lekki",
+          "senderName": "Lekki appli",
           'outboundSMSTextMessage': { 
               'message': this.Texte 
           }

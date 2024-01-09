@@ -11,7 +11,6 @@ import { DataService } from './data.service';
 })
 export class AppComponent implements OnInit{
   constructor(public service : DataService , private router : Router , private fire : Firestore){
- router.navigateByUrl('/login')
   }  
 unReadMessage = 0
  async ngOnInit() {

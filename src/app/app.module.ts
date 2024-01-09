@@ -51,6 +51,7 @@ import { AddCategorieComponent } from './admin/add-categorie/add-categorie.compo
 import { AnswerCommandeComponent } from './admin-pharmacie/answer-commande/answer-commande.component';
 import { CommandeDetailComponent } from './admin-pharmacie/commande-detail/commande-detail.component';
 import { AnswerOrdonnanceComponent } from './admin-pharmacie/answer-ordonnance/answer-ordonnance.component';
+import { ConfidentialiteComponent } from './confidentialite/confidentialite.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,6 +82,7 @@ import { AnswerOrdonnanceComponent } from './admin-pharmacie/answer-ordonnance/a
     AnswerCommandeComponent,
     CommandeDetailComponent,
     AnswerOrdonnanceComponent,
+    ConfidentialiteComponent,
     
   ],
 

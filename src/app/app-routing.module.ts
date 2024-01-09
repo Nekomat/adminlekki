@@ -14,6 +14,7 @@ import { DetailPharmacieComponent } from './admin/detail-pharmacie/detail-pharma
 import { HomeComponent } from './admin/home/home.component';
 import { PharmacieComponent } from './admin/pharmacie/pharmacie.component';
 import { ProductsComponent } from './admin/products/products.component';
+import { ConfidentialiteComponent } from './confidentialite/confidentialite.component';
 import { LoginComponent } from './login/login.component';
 
 
@@ -78,7 +79,11 @@ const routes: Routes = [
  {
   path:"admin_pharmacie_messages",
   component:MessagesComponent
- }
+ },
+ {
+  path:'confidentialite',
+  component:ConfidentialiteComponent
+ } 
 ]; 
 
 @NgModule({
